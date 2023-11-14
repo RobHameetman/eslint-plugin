@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - main
-      - '*.X.X'
 
 jobs:
   build:
@@ -16,7 +15,7 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     uses: ./.github/workflows/build.yml
     with:
-      dist: 'bin'
+      dist: bin
       node: '21'
 
   publish:
@@ -28,4 +27,4 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     uses: ./.github/workflows/publish.yml
     with:
-      dist: 'dist'
+      dist: bin
