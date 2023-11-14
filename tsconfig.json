@@ -1,28 +1,39 @@
 {
   "compilerOptions": {
-	"strict": true,
-    "allowJs": true,
+		"strict": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
-	"baseUrl": ".",
-	"rootDir": "./lib",
-	"declaration": true,
-	"declarationDir": "./dist",
-	"esModuleInterop": true,
-	"experimentalDecorators": true,
-	"forceConsistentCasingInFileNames": true,
-	"jsx": "react-jsx",
+		"baseUrl": ".",
+		"rootDir": ".",
+		"declaration": false,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"forceConsistentCasingInFileNames": true,
     "module": "esnext",
-	"moduleResolution": "node",
+		"moduleResolution": "node",
     "noImplicitAny": true,
-	"noImplicitThis": true,
-	"resolveJsonModule": true,
+		"noImplicitThis": true,
+		"outDir": "./bin",
+		"paths": {
+			"@configs/*": ["./lib/configs/*"],
+			"@rules/*": ["./lib/rules/*"],
+			"@constants/*": ["./lib/utils/constants/*"],
+			"@enums/*": ["./lib/utils/enums/*"],
+			"@functions/*": ["./lib/utils/functions/*"],
+			"@type/*": ["./lib/utils/types/*"],
+			"@test/*": ["./test/resources/*"]
+		},
+		"resolveJsonModule": true
   },
-  "files": ["./lib/index.ts"],
+  "files": [
+		"./typings/eslint.d.ts",
+		"./lib/index.ts"
+	],
 	"include": [
 		"./lib",
-		"./typings",
+		"./typings"
 	],
 	"exclude": [
 		"./node_modules"
-	],
+	]
 }

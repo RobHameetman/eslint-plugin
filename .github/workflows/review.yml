@@ -2,16 +2,14 @@
 
 name: Review
 
-concurrency: pr-build-${{ github.event.pull_request.number }}
-
 on:
   pull_request:
     types: [opened, reopened, synchronize]
 
 env:
   # General Options
-  name: {{name}}
-  node: '{{node}}'
+  name: semantic-release-config
+  node: '21'
   debug: false
   # Skip
   skip-tests: false
@@ -21,8 +19,6 @@ env:
   timeout-tests: 30
   timeout-deployment: 60
   # Environment Variables
-  APP_DEBUG: ${{ vars.APP_DEBUG }}
-  APP_ENDPOINT: ${{ vars.APP_ENDPOINT }}
   CI_DEBUG: ${{ vars.CI_DEBUG }}
   CI_PR_TIMEOUT_SETUP: ${{ vars.CI_PR_TIMEOUT_SETUP }}
   CI_PR_TIMEOUT_TESTS: ${{ vars.CI_PR_TIMEOUT_TESTS }}

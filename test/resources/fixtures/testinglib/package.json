@@ -1,0 +1,22 @@
+{
+  "name": "@rob.hameetman/eslint-plugin",
+  "version": "0.0.1",
+  "description": "Testing Library Project Example",
+  "author": "Robert H. Hameetman (https://www.robhameetman.com/)",
+  "homepage": "https://www.npmjs.org/package/@rob.hameetman/eslint-plugin",
+  "license": "MIT",
+	"type": "commonjs",
+  "dependencies": {
+    "lodash": "4.17.21"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "8.2.0",
+		"@testing-library/jest-dom": "5.16.5",
+    "@types/jest": "29.5.7",
+    "@types/node": "20.8.10",
+    "husky": "8.0.3",
+    "jest": "29.7.0",
+    "ts-jest": "29.1.1",
+    "typescript": "5.2.2"
+  }
+}

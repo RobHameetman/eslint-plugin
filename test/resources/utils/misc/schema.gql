@@ -1,0 +1,79 @@
+# ╔═════════════════════════╗
+# ║ Operations              ║
+# ╚═════════════════════════╝
+type Query {
+	# Users
+  getUsers: [User]
+  getUser(id: ID!): User
+
+	# Posts
+  getPosts: [Post]
+  getPost(id: ID!): Post
+}
+
+type Mutation {
+	# Users
+  createUser(input: CreateUserInput): User
+  updateUser(id: ID!, input: UpdateUserInput): User
+  deleteUser(id: ID!): User
+
+	# Posts
+  createPost(input: CreatePostInput): Post
+  updatePost(id: ID!, input: UpdatePostInput): Post
+  deletePost(id: ID!): Post
+}
+
+type Subscription {
+	# Users
+  userAdded: User
+  userUpdated: User
+  userDeleted: User
+
+	# Posts
+  postAdded: Post
+  postUpdated: Post
+  postDeleted: Post
+}
+
+# ╔═════════════════════════╗
+# ║ Users                   ║
+# ╚═════════════════════════╝
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  posts: [Post]
+}
+
+input CreateUserInput {
+  username: String!
+  email: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  username: String
+  email: String
+  password: String
+}
+
+# ╔═════════════════════════╗
+# ║ Posts                   ║
+# ╚═════════════════════════╝
+type Post {
+  id: ID!
+  title: String!
+  content: String
+  author: User
+}
+
+input CreatePostInput {
+  title: String!
+  content: String
+  authorId: ID!
+}
+
+input UpdatePostInput {
+  title: String
+  content: String
+}

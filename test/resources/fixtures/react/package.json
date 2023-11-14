@@ -1,0 +1,19 @@
+{
+  "name": "@rob.hameetman/eslint-plugin",
+  "version": "0.0.1",
+  "description": "React JS Project Example",
+  "author": "Robert H. Hameetman (https://www.robhameetman.com/)",
+  "homepage": "https://www.npmjs.org/package/@rob.hameetman/eslint-plugin",
+  "license": "MIT",
+	"type": "commonjs",
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-helmet": "6.1.0",
+    "react-router": "6.14.0",
+    "react-router-dom": "6.11.2"
+  },
+  "devDependencies": {
+    "husky": "8.0.3"
+  }
+}

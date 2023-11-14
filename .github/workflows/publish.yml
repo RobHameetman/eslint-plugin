@@ -4,9 +4,21 @@ name: Publish
 
 on:
   workflow_call:
+    secrets:
+      GH_TOKEN:
+        description: 'A token used for authorized access to Github'
+        required: true
+      NPM_TOKEN:
+        description: 'A token used for authorized access to NPM'
+        required: true
     inputs:
+      debug:
+        description: Debug jobs
+        default: false
+        required: false
+        type: boolean
       dist:
-        description: The directory from which the package will be publish
+        description: The directory from which the package will be published
         default: ./
         required: false
         type: string
@@ -17,7 +29,7 @@ on:
         type: boolean
       node:
         description: The version of Node.js used
-        default: '{{node}}'
+        default: '21'
         required: false
         type: string
       skip:
@@ -25,33 +37,56 @@ on:
         default: false
         required: false
         type: boolean
-      debug:
-        description: Debug jobs
-        default: false
-        required: false
-        type: boolean
+
+permissions:
+  contents: read
 
 env:
   # General Options
-  name: {{name}}
-  version: ${{ github.ref_name }}
-  node: '{{node}}'
+  name: semantic-release-config
+  node: '21'
   debug: false
-  type: canary
   # Timeouts (in minutes)
   timeout-setup: 10
-  timeout-tests: 30
-  timeout-deployments: 60
-  timeout-cache-invalidations: 10
+  timeout-release: 10
   # Environment Variables
-  APP_DEBUG: ${{ vars.APP_DEBUG }}
-  APP_ENV: PROD
-  APP_VERSION: ${{ github.ref_name }}
-  APP_ENDPOINT: ${{ vars.APP_ENDPOINT }}
+  CI: true
   CI_DEBUG: ${{ vars.CI_DEBUG }}
-  CI_TYPE: ${{ vars.CI_TYPE }}
+  CI_PR_NUMBER: ${{ github.event.pull_request.number }}
+  CI_TIMEOUT_RELEASE: ${{ vars.CI_TIMEOUT_RELEASE }}
+  CI_TIMEOUT_SETUP: ${{ vars.CI_TIMEOUT_SETUP }}
   NODE_ENV: production
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  RELEASE_DEBUG: ${{ vars.RELEASE_DEBUG }}
+  RELEASE_DEPRECATE_AS_MINOR_VERSION: ${{ vars.RELEASE_DEPRECATE_AS_MINOR_VERSION }}
+  RELEASE_DISABLE_CHANGELOG: ${{ vars.RELEASE_DISABLE_CHANGELOG }}
+  RELEASE_DRY_RUN: ${{ vars.RELEASE_DRY_RUN }}
+  RELEASE_EXEC_ADD_CHANNEL_CMD: ${{ vars.RELEASE_EXEC_ADD_CHANNEL_CMD }}
+  RELEASE_EXEC_ANALYZE_COMMITS_CMD: ${{ vars.RELEASE_EXEC_ANALYZE_COMMITS_CMD }}
+  RELEASE_EXEC_CWD: ${{ vars.RELEASE_EXEC_CWD }}
+  RELEASE_EXEC_FAIL_CMD: ${{ vars.RELEASE_EXEC_FAIL_CMD }}
+  RELEASE_EXEC_GENERATE_NOTES_CMD: ${{ vars.RELEASE_EXEC_GENERATE_NOTES_CMD }}
+  RELEASE_EXEC_PREPARE_CMD: ${{ vars.RELEASE_EXEC_PREPARE_CMD }}
+  RELEASE_EXEC_PUBLISH_CMD: ${{ vars.RELEASE_EXEC_PUBLISH_CMD }}
+  RELEASE_EXEC_SHELL: ${{ vars.RELEASE_EXEC_SHELL }}
+  RELEASE_EXEC_SUCCESS_CMD: ${{ vars.RELEASE_EXEC_SUCCESS_CMD }}
+  RELEASE_EXEC_VERIFY_ARTIFACTS_CMD: ${{ vars.RELEASE_EXEC_VERIFY_ARTIFACTS_CMD }}
+  RELEASE_EXEC_VERIFY_CONDITIONS_CMD: ${{ vars.RELEASE_EXEC_VERIFY_CONDITIONS_CMD }}
+  RELEASE_LOCALLY: ${{ vars.RELEASE_LOCALLY }}
+  RELEASE_NOTIFICATION_SLACK_CHANNEL: ${{ vars.RELEASE_NOTIFICATION_SLACK_CHANNEL }}
+  RELEASE_NOTIFICATION_SLACK_ICON: ${{ vars.RELEASE_NOTIFICATION_SLACK_ICON }}
+  RELEASE_NOTIFICATION_SLACK_NAME: ${{ vars.RELEASE_NOTIFICATION_SLACK_NAME }}
+  RELEASE_NOTIFICATION_SLACK_TOKEN: ${{ vars.RELEASE_NOTIFICATION_SLACK_TOKEN }}
+  RELEASE_NOTIFICATION_SLACK_WEBHOOK: ${{ vars.RELEASE_NOTIFICATION_SLACK_WEBHOOK }}
+  RELEASE_PLUGIN_PRESET: ${{ vars.RELEASE_PLUGIN_PRESET }}
+  RELEASE_PUBLISH_FROM_DIST: ${{ vars.RELEASE_PUBLISH_FROM_DIST }}
+  RELEASE_REPOSITORY_URL: ${{ vars.RELEASE_REPOSITORY_URL }}
+  RELEASE_SKIP_README_UPDATES: ${{ vars.RELEASE_SKIP_README_UPDATES }}
+  RELEASE_VERSION_AS_TYPE: ${{ vars.RELEASE_VERSION_AS_TYPE }}
+  SLACK_CHANNEL: ${{ vars.SLACK_CHANNEL }}
+  SLACK_ICON: ${{ vars.SLACK_ICON }}
+  SLACK_NAME: ${{ vars.SLACK_NAME }}
+  SLACK_TOKEN: ${{ vars.SLACK_TOKEN }}
+  SLACK_WEBHOOK: ${{ vars.SLACK_WEBHOOK }}
 
 jobs:
   publish:
@@ -59,45 +94,75 @@ jobs:
     if: github.repository.archived != true
     runs-on: ubuntu-20.04
     container:
-      image: node:18
+      image: node:21
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     steps:
       - name: Init
         id: init
         run: |
           echo "__SKIP=${{ inputs.skip }}" >> $GITHUB_ENV
-          echo "__DEBUG=${{ inputs.debug }}" >> $GITHUB_ENV
-          echo "__PRERELEASE=${{ contains(github.ref_name, 'alpha') || contains(github.ref_name, 'beta') }}" >> $GITHUB_ENV
+          echo "__DEBUG=${{ env.CI_DEBUG || env.debug || inputs.debug }}" >> $GITHUB_ENV
           echo "__TIMEOUT_SETUP=${{ env.CI_TIMEOUT_SETUP || fromJSON(env.timeout-setup) }}" >> $GITHUB_ENV
-          echo "__TIMEOUT_DEPLOYMENTS=${{ env.CI_TIMEOUT_DEPLOYMENTS || fromJSON(env.timeout-deployments) }}" >> $GITHUB_ENV
+          echo "__TIMEOUT_RELEASE=${{ env.CI_TIMEOUT_RELEASE || fromJSON(env.timeout-release) }}" >> $GITHUB_ENV
 
       - name: Debug
         id: debug
         if: >-
-          fromJSON(inputs.debug) == true &&
-          fromJSON(inputs.skip) != true
+          fromJSON(env.__DEBUG) == true &&
+          fromJSON(env.__SKIP) != true
         run: |
           echo "RUNNER_DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV
-          echo "DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV
+          echo "ACTIONS_RUNNER_DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV
+          echo "ACTIONS_STEP_DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV
+          echo "DEBUG=semantic-release:*" >> $GITHUB_ENV
 
-      - name: Variables
-        id: secrets
-        if: fromJSON(env.secrets-failover) == true
-        run: |
-          echo "APP_NAME=${{ secrets.APP_NAME || env.name }}" >> $GITHUB_ENV &&
-          echo "APP_GEOCODING_SERVICE_ENDPOINT=${{ secrets.APP_GEOCODING_SERVICE_ENDPOINT || env.geocoding-api }}" >> $GITHUB_ENV &&
-          echo "APP_FORECAST_SERVICE_ENDPOINT=${{ secrets.APP_FORECAST_SERVICE_ENDPOINT || env.forecasting-api }}" >> $GITHUB_ENV
+      - name: Checkout
+        id: clone
+        uses: actions/checkout@v3
+        timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
+        if: fromJSON(env.__SKIP) != true
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Dependencies
+        id: install
+        timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
+        if: fromJSON(env.__SKIP) != true
+        env:
+          NODE_ENV: production
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      - name: Verify
+        id: verify
+        timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
+        if: fromJSON(env.__SKIP) != true
+        run: npm audit signatures
 
       - name: Setup
         id: setup
         uses: actions/download-artifact@v3
-        timeout-minutes: ${{ fromJSON(env.timeout-setup) }}
+        timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
         if: fromJSON(env.__SKIP) != true
         with:
           name: build-artifacts
           path: ${{ inputs.dist }}
 
-      - name: Publish
-        id: publish
+      - name: Authorize
+        id: authorize
         timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
         if: fromJSON(env.__SKIP) != true
+        run: git config --global --add safe.directory '*'
+
+      - name: Publish
+        id: publish
+        timeout-minutes: ${{ fromJSON(env.__TIMEOUT_RELEASE) }}
+        if: fromJSON(env.__SKIP) != true
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release

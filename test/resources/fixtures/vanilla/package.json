@@ -1,0 +1,15 @@
+{
+  "name": "@rob.hameetman/eslint-plugin",
+  "version": "0.0.1",
+  "description": "Vanilla JS Project Example",
+  "author": "Robert H. Hameetman (https://www.robhameetman.com/)",
+  "homepage": "https://www.npmjs.org/package/@rob.hameetman/eslint-plugin",
+  "license": "MIT",
+	"type": "commonjs",
+  "dependencies": {
+    "lodash": "4.17.21"
+  },
+  "devDependencies": {
+    "husky": "8.0.3"
+  }
+}

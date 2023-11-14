@@ -1,0 +1,17 @@
+{
+  "name": "@rob.hameetman/eslint-plugin",
+  "version": "0.0.1",
+  "description": "TypeScript Project Example",
+  "author": "Robert H. Hameetman (https://www.robhameetman.com/)",
+  "homepage": "https://www.npmjs.org/package/@rob.hameetman/eslint-plugin",
+  "license": "MIT",
+	"type": "commonjs",
+  "dependencies": {
+    "lodash": "4.17.21"
+  },
+  "devDependencies": {
+    "@types/node": "20.8.10",
+    "husky": "8.0.3",
+    "typescript": "5.2.2"
+  }
+}

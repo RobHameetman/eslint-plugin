@@ -43,21 +43,8 @@ SUCCESS=false
 
 # List of dependencies required at runtime.
 dependencies=(
-	@datadog/browser-logs
-	@datadog/browser-rum
-	@nextui-org/react
-	@universe/address-parser
-	@welldone-software/why-did-you-render
-	core-js
-	history
 	lodash
 	path-browserify
-	react
-	react-dom
-	react-helmet
-	react-router-dom
-	regenerator-runtime
-	tailwindcss
 )
 
 # List of dependencies required at build time. These will not be installed when
@@ -66,56 +53,40 @@ devDependencies=(
   @commitlint/config-conventional
 	@faker-js/faker
   @rbnlffl/rollup-plugin-eslint
-	@rob.hameetman/eslint-plugin
 	@rob.hameetman/semantic-release-config
-	@rob.hameetman/stylelint-plugin
   @rollup/plugin-commonjs
   @rollup/plugin-node-resolve
-  @testing-library/jest-dom
 	@types/node
 	@typescript-eslint/eslint-plugin
   commitlint
-	dotenv
-	dotenv-conversion
 	husky
-	identity-obj-proxy
 	jest
-	jest-environment-jsdom
-	node-sass
-	postcss
   rollup
   rollup-plugin-copy
   rollup-plugin-terser
   rollup-plugin-typescript2
-	stylelint
-	stylelint-config-recommended
-	stylelint-webpack-plugin
-	terser-webpack-plugin
 	ts-jest
 	ts-loader
 	typescript
 )
 
 packageJsonOrder='{
-	name, 
-	version, 
-	description, 
-	author, 
-	homepage, 
-	license, 
-	private, 
-	main, 
-	repository, 
-	bugs, 
-	scripts, 
-	dependencies, 
-	devDependencies, 
-	browserslist, 
-	eslintConfig, 
-	prettier, 
-	stylelint, 
-	jest, 
-	postcss
+	name,
+	version,
+	description,
+	author,
+	homepage,
+	license,
+	private,
+	main,
+	repository,
+	bugs,
+	scripts,
+	dependencies,
+	devDependencies,
+	eslintConfig,
+	prettier,
+	jest,
 }'
 
 ###################################
@@ -133,9 +104,9 @@ node="${nodejs%%.*}"
 npmjs=$(npm -v)
 npm="${npmjs%%.*}"
 
-# These are initialized to an empty string because we can only get the once 
+# These are initialized to an empty string because we can only get the once
 # we've finished installing our dependencies.
-react=""
+jest=""
 typescript=""
 rollup=""
 
@@ -147,7 +118,7 @@ placeholders=(
 	"{{nodejs}}"
 	"{{node}}"
 	"{{npm}}"
-	"{{react}}"
+	"{{jest}}"
 	"{{typescript}}"
 	"{{rollup}}"
 )
@@ -249,16 +220,18 @@ updateRemainingFiles() {
 
 # Copy .env.example to .env
 setupEnvVars() {
-	if [ -f ".env" ]; then
-		read -r -p "The .env file already exists. Do you want to overwrite it? (y/N): " overwrite
-		overwrite=${overwrite:-"N"}
+	if [ -f ".env.example" ]; then
+		if [ -f ".env" ]; then
+			read -r -p "The .env file already exists. Do you want to overwrite it? (y/N): " overwrite
+			overwrite=${overwrite:-"N"}
 
-		if ! [[ $overwrite =~ $YES_REGEX ]]; then
-			return
+			if ! [[ $overwrite =~ $YES_REGEX ]]; then
+				return
+			fi
 		fi
-	fi
 
-	cp .env.example .env
+		cp .env.example .env
+	if
 }
 
 correctPackageJsonOrder() {
@@ -314,7 +287,7 @@ getSetupOptions() {
 }
 
 getDependencyVersions() {
-	react=$(grep '"version":' node_modules/react/package.json | awk -F'"' '{print $4}')
+	jest=$(grep '"version":' node_modules/jest/package.json | awk -F'"' '{print $4}')
 	typescript=$(grep '"version":' node_modules/typescript/package.json | awk -F'"' '{print $4}')
 	rollup=$(grep '"version":' node_modules/rollup/package.json | awk -F'"' '{print $4}')
 }

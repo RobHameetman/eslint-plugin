@@ -7,7 +7,7 @@ on:
     inputs:
       node:
         description: The version of Node.js used
-        default: '{{node}}'
+        default: '21'
         required: false
         type: string
       e2e:
@@ -63,7 +63,7 @@ jobs:
           echo "RUNNER_DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV
           echo "ACTIONS_RUNNER_DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV
           echo "ACTIONS_STEP_DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV
-          echo "APP_DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV\
+          echo "APP_DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV
 
       - name: Checkout
         id: clone

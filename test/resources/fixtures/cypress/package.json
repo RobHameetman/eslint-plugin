@@ -1,0 +1,17 @@
+{
+  "name": "@rob.hameetman/eslint-plugin",
+  "version": "0.0.1",
+  "description": "Cypress Project Test Example",
+  "author": "Robert H. Hameetman (https://www.robhameetman.com/)",
+  "homepage": "https://www.npmjs.org/package/@rob.hameetman/eslint-plugin",
+  "license": "MIT",
+	"type": "commonjs",
+  "dependencies": {
+    "lodash": "4.17.21"
+  },
+  "devDependencies": {
+    "cypress": "13.5.0",
+    "husky": "8.0.3",
+    "typescript": "5.2.2"
+  }
+}

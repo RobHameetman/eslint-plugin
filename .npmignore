@@ -1,0 +1,7 @@
+.github/
+.vscode/
+coverage/
+lib/
+tsconfig.json
+.nyc_output
+*.log
