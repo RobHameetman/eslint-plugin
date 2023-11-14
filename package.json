@@ -155,22 +155,5 @@
       "\\.ts$": "ts-jest",
       "^(?!.*\\.(ts|json)$)": "ts-jest"
     }
-  },
-  "bundleDependencies": [
-    "@graphql-eslint/eslint-plugin",
-    "@typescript-eslint/eslint-plugin",
-    "@typescript-eslint/parser",
-    "eslint-import-resolver-typescript",
-    "eslint-plugin-cypress",
-    "eslint-plugin-import",
-    "eslint-plugin-jest",
-    "eslint-plugin-jsx-a11y",
-    "eslint-plugin-n",
-    "eslint-plugin-node",
-    "eslint-plugin-prettier",
-    "eslint-plugin-promise",
-    "eslint-plugin-react",
-    "eslint-plugin-react-hooks",
-    "eslint-plugin-testing-library"
-  ]
+  }
 }
