@@ -39,28 +39,28 @@ jobs:
     with:
       dist: bin
 
-  build:
-    name: BUILD
-    needs: [test]
-    if: github.repository.archived != true
-    secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    uses: ./.github/workflows/build.yml
-    with:
-      dist: bin
+  # build:
+  #   name: BUILD
+  #   needs: [test]
+  #   if: github.repository.archived != true
+  #   secrets:
+  #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  #   uses: ./.github/workflows/build.yml
+  #   with:
+  #     dist: bin
 
-  publish:
-    name: PUBLISH
-    needs: [test, build]
-    if: github.repository.archived != true
-    secrets:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-      id-token: write
-    uses: ./.github/workflows/publish.yml
-    with:
-      dist: bin
+  # publish:
+  #   name: PUBLISH
+  #   needs: [test, build]
+  #   if: github.repository.archived != true
+  #   secrets:
+  #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  #   permissions:
+  #     contents: write
+  #     issues: write
+  #     pull-requests: write
+  #     id-token: write
+  #   uses: ./.github/workflows/publish.yml
+  #   with:
+  #     dist: bin
