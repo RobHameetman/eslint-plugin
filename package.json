@@ -30,11 +30,11 @@
   "dependencies": {
     "@graphql-eslint/eslint-plugin": "3.20.1",
     "@rob.hameetman/type-guards": "1.0.0-alpha.4",
-		"@typescript-eslint/eslint-plugin": "6.10.0",
-		"@typescript-eslint/parser": "6.10.0",
+    "@typescript-eslint/eslint-plugin": "6.10.0",
+    "@typescript-eslint/parser": "6.10.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-config-standard": "17.1.0",
-		"eslint-import-resolver-typescript": "3.6.1",
+    "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-cypress": "2.15.1",
     "eslint-plugin-import": "2.29.0",
     "eslint-plugin-jest": "27.6.0",
@@ -64,7 +64,6 @@
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-terser": "0.4.4",
-    "@types/cypress": "1.1.3",
     "@types/jest": "29.5.7",
     "@types/node": "20.8.10",
     "commitlint": "18.2.0",
@@ -93,7 +92,7 @@
     "eslint-plugin-react",
     "eslint-plugin-react-hooks",
     "eslint-plugin-testing-library"
-	],
+  ],
   "eslintConfig": {
     "extends": [
       "./index.js"
@@ -156,5 +155,22 @@
       "\\.ts$": "ts-jest",
       "^(?!.*\\.(ts|json)$)": "ts-jest"
     }
-  }
+  },
+  "bundleDependencies": [
+    "@graphql-eslint/eslint-plugin",
+    "@typescript-eslint/eslint-plugin",
+    "@typescript-eslint/parser",
+    "eslint-import-resolver-typescript",
+    "eslint-plugin-cypress",
+    "eslint-plugin-import",
+    "eslint-plugin-jest",
+    "eslint-plugin-jsx-a11y",
+    "eslint-plugin-n",
+    "eslint-plugin-node",
+    "eslint-plugin-prettier",
+    "eslint-plugin-promise",
+    "eslint-plugin-react",
+    "eslint-plugin-react-hooks",
+    "eslint-plugin-testing-library"
+  ]
 }
