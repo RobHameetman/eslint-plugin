@@ -16,7 +16,6 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       dist: bin
-      node: '21'
 
   publish:
     name: PUBLISH

@@ -36,8 +36,7 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     uses: ./.github/workflows/build.yml
     with:
-      skip: ${{ env.CI_SKIP_TESTS || fromJSON(env.skip-tests) }}
-      debug: ${{ env.CI_DEBUG || env.DEBUG || fromJSON(env.debug) }}
+      dist: bin
 
   test:
     name: TEST
@@ -45,8 +44,7 @@ jobs:
     if: github.repository.archived != true
     uses: ./.github/workflows/test.yml
     with:
-      skip: ${{ env.CI_SKIP_TESTS || fromJSON(env.skip-tests) }}
-      debug: ${{ env.CI_DEBUG || env.DEBUG || fromJSON(env.debug) }}
+      dist: bin
 
   publish:
     name: PUBLISH
@@ -57,6 +55,4 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     uses: ./.github/workflows/publish.yml
     with:
-      dist: 'bin'
-      skip: ${{ env.CI_SKIP_PRERELEASE || fromJSON(env.skip-publish) }}
-      debug: ${{ env.CI_DEBUG || env.DEBUG || fromJSON(env.debug) }}
+      dist: bin
