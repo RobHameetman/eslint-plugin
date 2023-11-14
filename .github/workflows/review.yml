@@ -32,8 +32,16 @@ env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
+  test:
+    name: TEST
+    if: github.repository.archived != true
+    uses: ./.github/workflows/test.yml
+    with:
+      dist: bin
+
   build:
     name: BUILD
+    needs: [test]
     if: github.repository.archived != true
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -41,17 +49,9 @@ jobs:
     with:
       dist: bin
 
-  test:
-    name: TEST
-    needs: [build]
-    if: github.repository.archived != true
-    uses: ./.github/workflows/test.yml
-    with:
-      dist: bin
-
   publish:
     name: PUBLISH
-    needs: [build, test]
+    needs: [test, build]
     if: github.repository.archived != true
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
