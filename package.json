@@ -25,7 +25,7 @@
     "prepare": "husky install",
     "reset": "rm -rf node_modules/ && npm cache clear --force && [[ -f package-lock.json ]] && npm ci || npm i",
     "setup": "sh scripts/setup.sh",
-    "test": "NODE_ENV=test jest --maxWorkers=50% --silent=false"
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "@graphql-eslint/eslint-plugin": "3.20.1",
