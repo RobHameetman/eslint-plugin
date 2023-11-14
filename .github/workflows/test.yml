@@ -35,6 +35,8 @@ env:
   # Environment Variables
   CI_DEBUG: ${{ secrets.CI_SKIP_UNIT_TESTS }}
   CI_SKIP_UNIT_TESTS: ${{ secrets.CI_SKIP_UNIT_TESTS }}
+  CI_TIMEOUT_SETUP: ${{ vars.CI_TIMEOUT_SETUP }}
+  CI_TIMEOUT_TESTS: ${{ vars.CI_TIMEOUT_TESTS }}
   NODE_ENV: production
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -51,6 +53,8 @@ jobs:
         run: |
           echo "__SKIP=${{ env.CI_SKIP_UNIT_TESTS || fromJSON(env.skip-unit) || fromJSON(inputs.skip) }}" >> $GITHUB_ENV
           echo "__DEBUG=${{ env.CI_DEBUG || fromJSON(inputs.debug) }}" >> $GITHUB_ENV
+          echo "__TIMEOUT_SETUP=${{ env.CI_TIMEOUT_SETUP || fromJSON(env.timeout-setup) }}" >> $GITHUB_ENV
+          echo "__TIMEOUT_TESTS=${{ env.CI_TIMEOUT_TESTS || fromJSON(env.timeout-tests) }}" >> $GITHUB_ENV
 
       - name: Debug
         id: debug
@@ -66,7 +70,7 @@ jobs:
       - name: Checkout
         id: clone
         uses: actions/checkout@v3
-        timeout-minutes: ${{ fromJSON(env.timeout-setup) }}
+        timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
         if: fromJSON(env.__SKIP) != true
 
       - name: Setup
@@ -81,7 +85,7 @@ jobs:
       - name: Cache
         id: cache
         uses: actions/cache@v3
-        timeout-minutes: ${{ fromJSON(env.timeout-setup) }}
+        timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
         if: fromJSON(env.__SKIP) != true
         env:
           cache-name: jest-cache
@@ -91,12 +95,12 @@ jobs:
 
       - name: CPU
         id: cpu
-        timeout-minutes: ${{ fromJSON(env.timeout-setup) }}
+        timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
         if: fromJSON(env.__SKIP) != true
         uses: SimenB/github-actions-cpu-cores@v1
 
       - name: Test
         id: test
-        timeout-minutes: ${{ fromJSON(env.timeout-tests) }}
+        timeout-minutes: ${{ fromJSON(env.__TIMEOUT_TESTS) }}
         if: fromJSON(env.__SKIP) != true
         run: npm test -- --coverage --silent --watchAll=false --maxWorkers=${{ steps.cpu.outputs.count }}
