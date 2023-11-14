@@ -10,7 +10,6 @@ env:
   # General Options
   name: semantic-release-config
   node: '21'
-  debug: false
   # Skip
   skip-tests: false
   skip-publish: true
@@ -30,8 +29,20 @@ env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
+  build:
+    name: BUILD
+    if: github.repository.archived != true
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    uses: ./.github/workflows/build.yml
+    with:
+      node: ${{ env.node }}
+      skip: ${{ env.CI_SKIP_TESTS || fromJSON(env.skip-tests) }}
+      debug: ${{ env.CI_DEBUG || env.DEBUG || fromJSON(env.debug) }}
+
   test:
     name: TEST
+    needs: [build]
     if: github.repository.archived != true
     uses: ./.github/workflows/test.yml
     with:
@@ -39,19 +50,9 @@ jobs:
       skip: ${{ env.CI_SKIP_TESTS || fromJSON(env.skip-tests) }}
       debug: ${{ env.CI_DEBUG || env.DEBUG || fromJSON(env.debug) }}
 
-  build:
-    name: BUILD
-    needs: [test]
-    if: github.repository.archived != true
-    uses: ./.github/workflows/build.yml
-    with:
-      node: ${{ env.node }}
-      skip: ${{ env.CI_SKIP_TESTS || fromJSON(env.skip-tests) }}
-      debug: ${{ env.CI_DEBUG || env.DEBUG || fromJSON(env.debug) }}
-
   publish:
     name: PUBLISH
-    needs: [test, build]
+    needs: [build, test]
     if: github.repository.archived != true
     uses: ./.github/workflows/publish.yml
     with:
