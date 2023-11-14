@@ -53,7 +53,7 @@ jobs:
     name: PUBLISH
     needs: [test, build]
     if: github.repository.archived != true
-    uses: ./.github/workflows/deploy.yml
+    uses: ./.github/workflows/publish.yml
     with:
       skip: ${{ env.CI_SKIP_PRERELEASE || fromJSON(env.skip-publish) }}
       debug: ${{ env.CI_DEBUG || env.DEBUG || fromJSON(env.debug) }}
