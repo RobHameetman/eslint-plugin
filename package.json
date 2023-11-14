@@ -155,5 +155,8 @@
       "\\.ts$": "ts-jest",
       "^(?!.*\\.(ts|json)$)": "ts-jest"
     }
+  },
+  "release": {
+    "extends": "@rob.hameetman/semantic-release-config/recommended"
   }
 }
