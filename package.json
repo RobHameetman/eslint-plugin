@@ -157,6 +157,6 @@
     }
   },
   "release": {
-    "extends": "@rob.hameetman/semantic-release-config/recommended"
+    "extends": "@rob.hameetman/semantic-release-config"
   }
 }
