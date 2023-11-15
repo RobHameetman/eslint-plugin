@@ -19,6 +19,7 @@ jobs:
 
   build:
     name: BUILD
+    needs: [confirm]
     if: >-
       github.repository.archived != true &&
       needs.confirm.outputs.should-release == true
