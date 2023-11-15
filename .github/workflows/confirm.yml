@@ -9,7 +9,7 @@ on:
         description: 'A token used for authorized access to Github'
         required: true
     outputs:
-      should-release: ${{ fromJSON(jobs.confirm.outputs.should-release) }}
+      should-release: ${{ fromJSON(steps.confirm.outputs.result) }}
     inputs:
       debug:
         description: Debug jobs
