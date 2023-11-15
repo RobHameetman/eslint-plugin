@@ -21,20 +21,20 @@ jobs:
     name: BUILD
     needs: [confirm]
     if: >-
-      github.repository.archived != true
+      github.repository.archived != true &&
+      fromJSON(needs.confirm.outputs.should-release) == true
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     uses: ./.github/workflows/build.yml
     with:
       dist: bin
-      should-release: ${{ fromJSON(needs.confirm.outputs.should-release) }}
 
   publish:
     name: PUBLISH
     needs: [build]
     if: >-
       github.repository.archived != true &&
-      needs.confirm.outputs.should-release == true
+      fromJSON(needs.confirm.outputs.should-release) == true
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
