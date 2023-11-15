@@ -12,6 +12,9 @@ on:
       should-release:
         description: 'A determination of whether or not to release'
         value: ${{ jobs.confirm.outputs.should-release }}
+      pr-number:
+        description: 'The PR number associated with the release (if applicable)'
+        value: ${{ jobs.confirm.outputs.pr-number }}
     inputs:
       debug:
         description: Debug jobs
@@ -52,6 +55,7 @@ jobs:
       image: node:${{ inputs.node }}
     outputs:
       should-release: ${{ steps.confirm.outputs.result }}
+      pr-number: ${{ steps.confirm.outputs.pr }}
     steps:
       - name: Init
         id: init
@@ -92,6 +96,7 @@ jobs:
               PR_NUMBER=$PR_DATA
               echo "Open PR found for branch $BRANCH_NAME with PR number $PR_NUMBER"
               echo "result=true" >> $GITHUB_OUTPUT
+              echo "pr=$PR_NUMBER" >> $GITHUB_OUTPUT
               echo "CI_PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
             else
               echo "No open PR for branch $BRANCH_NAME and it's not a release branch"

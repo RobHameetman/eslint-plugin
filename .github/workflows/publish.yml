@@ -32,6 +32,11 @@ on:
         default: '21'
         required: false
         type: string
+      pr:
+        description: The PR number associated with the release (if applicable)
+        default: -1
+        required: false
+        type: number
       skip:
         description: Skip jobs
         default: false
@@ -50,7 +55,7 @@ env:
   # Environment Variables
   CI: true
   CI_DEBUG: ${{ vars.CI_DEBUG }}
-  CI_PR_NUMBER: ${{ github.event.pull_request.number }}
+  CI_PR_NUMBER: ${{ inputs.pr }}
   CI_TIMEOUT_RELEASE: ${{ vars.CI_TIMEOUT_RELEASE }}
   CI_TIMEOUT_SETUP: ${{ vars.CI_TIMEOUT_SETUP }}
   NODE_ENV: production
