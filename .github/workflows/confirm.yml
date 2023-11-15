@@ -76,12 +76,15 @@ jobs:
 
           if [[ $BRANCH_NAME =~ $RELEASE_BRANCH_PATTERNS ]]; then
             echo "Branch $BRANCH_NAME is a release, prerelease, or maintenance branch."
+            echo "Current Branch: $BRANCH_NAME"
             echo "result=true" >> $GITHUB_OUTPUT
           else
             PR_LIST=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
                       "https://api.github.com/repos/${{ github.repository }}/pulls?state=open")
+            echo "PR List: $PR_LIST"
 
             PR_DATA=$(echo "$PR_LIST" | jq -r --arg BRANCH_NAME "$BRANCH_NAME" '.[] | select(.head.ref == $BRANCH_NAME) | .number')
+            echo "PR Data: $PR_DATA"
 
             if [[ ! -z "$PR_DATA" ]]; then
               PR_NUMBER=$PR_DATA
