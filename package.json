@@ -1,6 +1,6 @@
 {
   "name": "@rob.hameetman/eslint-plugin",
-  "version": "1.0.0-pr.1.36939786.20231115.1",
+  "version": "1.0.0-pr.1.d56a1f12.20231115.1",
   "description": "ESLint plugin for enterprise-strength TypeScript packages",
   "author": "Robert H. Hameetman (https://www.robhameetman.com/)",
   "homepage": "https://www.npmjs.org/package/@rob.hameetman/eslint-plugin",
