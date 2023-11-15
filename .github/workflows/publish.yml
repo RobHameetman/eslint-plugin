@@ -43,8 +43,6 @@ permissions:
 
 env:
   # General Options
-  name: semantic-release-config
-  node: '21'
   debug: false
   # Timeouts (in minutes)
   timeout-setup: 10
@@ -92,9 +90,9 @@ jobs:
   publish:
     name: Publish
     if: github.repository.archived != true
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container:
-      image: node:21
+      image: node:${{ inputs.node }}
     permissions:
       contents: write
       issues: write

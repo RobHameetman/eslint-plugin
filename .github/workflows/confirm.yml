@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=./_schema.json
+
+name: Confirm
+
+on:
+  workflow_call:
+    secrets:
+      GH_TOKEN:
+        description: 'A token used for authorized access to Github'
+        required: true
+      GITHUB_TOKEN:
+        description: 'A token used for authorized access to Github'
+        required: true
+    outputs:
+      should-release: ${{ fromJSON(jobs.confirm.outputs.should-release) }}
+    inputs:
+      debug:
+        description: Debug jobs
+        default: false
+        required: false
+        type: boolean
+      node:
+        description: The version of Node.js used
+        default: '21'
+        required: false
+        type: string
+      skip:
+        description: Skip jobs
+        default: false
+        required: false
+        type: boolean
+
+permissions:
+  contents: read
+
+env:
+  # General Options
+  debug: false
+  # Timeouts (in minutes)
+  timeout-setup: 10
+  # Environment Variables
+  CI: true
+  CI_DEBUG: ${{ vars.CI_DEBUG }}
+  CI_PR_NUMBER: ${{ github.event.pull_request.number }}
+  CI_TIMEOUT_SETUP: ${{ vars.CI_TIMEOUT_SETUP }}
+
+jobs:
+  confirm:
+    name: Confirm
+    if: github.repository.archived != true
+    runs-on: ubuntu-latest
+    container:
+      image: node:${{ inputs.node }}
+    outputs:
+      should-release: ${{ fromJSON(steps.confirm.outputs.result) }}
+    steps:
+      - name: Init
+        id: init
+        run: |
+          echo "__SKIP=${{ inputs.skip }}" >> $GITHUB_ENV
+          echo "__DEBUG=${{ env.CI_DEBUG || env.debug || inputs.debug }}" >> $GITHUB_ENV
+          echo "__TIMEOUT_SETUP=${{ env.CI_TIMEOUT_SETUP || fromJSON(env.timeout-setup) }}" >> $GITHUB_ENV
+
+      - name: Confirm
+        id: confirm
+        timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
+        if: fromJSON(env.__SKIP) != true
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          RELEASE_BRANCH_PATTERNS="^(main|master|alpha|beta|next|next-major|\d+\.X\.X)$"
+
+          if [[ $BRANCH_NAME =~ $RELEASE_BRANCH_PATTERNS ]]; then
+            echo "Branch $BRANCH_NAME is a release or prerelease branch."
+            echo "::set-output name=result::true"
+          else
+            PR_LIST=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                      "https://api.github.com/repos/${{ github.repository }}/pulls?state=open")
+
+            if echo "$PR_LIST" | grep -q "\"ref\": \"$BRANCH_NAME\""; then
+              echo "Open PR found for branch $BRANCH_NAME"
+              echo "::set-output name=result::true"
+            else
+              echo "No open PR for branch $BRANCH_NAME and it's not a release branch"
+              echo "::set-output name=result::false"
+            fi
+          fi
