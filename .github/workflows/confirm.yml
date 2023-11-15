@@ -11,7 +11,7 @@ on:
     outputs:
       should-release:
         description: 'A determination of whether or not to release'
-        value: ${{ fromJSON(jobs.confirm.outputs.should-release) }}
+        value: ${{ jobs.confirm.outputs.should-release }}
     inputs:
       debug:
         description: Debug jobs
@@ -51,7 +51,7 @@ jobs:
     container:
       image: node:${{ inputs.node }}
     outputs:
-      should-release: ${{ fromJSON(steps.confirm.outputs.result) }}
+      should-release: ${{ steps.confirm.outputs.result }}
     steps:
       - name: Init
         id: init
