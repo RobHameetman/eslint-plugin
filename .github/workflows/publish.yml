@@ -133,7 +133,7 @@ jobs:
         timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
         if: fromJSON(env.__SKIP) != true
         env:
-          NODE_ENV: production
+          NODE_ENV: development
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm ci --ignore-scripts
 
