@@ -70,16 +70,16 @@ jobs:
 
           if [[ $BRANCH_NAME =~ $RELEASE_BRANCH_PATTERNS ]]; then
             echo "Branch $BRANCH_NAME is a release or prerelease branch."
-            echo "::set-output name=result::true"
+            echo "result=true" >> $GITHUB_OUTPUT
           else
             PR_LIST=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
                       "https://api.github.com/repos/${{ github.repository }}/pulls?state=open")
 
             if echo "$PR_LIST" | grep -q "\"ref\": \"$BRANCH_NAME\""; then
               echo "Open PR found for branch $BRANCH_NAME"
-              echo "::set-output name=result::true"
+              echo "result=true" >> $GITHUB_OUTPUT
             else
               echo "No open PR for branch $BRANCH_NAME and it's not a release branch"
-              echo "::set-output name=result::false"
+              echo "result=false" >> $GITHUB_OUTPUT
             fi
           fi
