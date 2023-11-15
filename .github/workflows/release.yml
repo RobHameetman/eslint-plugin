@@ -31,7 +31,7 @@ jobs:
 
   publish:
     name: PUBLISH
-    needs: [build]
+    needs: [confirm, build]
     if: >-
       github.repository.archived != true &&
       fromJSON(needs.confirm.outputs.should-release) == true
