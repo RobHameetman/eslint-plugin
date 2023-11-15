@@ -11,7 +11,7 @@ on:
     outputs:
       should-release:
         description: 'A determination of whether or not to release'
-        value: ${{ jobs.confirm.outputs.should-release }}
+        value: ${{ fromJSON(jobs.confirm.outputs.should-release) }}
     inputs:
       debug:
         description: Debug jobs
