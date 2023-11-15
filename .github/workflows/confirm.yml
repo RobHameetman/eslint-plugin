@@ -60,6 +60,12 @@ jobs:
           echo "__DEBUG=${{ env.CI_DEBUG || env.debug || inputs.debug }}" >> $GITHUB_ENV
           echo "__TIMEOUT_SETUP=${{ env.CI_TIMEOUT_SETUP || fromJSON(env.timeout-setup) }}" >> $GITHUB_ENV
 
+      - name: Dependencies
+        id: setup
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
       - name: Confirm
         id: confirm
         timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
