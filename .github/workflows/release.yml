@@ -15,31 +15,7 @@ jobs:
     if: github.repository.archived != true
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    # runs-on: ubuntu-latest
     uses: ./.github/workflows/confirm.yml
-    # steps:
-    #   - name: Confirm
-    #     id: confirm
-    #     run: |
-    #       BRANCH_NAME=${GITHUB_REF#refs/heads/}
-    #       RELEASE_BRANCH_PATTERNS="^(main|master|alpha|beta|next|next-major|\d+\.X\.X)$"
-
-    #       if [[ $BRANCH_NAME =~ $RELEASE_BRANCH_PATTERNS ]]; then
-    #         echo "Branch $BRANCH_NAME is a release or prerelease branch."
-    #         echo "::set-output name=result::true"
-    #       else
-    #         PR_LIST=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-    #                   "https://api.github.com/repos/${{ github.repository }}/pulls?state=open")
-
-    #         if echo "$PR_LIST" | grep -q "\"ref\": \"$BRANCH_NAME\""; then
-    #           echo "Open PR found for branch $BRANCH_NAME"
-    #           echo "::set-output name=result::true"
-    #         else
-    #           echo "No open PR for branch $BRANCH_NAME and it's not a release branch"
-    #           echo "::set-output name=result::false"
-    #         fi
-    #       fi
 
   build:
     name: BUILD
