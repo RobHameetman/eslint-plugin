@@ -9,7 +9,9 @@ on:
         description: 'A token used for authorized access to Github'
         required: true
     outputs:
-      should-release: ${{ fromJSON(steps.confirm.outputs.result) }}
+      should-release:
+        description: 'A determination of whether or not to release'
+        value: ${{ fromJSON(jobs.confirm.outputs.should-release) }}
     inputs:
       debug:
         description: Debug jobs
