@@ -27,7 +27,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       dist: bin
-      should-release: ${{ needs.confirm.outputs.should-release }}
+      should-release: ${{ fromJSON(needs.confirm.outputs.should-release) }}
 
   publish:
     name: PUBLISH
