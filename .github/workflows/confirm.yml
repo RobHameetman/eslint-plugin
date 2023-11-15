@@ -62,6 +62,7 @@ jobs:
 
       - name: Dependencies
         id: setup
+        shell: bash
         run: |
           apt-get update
           apt-get install -y jq
@@ -70,6 +71,7 @@ jobs:
         id: confirm
         timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
         if: fromJSON(env.__SKIP) != true
+        shell: bash
         run: |
           BRANCH_NAME=${GITHUB_REF#refs/heads/}
           RELEASE_BRANCH_PATTERNS="^(main|master|alpha|beta|next|next-major|\d+\.X\.X)$"
