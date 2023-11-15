@@ -19,6 +19,11 @@ on:
         default: '21'
         required: false
         type: string
+      should-release:
+        description: The result of the confirmation job
+        default: false
+        required: false
+        type: boolean
       skip:
         description: Skip jobs
         default: false
@@ -68,6 +73,7 @@ jobs:
           echo "ACTIONS_RUNNER_DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV
           echo "ACTIONS_STEP_DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV
           echo "DEBUG=${{ fromJSON(env.__DEBUG) }}" >> $GITHUB_ENV
+          echo "${{ inputs.node }}"
 
       - name: Checkout
         id: clone
