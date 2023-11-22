@@ -28,32 +28,30 @@
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
-    "@graphql-eslint/eslint-plugin": "3.20.1",
     "@rob.hameetman/type-guards": "1.0.0-alpha.4",
-    "@typescript-eslint/eslint-plugin": "6.10.0",
-    "@typescript-eslint/parser": "6.10.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-config-standard": "17.1.0",
-    "eslint-import-resolver-typescript": "3.6.1",
-    "eslint-plugin-cypress": "2.15.1",
     "eslint-plugin-import": "2.29.0",
-    "eslint-plugin-jest": "27.6.0",
-    "eslint-plugin-jsx-a11y": "6.8.0",
     "eslint-plugin-n": "16.3.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "5.0.1",
-    "eslint-plugin-promise": "6.1.1",
-    "eslint-plugin-react": "7.33.2",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-testing-library": "6.1.2"
+    "eslint-plugin-promise": "6.1.1"
   },
   "peerDependencies": {
     "eslint": ">= 8.53.0",
     "prettier": ">= 3.0.0"
   },
   "optionalDependencies": {
-    "graphql": ">= 16.8.0",
-    "react": ">= 18.0.0"
+		"@graphql-eslint/eslint-plugin": "3.20.1",
+    "@typescript-eslint/eslint-plugin": "6.10.0",
+    "@typescript-eslint/parser": "6.10.0",
+    "eslint-import-resolver-typescript": "3.6.1",
+    "eslint-plugin-cypress": "2.15.1",
+    "eslint-plugin-jest": "27.6.0",
+    "eslint-plugin-jsx-a11y": "6.8.0",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-testing-library": "6.1.2"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "18.1.0",
@@ -77,21 +75,8 @@
     "typescript": "5.2.2"
   },
   "bundledDependencies": [
-    "@graphql-eslint/eslint-plugin",
-    "@typescript-eslint/eslint-plugin",
-    "@typescript-eslint/parser",
-    "eslint-import-resolver-typescript",
-    "eslint-plugin-cypress",
-    "eslint-plugin-import",
-    "eslint-plugin-jest",
-    "eslint-plugin-jsx-a11y",
-    "eslint-plugin-n",
-    "eslint-plugin-node",
-    "eslint-plugin-prettier",
-    "eslint-plugin-promise",
-    "eslint-plugin-react",
-    "eslint-plugin-react-hooks",
-    "eslint-plugin-testing-library"
+    "eslint",
+    "estree"
   ],
   "eslintConfig": {
     "extends": [

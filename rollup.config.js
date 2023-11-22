@@ -32,8 +32,7 @@ const config = () => ({
 		sourcemap: isDevelopment,
 	},
 	external: [
-		'eslint',
-		'prettier'
+		'eslint'
 	],
 	plugins: [
 		resolve({
@@ -42,7 +41,7 @@ const config = () => ({
 		hasPaths && alias({
 			entries: Object.fromEntries(Object.entries(paths).map(([key, value]) => ([
 				key.replace('/*', ''),
-				value.at(0).replace('/*', ''),
+				value.at(0).replace('/*', '').replace('./', `${process.cwd()}/`),
 			]))),
 		}),
 		// eslint({
