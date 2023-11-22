@@ -59,6 +59,10 @@ env:
   CI_PR_NUMBER: ${{ inputs.pr }}
   CI_TIMEOUT_RELEASE: ${{ vars.CI_TIMEOUT_RELEASE }}
   CI_TIMEOUT_SETUP: ${{ vars.CI_TIMEOUT_SETUP }}
+  GIT_EMAIL: ${{ vars.GIT_EMAIL }}
+  GIT_USERNAME: ${{ vars.GIT_USERNAME }}
+  GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+  GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
   NODE_ENV: production
   RELEASE_DEBUG: ${{ vars.RELEASE_DEBUG }}
   RELEASE_DEPRECATE_AS_MINOR_VERSION: ${{ vars.RELEASE_DEPRECATE_AS_MINOR_VERSION }}
@@ -167,6 +171,10 @@ jobs:
         timeout-minutes: ${{ fromJSON(env.__TIMEOUT_RELEASE) }}
         if: fromJSON(env.__SKIP) != true
         env:
+          GIT_AUTHOR_NAME: '@semantic-release-bot'
+          GIT_AUTHOR_EMAIL: 'semantic-release-bot@martynus.net'
+          GIT_COMMITTER_NAME: '@semantic-release-bot'
+          GIT_COMMITTER_EMAIL: 'semantic-release-bot@martynus.net'
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release

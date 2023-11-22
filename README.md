@@ -28,7 +28,7 @@
     <img src="https://img.shields.io/badge/TypeScript-v5.2.2-%23007ACC.svg?&logo=typescript&logoColor=007ACC" alt="TypeScript v5.2.2">
   </a>
   <a href="https://rollupjs.org/">
-    <img src="https://img.shields.io/badge/Rollup-v4.3.0-EC4A3F.svg?&logo=rollup.js&logoColor=8DD6F9" alt="Rollup v4.3.0">
+    <img src="https://img.shields.io/badge/Rollup-v4.3.0-EC4A3F.svg?&logo=rollup.js&logoColor=EC4A3F" alt="Rollup v4.3.0">
   </a>
   <a href="https://jestjs.io/">
     <img src="https://img.shields.io/badge/Jest-v29.7.0-%23C21325.svg?&logo=jest&logoColor=%23C21325" alt="Jest v29.7.0">
