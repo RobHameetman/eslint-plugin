@@ -6,26 +6,44 @@ on:
   push:
     branches:
       - main
-      - *.X.X
+      - '*.X.X'
+      - '*'
 
 jobs:
+  confirm:
+    name: CONFIRM
+    if: github.repository.archived != true
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    uses: ./.github/workflows/confirm.yml
+
   build:
     name: BUILD
-    if: github.repository.archived != true
+    needs: [confirm]
+    if: >-
+      github.repository.archived != true &&
+      fromJSON(needs.confirm.outputs.should-release) == true
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     uses: ./.github/workflows/build.yml
     with:
-      dist: 'dist'
-      node: '21'
+      dist: bin
 
   publish:
     name: PUBLISH
-    needs: [build]
-    if: github.repository.archived != true
+    needs: [confirm, build]
+    if: >-
+      github.repository.archived != true &&
+      fromJSON(needs.confirm.outputs.should-release) == true
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     uses: ./.github/workflows/publish.yml
     with:
-      dist: 'dist'
+      dist: bin
+      pr: ${{ fromJSON(needs.confirm.outputs.pr-number) }}

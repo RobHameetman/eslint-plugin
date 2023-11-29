@@ -1,6 +1,6 @@
 {
   "name": "@rob.hameetman/eslint-plugin",
-  "version": "0.0.1",
+  "version": "1.0.0-pr.undefined.fb941d1a.20231129.1",
   "description": "ESLint plugin for enterprise-strength TypeScript packages",
   "author": "Robert H. Hameetman (https://www.robhameetman.com/)",
   "homepage": "https://www.npmjs.org/package/@rob.hameetman/eslint-plugin",
@@ -25,46 +25,43 @@
     "prepare": "husky install",
     "reset": "rm -rf node_modules/ && npm cache clear --force && [[ -f package-lock.json ]] && npm ci || npm i",
     "setup": "sh scripts/setup.sh",
-    "test": "NODE_ENV=test jest --maxWorkers=50% --silent=false"
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
-    "@graphql-eslint/eslint-plugin": "3.20.1",
     "@rob.hameetman/type-guards": "1.0.0-alpha.4",
-		"@typescript-eslint/eslint-plugin": "6.10.0",
-		"@typescript-eslint/parser": "6.10.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-config-standard": "17.1.0",
-		"eslint-import-resolver-typescript": "3.6.1",
-    "eslint-plugin-cypress": "2.15.1",
     "eslint-plugin-import": "2.29.0",
-    "eslint-plugin-jest": "27.6.0",
-    "eslint-plugin-jsx-a11y": "6.8.0",
     "eslint-plugin-n": "16.3.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "5.0.1",
-    "eslint-plugin-promise": "6.1.1",
-    "eslint-plugin-react": "7.33.2",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-testing-library": "6.1.2"
+    "eslint-plugin-promise": "6.1.1"
   },
   "peerDependencies": {
     "eslint": ">= 8.53.0",
     "prettier": ">= 3.0.0"
   },
   "optionalDependencies": {
-    "graphql": ">= 16.8.0",
-    "react": ">= 18.0.0"
+    "@graphql-eslint/eslint-plugin": "3.20.1",
+    "@typescript-eslint/eslint-plugin": "6.10.0",
+    "@typescript-eslint/parser": "6.10.0",
+    "eslint-import-resolver-typescript": "3.6.1",
+    "eslint-plugin-cypress": "2.15.1",
+    "eslint-plugin-jest": "27.6.0",
+    "eslint-plugin-jsx-a11y": "6.8.0",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-testing-library": "6.1.2"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "18.1.0",
     "@faker-js/faker": "8.2.0",
     "@rbnlffl/rollup-plugin-eslint": "6.0.0",
-    "@rob.hameetman/semantic-release-config": "1.0.0-alpha.1",
+    "@rob.hameetman/semantic-release-config": "1.0.0-alpha.20",
     "@rollup/plugin-alias": "5.0.1",
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-terser": "0.4.4",
-    "@types/cypress": "1.1.3",
     "@types/jest": "29.5.7",
     "@types/node": "20.8.10",
     "commitlint": "18.2.0",
@@ -78,22 +75,9 @@
     "typescript": "5.2.2"
   },
   "bundledDependencies": [
-    "@graphql-eslint/eslint-plugin",
-    "@typescript-eslint/eslint-plugin",
-    "@typescript-eslint/parser",
-    "eslint-import-resolver-typescript",
-    "eslint-plugin-cypress",
-    "eslint-plugin-import",
-    "eslint-plugin-jest",
-    "eslint-plugin-jsx-a11y",
-    "eslint-plugin-n",
-    "eslint-plugin-node",
-    "eslint-plugin-prettier",
-    "eslint-plugin-promise",
-    "eslint-plugin-react",
-    "eslint-plugin-react-hooks",
-    "eslint-plugin-testing-library"
-	],
+    "eslint",
+    "estree"
+  ],
   "eslintConfig": {
     "extends": [
       "./index.js"
@@ -156,5 +140,8 @@
       "\\.ts$": "ts-jest",
       "^(?!.*\\.(ts|json)$)": "ts-jest"
     }
+  },
+  "release": {
+    "extends": "@rob.hameetman/semantic-release-config/staged"
   }
 }
