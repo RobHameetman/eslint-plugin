@@ -1,6 +1,6 @@
 {
   "name": "@rob.hameetman/eslint-plugin",
-  "version": "1.0.0-pr.undefined.ec521077.20240527.1",
+  "version": "1.0.0-pr.undefined.7854e652.20240614.1",
   "description": "ESLint plugin for enterprise-strength TypeScript packages",
   "author": "Robert H. Hameetman (https://www.robhameetman.com/)",
   "homepage": "https://www.npmjs.org/package/@rob.hameetman/eslint-plugin",
@@ -138,14 +138,14 @@
     "coverageReporters": [
       "text-summary"
     ],
-		"coverageThreshold": {
-			"global": {
-				"branches": 80,
-				"functions": 65,
-				"lines": 80,
-				"statements": 80
-			}
-		},
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 65,
+        "lines": 80,
+        "statements": 80
+      }
+    },
     "extensionsToTreatAsEsm": [
       ".ts"
     ],
@@ -175,7 +175,7 @@
         "ts-jest",
         {
           "tsconfig": "./tsconfig.json",
-					"isolatedModules": true,
+          "isolatedModules": true,
           "useESM": true
         }
       ],
