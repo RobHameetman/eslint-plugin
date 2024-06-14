@@ -81,7 +81,7 @@ jobs:
           # 'development' is required instead of 'production' here so that NPM includes devDependencies (like Jest).
           NODE_ENV: development
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm ci --ignore-scripts
+        run: npm ci --force --ignore-scripts
 
       - name: Cache
         id: cache
