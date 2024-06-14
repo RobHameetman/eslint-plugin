@@ -1,5 +1,5 @@
 import type { ExportDefaultDeclaration } from 'estree';
-import { isBaseModuleDeclaration } from '@functions/estree/isBaseModuleDeclaration';
+import { isBaseModuleDeclaration } from '@/utils/functions/estree/isBaseModuleDeclaration';
 
 /**
  * Checks that an `unknown` value is a {@link ExportDefaultDeclaration}.

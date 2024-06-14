@@ -1,5 +1,5 @@
 import { isChainExpression } from './isChainExpression';
-import { fakeChainExpression } from '@test/fakes/estree/fakeChainExpression';
+import { fakeChainExpression } from '@@/fakes/estree/fakeChainExpression';
 
 describe('isChainExpression()', () => {
 	it('should return true given a valid ChainExpression', () => {

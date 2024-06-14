@@ -1,5 +1,5 @@
 import { isEmptyStatement } from './isEmptyStatement';
-import { fakeEmptyStatement } from '@test/fakes/estree/fakeEmptyStatement';
+import { fakeEmptyStatement } from '@@/fakes/estree/fakeEmptyStatement';
 
 describe('isEmptyStatement()', () => {
 	it('should return true given a valid EmptyStatement', () => {

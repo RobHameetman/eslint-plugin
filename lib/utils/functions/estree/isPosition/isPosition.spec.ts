@@ -1,5 +1,5 @@
 import { isPosition } from './isPosition';
-import { fakePosition } from '@test/fakes/estree/fakePosition';
+import { fakePosition } from '@@/fakes/estree/fakePosition';
 
 describe('isPosition()', () => {
 	it('should return true given a valid Position', () => {

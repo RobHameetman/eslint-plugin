@@ -1,5 +1,5 @@
 import type { BlockStatement, StaticBlock } from 'estree';
-import { isBlockStatement } from '@functions/estree/isBlockStatement';
+import { isBlockStatement } from '@/utils/functions/estree/isBlockStatement';
 
 /**
  * Checks that an `unknown` value is a {@link StaticBlock}.

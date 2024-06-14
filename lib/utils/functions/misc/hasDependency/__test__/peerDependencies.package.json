@@ -1,0 +1,8 @@
+{
+	"name": "@packagejson/dependencies",
+	"version": "1.0.0",
+	"main": "index.js",
+	"peerDependencies": {
+		"test": "^9.0.0"
+	}
+}

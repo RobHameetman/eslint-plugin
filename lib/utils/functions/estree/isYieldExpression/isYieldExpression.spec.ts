@@ -1,5 +1,5 @@
 import { isYieldExpression } from './isYieldExpression';
-import { fakeYieldExpression } from '@test/fakes/estree/fakeYieldExpression';
+import { fakeYieldExpression } from '@@/fakes/estree/fakeYieldExpression';
 
 describe('isYieldExpression()', () => {
 	it('should return true given a valid YieldExpression', () => {

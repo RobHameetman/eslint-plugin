@@ -1,5 +1,5 @@
 import { isObjectPattern } from './isObjectPattern';
-import { fakeObjectPattern } from '@test/fakes/estree/fakeObjectPattern';
+import { fakeObjectPattern } from '@@/fakes/estree/fakeObjectPattern';
 
 describe('isObjectPattern()', () => {
 	it('should return true given a valid ObjectPattern', () => {

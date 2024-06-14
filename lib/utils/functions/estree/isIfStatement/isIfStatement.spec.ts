@@ -1,5 +1,5 @@
 import { isIfStatement } from './isIfStatement';
-import { fakeIfStatement } from '@test/fakes/estree/fakeIfStatement';
+import { fakeIfStatement } from '@@/fakes/estree/fakeIfStatement';
 
 describe('isIfStatement()', () => {
 	it('should return true given a valid IfStatement', () => {

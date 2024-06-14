@@ -1,5 +1,5 @@
 import { isImportDefaultSpecifier } from './isImportDefaultSpecifier';
-import { fakeImportDefaultSpecifier } from '@test/fakes/estree/fakeImportDefaultSpecifier';
+import { fakeImportDefaultSpecifier } from '@@/fakes/estree/fakeImportDefaultSpecifier';
 
 describe('isImportDefaultSpecifier()', () => {
 	it('should return true given a valid ImportDefaultSpecifier', () => {

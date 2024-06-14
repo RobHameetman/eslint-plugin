@@ -1,5 +1,5 @@
 import { isForStatement } from './isForStatement';
-import { fakeForStatement } from '@test/fakes/estree/fakeForStatement';
+import { fakeForStatement } from '@@/fakes/estree/fakeForStatement';
 
 describe('isForStatement()', () => {
 	it('should return true given a valid ForStatement', () => {

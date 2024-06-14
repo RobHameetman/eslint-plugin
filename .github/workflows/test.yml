@@ -104,4 +104,4 @@ jobs:
         id: test
         timeout-minutes: ${{ fromJSON(env.__TIMEOUT_TESTS) }}
         if: fromJSON(env.__SKIP) != true
-        run: npm test -- --coverage --silent --watchAll=false --maxWorkers=${{ steps.cpu.outputs.count }}
+        run: npm run coverage --maxWorkers=${{ steps.cpu.outputs.count }}

@@ -1,5 +1,5 @@
 import type { LogicalExpression } from 'estree';
-import { isBaseExpression } from '@functions/estree/isBaseExpression';
+import { isBaseExpression } from '@/utils/functions/estree/isBaseExpression';
 
 /**
  * Checks that an `unknown` value is a {@link LogicalExpression}.

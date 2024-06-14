@@ -1,5 +1,5 @@
 import { isPrivateIdentifier } from './isPrivateIdentifier';
-import { fakePrivateIdentifier } from '@test/fakes/estree/fakePrivateIdentifier';
+import { fakePrivateIdentifier } from '@@/fakes/estree/fakePrivateIdentifier';
 
 describe('isPrivateIdentifier()', () => {
 	it('should return true given a valid PrivateIdentifier', () => {

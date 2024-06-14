@@ -1,5 +1,5 @@
 import { isForInStatement } from './isForInStatement';
-import { fakeForInStatement } from '@test/fakes/estree/fakeForInStatement';
+import { fakeForInStatement } from '@@/fakes/estree/fakeForInStatement';
 
 describe('isForInStatement()', () => {
 	it('should return true given a valid ForInStatement', () => {

@@ -1,6 +1,6 @@
 import type { Class } from 'estree';
-import { isClassDeclaration } from '@functions/estree/isClassDeclaration';
-import { isClassExpression } from '@functions/estree/isClassExpression';
+import { isClassDeclaration } from '@/utils/functions/estree/isClassDeclaration';
+import { isClassExpression } from '@/utils/functions/estree/isClassExpression';
 
 /**
  * Checks that an `unknown` value is a {@link Class}.

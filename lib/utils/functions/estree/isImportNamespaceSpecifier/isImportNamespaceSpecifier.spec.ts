@@ -1,5 +1,5 @@
 import { isImportNamespaceSpecifier } from './isImportNamespaceSpecifier';
-import { fakeImportNamespaceSpecifier } from '@test/fakes/estree/fakeImportNamespaceSpecifier';
+import { fakeImportNamespaceSpecifier } from '@@/fakes/estree/fakeImportNamespaceSpecifier';
 
 describe('isImportNamespaceSpecifier()', () => {
 	it('should return true given a valid ImportNamespaceSpecifier', () => {

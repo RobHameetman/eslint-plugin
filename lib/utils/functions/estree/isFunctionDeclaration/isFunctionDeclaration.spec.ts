@@ -1,5 +1,5 @@
 import { isFunctionDeclaration } from './isFunctionDeclaration';
-import { fakeFunctionDeclaration } from '@test/fakes/estree/fakeFunctionDeclaration';
+import { fakeFunctionDeclaration } from '@@/fakes/estree/fakeFunctionDeclaration';
 
 describe('isFunctionDeclaration()', () => {
 	it('should return true given a valid FunctionDeclaration', () => {

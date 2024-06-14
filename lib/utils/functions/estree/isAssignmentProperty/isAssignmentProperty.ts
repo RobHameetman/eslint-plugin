@@ -1,6 +1,6 @@
 import type { AssignmentProperty } from 'estree';
-import { isPattern } from '@functions/estree/isPattern';
-import { isProperty } from '@functions/estree/isProperty';
+import { isPattern } from '@/utils/functions/estree/isPattern';
+import { isProperty } from '@/utils/functions/estree/isProperty';
 
 /**
  * Checks that an `unknown` value is a {@link AssignmentProperty}.

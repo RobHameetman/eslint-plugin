@@ -1,5 +1,5 @@
 import { isBlockStatement } from './isBlockStatement';
-import { fakeBlockStatement } from '@test/fakes/estree/fakeBlockStatement';
+import { fakeBlockStatement } from '@@/fakes/estree/fakeBlockStatement';
 
 describe('isBlockStatement()', () => {
 	it('should return true given a valid BlockStatement', () => {

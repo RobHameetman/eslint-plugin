@@ -1,5 +1,5 @@
 import { isDoWhileStatement } from './isDoWhileStatement';
-import { fakeDoWhileStatement } from '@test/fakes/estree/fakeDoWhileStatement';
+import { fakeDoWhileStatement } from '@@/fakes/estree/fakeDoWhileStatement';
 
 describe('isDoWhileStatement()', () => {
 	it('should return true given a valid DoWhileStatement', () => {

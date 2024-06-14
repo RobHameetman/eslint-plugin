@@ -1,0 +1,8 @@
+{
+	"name": "@packagejson/true",
+	"version": "1.0.0",
+	"main": "index.js",
+	"devDependencies": {
+		"workbox-webpack-plugin": "^7.1.0"
+	}
+}

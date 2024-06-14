@@ -1,5 +1,5 @@
 import { isProgram } from './isProgram';
-import { fakeProgram } from '@test/fakes/estree/fakeProgram';
+import { fakeProgram } from '@@/fakes/estree/fakeProgram';
 
 describe('isProgram()', () => {
 	it('should return true given a valid Program', () => {

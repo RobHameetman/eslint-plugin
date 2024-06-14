@@ -1,8 +1,8 @@
 import type { BaseClass } from 'estree';
 import { isUndefinedOrNull } from '@rob.hameetman/type-guards';
-import { isBaseNode } from '@functions/estree/isBaseNode';
-import { isClassBody } from '@functions/estree/isClassBody';
-import { isExpression } from '@functions/estree/isExpression';
+import { isBaseNode } from '@/utils/functions/estree/isBaseNode';
+import { isClassBody } from '@/utils/functions/estree/isClassBody';
+import { isExpression } from '@/utils/functions/estree/isExpression';
 
 /**
  * Checks that an `unknown` value is a {@link BaseClass}.

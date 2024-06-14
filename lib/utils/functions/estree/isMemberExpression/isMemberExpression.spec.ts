@@ -1,5 +1,5 @@
 import { isMemberExpression } from './isMemberExpression';
-import { fakeMemberExpression } from '@test/fakes/estree/fakeMemberExpression';
+import { fakeMemberExpression } from '@@/fakes/estree/fakeMemberExpression';
 
 describe('isMemberExpression()', () => {
 	it('should return true given a valid MemberExpression', () => {

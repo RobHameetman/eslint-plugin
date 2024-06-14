@@ -1,5 +1,5 @@
 import { isLabeledStatement } from './isLabeledStatement';
-import { fakeLabeledStatement } from '@test/fakes/estree/fakeLabeledStatement';
+import { fakeLabeledStatement } from '@@/fakes/estree/fakeLabeledStatement';
 
 describe('isLabeledStatement()', () => {
 	it('should return true given a valid LabeledStatement', () => {

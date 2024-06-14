@@ -3,9 +3,9 @@
 	"include": [
 		"./*.ts",
 		"../matchers/*",
-		"../resources/*",
+		"../../resources/*",
 		"../../../typings/*"
-	],
+, "setupTests.ts"	],
 	"exclude": [
 		"../../../node_modules/"
 	]

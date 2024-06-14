@@ -1,9 +1,7 @@
 import { isForOfStatement } from './isForOfStatement';
-import { fakeForOfStatement } from '@test/fakes/estree/fakeForOfStatement';
+import { fakeForOfStatement } from '@@/fakes/estree/fakeForOfStatement';
 
 const stub = fakeForOfStatement();
-
-console.log(stub);
 
 describe('isForOfStatement()', () => {
 	it('should return true given a valid ForOfStatement', () => {

@@ -1,6 +1,6 @@
 import type { Pattern } from 'estree';
 import { isArray } from '@rob.hameetman/type-guards';
-import { isPattern } from '@functions/estree/isPattern';
+import { isPattern } from '@/utils/functions/estree/isPattern';
 
 /**
  * Checks that an `unknown` value is a {@link ReadonlyArray<Pattern>}.

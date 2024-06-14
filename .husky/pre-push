@@ -3,4 +3,5 @@
 # Bypass the hook in the CI/CD pipeline
 if [ -z "${CI}" ]; then
 	npm run build
+	npm run coverage -- --maxWorkers=50%
 fi

@@ -1,6 +1,6 @@
 import type { ClassExpression } from 'estree';
-import { isBaseClass } from '@functions/estree/isBaseClass';
-import { isBaseExpression } from '@functions/estree/isBaseExpression';
+import { isBaseClass } from '@/utils/functions/estree/isBaseClass';
+import { isBaseExpression } from '@/utils/functions/estree/isBaseExpression';
 
 /**
  * Checks that an `unknown` value is a {@link ClassExpression}.

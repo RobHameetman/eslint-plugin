@@ -6,8 +6,8 @@ export const fakePosition = ({
 	...overrideProps
 }: Record<string, unknown> = {}) => {
 	const position = {
-		line: faker.number.int({ min: 1, max: 10000 }),
-		column: faker.number.int({ min: 0, max: 200 }),
+		line: faker.number.int({ min: 2, max: 10000 }),
+		column: faker.number.int({ min: 1, max: 200 }),
 	} as Partial<Position>;
 
 	return {

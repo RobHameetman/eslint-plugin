@@ -1,6 +1,6 @@
 import type { ClassDeclaration } from 'estree';
-import { isMaybeNamedClassDeclaration } from '@functions/estree/isMaybeNamedClassDeclaration';
-import { isIdentifier } from '@functions/estree/isIdentifier';
+import { isMaybeNamedClassDeclaration } from '@/utils/functions/estree/isMaybeNamedClassDeclaration';
+import { isIdentifier } from '@/utils/functions/estree/isIdentifier';
 
 /**
  * Checks that an `unknown` value is a {@link ClassDeclaration}.

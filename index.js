@@ -1,6 +1,1 @@
-try {
-	module.exports = require('./bin/plugin.min.js');
-} catch (e) {
-	console.error(e);
-	process.exit(1);
-}
+export default await import('./bin/plugin.min.js');

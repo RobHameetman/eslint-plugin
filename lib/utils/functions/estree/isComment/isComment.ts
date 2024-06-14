@@ -1,6 +1,6 @@
 import type { Comment } from 'estree';
 import { isString } from '@rob.hameetman/type-guards';
-import { isBaseNodeWithoutComments } from '@functions/estree/isBaseNodeWithoutComments';
+import { isBaseNodeWithoutComments } from '@/utils/functions/estree/isBaseNodeWithoutComments';
 
 /**
  * Checks that an `unknown` value is a {@link Comment}.

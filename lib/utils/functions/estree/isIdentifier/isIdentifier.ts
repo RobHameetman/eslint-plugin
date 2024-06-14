@@ -1,7 +1,7 @@
 import type { Identifier } from 'estree';
-import { isBaseNode } from '@functions/estree/isBaseNode';
-import { isBaseExpression } from '@functions/estree/isBaseExpression';
-import { isBasePattern } from '@functions/estree/isBasePattern';
+import { isBaseNode } from '@/utils/functions/estree/isBaseNode';
+import { isBaseExpression } from '@/utils/functions/estree/isBaseExpression';
+import { isBasePattern } from '@/utils/functions/estree/isBasePattern';
 
 /**
  * Checks that an `unknown` value is a {@link Identifier}.

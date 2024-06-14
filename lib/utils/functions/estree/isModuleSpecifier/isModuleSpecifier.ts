@@ -1,8 +1,8 @@
 import type { ModuleSpecifier } from 'estree';
-import { isImportSpecifier } from '@functions/estree/isImportSpecifier';
-import { isImportDefaultSpecifier } from '@functions/estree/isImportDefaultSpecifier';
-import { isImportNamespaceSpecifier } from '@functions/estree/isImportNamespaceSpecifier';
-import { isExportSpecifier } from '@functions/estree/isExportSpecifier';
+import { isImportSpecifier } from '@/utils/functions/estree/isImportSpecifier';
+import { isImportDefaultSpecifier } from '@/utils/functions/estree/isImportDefaultSpecifier';
+import { isImportNamespaceSpecifier } from '@/utils/functions/estree/isImportNamespaceSpecifier';
+import { isExportSpecifier } from '@/utils/functions/estree/isExportSpecifier';
 
 /**
  * Checks that an `unknown` value is a {@link ModuleSpecifier}.

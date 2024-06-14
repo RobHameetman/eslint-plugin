@@ -1,5 +1,5 @@
 import { isBreakStatement } from './isBreakStatement';
-import { fakeBreakStatement } from '@test/fakes/estree/fakeBreakStatement';
+import { fakeBreakStatement } from '@@/fakes/estree/fakeBreakStatement';
 
 describe('isBreakStatement()', () => {
 	it('should return true given a valid BreakStatement', () => {

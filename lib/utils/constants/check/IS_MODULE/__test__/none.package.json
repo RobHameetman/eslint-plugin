@@ -1,0 +1,8 @@
+{
+	"name": "@packagejson/none",
+	"version": "1.0.0",
+	"main": "index.js",
+	"dependencies": {
+		"react": "^17.0.0"
+	}
+}

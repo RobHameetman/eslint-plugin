@@ -1,7 +1,7 @@
 import type { Position } from 'estree';
 import { isObject } from '@rob.hameetman/type-guards';
-import { isNumberGreaterThanOne } from '@functions/misc/isNumberGreaterThanOne';
-import { isNumberGreaterThanZero } from '@functions/misc/isNumberGreaterThanZero';
+import { isNumberGreaterThanOne } from '@/utils/functions/misc/isNumberGreaterThanOne';
+import { isNumberGreaterThanZero } from '@/utils/functions/misc/isNumberGreaterThanZero';
 
 /**
  * Checks that an `unknown` value is a {@link Position}.

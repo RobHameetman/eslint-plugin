@@ -1,13 +1,13 @@
 import rule from './custom-rule-example';
-import { isCategory } from '../../utils';
+import { isCategory } from '@/utils/enums/Categories';
 
 describe('custom-rule-example', () => {
 	it('should be a valid ESLint rule module', () => {
-		expect(typeof rule).toBe('object');
-		expect(rule).not.toBe(null);
-		expect(rule instanceof Array).toBe(false);
+		expect(rule).toStrictEqual(expect.any(Object));
+		expect(rule).not.toBeNull();
+		expect(rule).not.toBeInstanceOf(Array);
 		expect('create' in rule).toBe(true);
-		expect(typeof rule.create).toBe('function');
+		expect(rule.create).toStrictEqual(expect.any(Function));
 	});
 
 	it('should have a valid category', () => {

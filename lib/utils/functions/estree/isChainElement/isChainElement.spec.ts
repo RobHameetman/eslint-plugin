@@ -1,5 +1,5 @@
 import { isChainElement } from './isChainElement';
-import { fakeChainElement } from '@test/fakes/estree/fakeChainElement';
+import { fakeChainElement } from '@@/fakes/estree/fakeChainElement';
 
 describe('isChainElement()', () => {
 	it('should return true given a valid ChainElement', () => {

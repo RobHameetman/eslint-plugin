@@ -1,39 +1,27 @@
 import { isCategory } from './Categories';
 
 describe('isCategory()', (): void => {
-	describe("given the string value 'Deprecated'", (): void => {
-		it('should return true', (): void => {
-			expect(isCategory('Deprecated')).toBe(true);
-		});
+	it('should return true given the string value "Deprecated"', () => {
+		expect(isCategory('Deprecated')).toBe(true);
 	});
 
-	describe("given the string value 'Layout & Formatting'", (): void => {
-		it('should return true', (): void => {
-			expect(isCategory('Layout & Formatting')).toBe(true);
-		});
+	it('should return true given the string value "Layout & Formatting"', () => {
+		expect(isCategory('Layout & Formatting')).toBe(true);
 	});
 
-	describe("given the string value 'Possible Problems'", (): void => {
-		it('should return true', (): void => {
-			expect(isCategory('Possible Problems')).toBe(true);
-		});
+	it('should return true given the string value "Possible Problems"', () => {
+		expect(isCategory('Possible Problems')).toBe(true);
 	});
 
-	describe("given the string value 'Removed'", (): void => {
-		it('should return true', (): void => {
-			expect(isCategory('Removed')).toBe(true);
-		});
+	it('should return true given the string value "Removed"', () => {
+		expect(isCategory('Removed')).toBe(true);
 	});
 
-	describe("given the string value 'Suggestions'", (): void => {
-		it('should return true', (): void => {
-			expect(isCategory('Suggestions')).toBe(true);
-		});
+	it('should return true given the string value "Suggestions"', () => {
+		expect(isCategory('Suggestions')).toBe(true);
 	});
 
-	describe('given an empty string', (): void => {
-		it('should return false', (): void => {
-			expect(isCategory('')).toBe(false);
-		});
+	it('should return false given an empty string', () => {
+		expect(isCategory('')).toBe(false);
 	});
 });

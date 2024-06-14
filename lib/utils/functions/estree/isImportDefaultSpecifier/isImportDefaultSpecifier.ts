@@ -1,5 +1,5 @@
 import type { ImportDefaultSpecifier } from 'estree';
-import { isBaseModuleSpecifier } from '@functions/estree/isBaseModuleSpecifier';
+import { isBaseModuleSpecifier } from '@/utils/functions/estree/isBaseModuleSpecifier';
 
 /**
  * Checks that an `unknown` value is a {@link ImportDefaultSpecifier}.

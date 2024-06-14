@@ -1,6 +1,6 @@
 import type { Comment } from 'estree';
 import { isArray } from '@rob.hameetman/type-guards';
-import { isComment } from '@functions/estree/isComment';
+import { isComment } from '@/utils/functions/estree/isComment';
 
 /**
  * Checks that an `unknown` value is a {@link ReadonlyArray<Comment>}.

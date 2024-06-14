@@ -1,5 +1,5 @@
 import { isSourceLocation } from './isSourceLocation';
-import { fakeSourceLocation } from '@test/fakes/estree/fakeSourceLocation';
+import { fakeSourceLocation } from '@@/fakes/estree/fakeSourceLocation';
 
 describe('isSourceLocation()', () => {
 	it('should return true given a valid SourceLocation', () => {

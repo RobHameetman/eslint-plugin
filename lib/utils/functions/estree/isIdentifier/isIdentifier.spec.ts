@@ -1,5 +1,5 @@
 import { isIdentifier } from './isIdentifier';
-import { fakeIdentifier } from '@test/fakes/estree/fakeIdentifier';
+import { fakeIdentifier } from '@@/fakes/estree/fakeIdentifier';
 
 describe('isIdentifier()', () => {
 	it('should return true given a valid Identifier', () => {

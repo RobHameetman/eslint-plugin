@@ -1,5 +1,5 @@
 import { isBaseNode } from './isBaseNode';
-import { fakeBaseNode } from '@test/fakes/estree/fakeBaseNode';
+import { fakeBaseNode } from '@@/fakes/estree/fakeBaseNode';
 
 describe('isBaseNode()', () => {
 	it('should return true given a valid BaseNode', () => {

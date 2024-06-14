@@ -1,0 +1,1 @@
+export * from './ALWAYS_ALLOWED_NAMING_PREFIXES';

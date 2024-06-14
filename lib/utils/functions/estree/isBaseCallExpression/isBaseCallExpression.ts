@@ -1,9 +1,9 @@
 import type { BaseCallExpression } from 'estree';
 import { isArray } from '@rob.hameetman/type-guards';
-import { isBaseExpression } from '@functions/estree/isBaseExpression';
-import { isExpression } from '@functions/estree/isExpression';
-import { isSpreadElement } from '@functions/estree/isSpreadElement';
-import { isSuper } from '@functions/estree/isSuper';
+import { isBaseExpression } from '@/utils/functions/estree/isBaseExpression';
+import { isExpression } from '@/utils/functions/estree/isExpression';
+import { isSpreadElement } from '@/utils/functions/estree/isSpreadElement';
+import { isSuper } from '@/utils/functions/estree/isSuper';
 
 /**
  * Checks that an `unknown` value is a {@link BaseCallExpression}.

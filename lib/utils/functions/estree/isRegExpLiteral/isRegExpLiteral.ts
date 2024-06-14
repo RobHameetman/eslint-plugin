@@ -1,7 +1,7 @@
 import type { RegExpLiteral } from 'estree';
 import { isObject, isString } from '@rob.hameetman/type-guards';
-import { isBaseExpression } from '@functions/estree/isBaseExpression';
-import { isBaseNode } from '@functions/estree/isBaseNode';
+import { isBaseExpression } from '@/utils/functions/estree/isBaseExpression';
+import { isBaseNode } from '@/utils/functions/estree/isBaseNode';
 
 /**
  * Checks that an `unknown` value is a {@link RegExpLiteral}.

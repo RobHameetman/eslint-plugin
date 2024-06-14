@@ -1,5 +1,5 @@
 import { isTaggedTemplateExpression } from './isTaggedTemplateExpression';
-import { fakeTaggedTemplateExpression } from '@test/fakes/estree/fakeTaggedTemplateExpression';
+import { fakeTaggedTemplateExpression } from '@@/fakes/estree/fakeTaggedTemplateExpression';
 
 describe('isTaggedTemplateExpression()', () => {
 	it('should return true given a valid TaggedTemplateExpression', () => {

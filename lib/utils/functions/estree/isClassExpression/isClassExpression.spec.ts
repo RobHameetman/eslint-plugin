@@ -1,5 +1,5 @@
 import { isClassExpression } from './isClassExpression';
-import { fakeClassExpression } from '@test/fakes/estree/fakeClassExpression';
+import { fakeClassExpression } from '@@/fakes/estree/fakeClassExpression';
 
 describe('isClassExpression()', () => {
 	it('should return true given a valid ClassExpression', () => {

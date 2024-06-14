@@ -1,5 +1,5 @@
 import { isDirective } from './isDirective';
-import { fakeDirective } from '@test/fakes/estree/fakeDirective';
+import { fakeDirective } from '@@/fakes/estree/fakeDirective';
 
 describe('isDirective()', () => {
 	it('should return true given a valid Directive', () => {

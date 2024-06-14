@@ -1,5 +1,5 @@
 import type { VariableDeclaration } from 'estree';
-import { isBaseDeclaration } from '@functions/estree/isBaseDeclaration';
+import { isBaseDeclaration } from '@/utils/functions/estree/isBaseDeclaration';
 
 /**
  * Checks that an `unknown` value is a {@link VariableDeclaration}.

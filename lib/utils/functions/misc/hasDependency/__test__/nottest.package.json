@@ -1,0 +1,8 @@
+{
+	"name": "@packagejson/dependencies",
+	"version": "1.0.0",
+	"main": "index.js",
+	"dependencies": {
+		"nottest": "^9.0.0"
+	}
+}

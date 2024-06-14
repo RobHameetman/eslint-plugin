@@ -1,6 +1,6 @@
 import type { PropertyDefinition } from 'estree';
-import { isBaseNode } from '@functions/estree/isBaseNode';
-import { isPosition } from '@functions/estree/isPosition';
+import { isBaseNode } from '@/utils/functions/estree/isBaseNode';
+import { isPosition } from '@/utils/functions/estree/isPosition';
 import { isString } from '@rob.hameetman/type-guards';
 
 /**

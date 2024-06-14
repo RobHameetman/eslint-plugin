@@ -1,5 +1,5 @@
 import { isBaseForXStatement } from './isBaseForXStatement';
-import { fakeBaseForXStatement } from '@test/fakes/estree/fakeBaseForXStatement';
+import { fakeBaseForXStatement } from '@@/fakes/estree/fakeBaseForXStatement';
 
 describe('isBaseForXStatement()', () => {
 	it('should return true given a valid BaseForXStatement', () => {

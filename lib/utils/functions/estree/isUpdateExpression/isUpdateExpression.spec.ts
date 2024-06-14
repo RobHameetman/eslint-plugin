@@ -1,5 +1,5 @@
 import { isUpdateExpression } from './isUpdateExpression';
-import { fakeUpdateExpression } from '@test/fakes/estree/fakeUpdateExpression';
+import { fakeUpdateExpression } from '@@/fakes/estree/fakeUpdateExpression';
 
 describe('isUpdateExpression()', () => {
 	it('should return true given a valid UpdateExpression', () => {

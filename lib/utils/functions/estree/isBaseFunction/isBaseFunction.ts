@@ -1,9 +1,9 @@
 import type { BaseFunction } from 'estree';
 import { isBoolean, isUndefined } from '@rob.hameetman/type-guards';
-import { arePatterns } from '@functions/estree/arePatterns';
-import { isBaseNode } from '@functions/estree/isBaseNode';
-import { isBlockStatement } from '@functions/estree/isBlockStatement';
-import { isExpression } from '@functions/estree/isExpression';
+import { arePatterns } from '@/utils/functions/estree/arePatterns';
+import { isBaseNode } from '@/utils/functions/estree/isBaseNode';
+import { isBlockStatement } from '@/utils/functions/estree/isBlockStatement';
+import { isExpression } from '@/utils/functions/estree/isExpression';
 
 /**
  * Checks that an `unknown` value is a {@link BaseFunction}.

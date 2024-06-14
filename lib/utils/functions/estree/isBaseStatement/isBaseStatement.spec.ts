@@ -1,5 +1,5 @@
 import { isBaseStatement } from './isBaseStatement';
-import { fakeBaseStatement } from '@test/fakes/estree/fakeBaseStatement';
+import { fakeBaseStatement } from '@@/fakes/estree/fakeBaseStatement';
 
 describe('isBaseStatement()', () => {
 	it('should return true given a valid BaseStatement', () => {

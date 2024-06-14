@@ -1,7 +1,7 @@
 import type { Function } from 'estree';
-import { isArrowFunctionExpression } from '@functions/estree/isArrowFunctionExpression';
-import { isFunctionDeclaration } from '@functions/estree/isFunctionDeclaration';
-import { isFunctionExpression } from '@functions/estree/isFunctionExpression';
+import { isArrowFunctionExpression } from '@/utils/functions/estree/isArrowFunctionExpression';
+import { isFunctionDeclaration } from '@/utils/functions/estree/isFunctionDeclaration';
+import { isFunctionExpression } from '@/utils/functions/estree/isFunctionExpression';
 
 /**
  * Checks that an `unknown` value is a {@link Function}.

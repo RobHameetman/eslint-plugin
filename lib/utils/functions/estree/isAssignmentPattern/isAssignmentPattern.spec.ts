@@ -1,5 +1,5 @@
 import { isAssignmentPattern } from './isAssignmentPattern';
-import { fakeAssignmentPattern } from '@test/fakes/estree/fakeAssignmentPattern';
+import { fakeAssignmentPattern } from '@@/fakes/estree/fakeAssignmentPattern';
 
 describe('isAssignmentPattern()', () => {
 	it('should return true given a valid AssignmentPattern', () => {

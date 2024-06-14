@@ -1,5 +1,5 @@
 import { areComments } from './areComments';
-import { fakeComments } from '@test/fakes/estree/fakeComments';
+import { fakeComments } from '@@/fakes/estree/fakeComments';
 
 describe('areComments()', () => {
 	it('should return true given valid Comments', () => {

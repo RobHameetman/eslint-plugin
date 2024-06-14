@@ -1,5 +1,5 @@
 import { isDeclaration } from './isDeclaration';
-import { fakeDeclaration } from '@test/fakes/estree/fakeDeclaration';
+import { fakeDeclaration } from '@@/fakes/estree/fakeDeclaration';
 
 describe('isDeclaration()', () => {
 	it('should return true given a valid Declaration', () => {

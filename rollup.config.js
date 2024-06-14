@@ -1,13 +1,15 @@
-const alias = require('@rollup/plugin-alias');
-// const eslint = require('@rbnlffl/rollup-plugin-eslint');
-const commonjs = require('@rollup/plugin-commonjs');
-const resolve = require('@rollup/plugin-node-resolve');
-// const copy = require('rollup-plugin-copy');
-const terser = require('@rollup/plugin-terser');
-const typescript = require('rollup-plugin-typescript2');
+import builtins from 'builtin-modules';
+import alias from '@rollup/plugin-alias';
+// import eslint from '@rbnlffl/rollup-plugin-eslint';
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
+import resolve from '@rollup/plugin-node-resolve';
+// import copy from 'rollup-plugin-copy';
+import terser from '@rollup/plugin-terser';
+import typescript from 'rollup-plugin-typescript2';
 
-const pkg = require('./package.json');
-const tsconfig = require('./tsconfig.json');
+import pkg from './package.json' with { type: 'json' };
+import tsconfig from './tsconfig.json' with { type: 'json' };
 
 const isModule =
 	pkg.type === 'module' ||
@@ -31,12 +33,10 @@ const config = () => ({
 		format: isModule ? 'esm' : 'cjs',
 		sourcemap: isDevelopment,
 	},
-	external: [
-		'eslint'
-	],
+	external: builtins.concat(Object.keys(pkg.dependencies || {})),
 	plugins: [
 		resolve({
-			extensions: ['.ts', '.js',],
+			extensions: ['.ts', '.js'],
 		}),
 		hasPaths && alias({
 			entries: Object.fromEntries(Object.entries(paths).map(([key, value]) => ([
@@ -48,6 +48,7 @@ const config = () => ({
 		// 	extensions: ['js', 'ts'],
 		// 	throwOnWarning: isProduction,
 		// }),
+		json(),
 		typescript({
 			rollupCommonJSResolveHack: false,
 			clean: true,
@@ -93,4 +94,7 @@ const config = () => ({
 	].filter(Boolean),
 });
 
-module.exports = [config('cjs'), config('es')];
+export default [
+	// config('cjs'),
+	config('es'),
+];

@@ -1,5 +1,5 @@
 import { isMethodDefinition } from './isMethodDefinition';
-import { fakeMethodDefinition } from '@test/fakes/estree/fakeMethodDefinition';
+import { fakeMethodDefinition } from '@@/fakes/estree/fakeMethodDefinition';
 
 describe('isMethodDefinition()', () => {
 	it('should return true given a valid MethodDefinition', () => {

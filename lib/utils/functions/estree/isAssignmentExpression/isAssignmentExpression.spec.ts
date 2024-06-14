@@ -1,5 +1,5 @@
 import { isAssignmentExpression } from './isAssignmentExpression';
-import { fakeAssignmentExpression } from '@test/fakes/estree/fakeAssignmentExpression';
+import { fakeAssignmentExpression } from '@@/fakes/estree/fakeAssignmentExpression';
 
 describe('isAssignmentExpression()', () => {
 	it('should return true given a valid AssignmentExpression', () => {

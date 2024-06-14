@@ -1,5 +1,5 @@
 import { isLiteral } from './isLiteral';
-import { fakeLiteral } from '@test/fakes/estree/fakeLiteral';
+import { fakeLiteral } from '@@/fakes/estree/fakeLiteral';
 
 describe('isLiteral()', () => {
 	it('should return true given a valid Literal', () => {

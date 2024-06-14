@@ -1,5 +1,5 @@
 import { isWithStatement } from './isWithStatement';
-import { fakeWithStatement } from '@test/fakes/estree/fakeWithStatement';
+import { fakeWithStatement } from '@@/fakes/estree/fakeWithStatement';
 
 describe('isWithStatement()', () => {
 	it('should return true given a valid WithStatement', () => {

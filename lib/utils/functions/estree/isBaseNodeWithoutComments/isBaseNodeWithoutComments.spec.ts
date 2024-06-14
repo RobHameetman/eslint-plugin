@@ -1,5 +1,5 @@
 import { isBaseNodeWithoutComments } from './isBaseNodeWithoutComments';
-import { fakeBaseNodeWithoutComments } from '@test/fakes/estree/fakeBaseNodeWithoutComments';
+import { fakeBaseNodeWithoutComments } from '@@/fakes/estree/fakeBaseNodeWithoutComments';
 
 describe('isBaseNodeWithoutComments()', () => {
 	it('should return true given a valid BaseNodeWithoutComments', () => {

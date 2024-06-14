@@ -1,4 +1,4 @@
-import { REPO_URL } from '@constants/REPO_URL';
+import { REPO_URL } from '@/utils/constants/misc/REPO_URL';
 
 const RULE_NAME_VALIDITY = /^([a-z](?![\d])|[\d](?![a-z]))+(-?([a-z](?![\d])|[\d](?![a-z])))*$|^$/;
 

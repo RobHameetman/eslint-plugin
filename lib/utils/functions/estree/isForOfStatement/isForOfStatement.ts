@@ -1,5 +1,5 @@
 import type { ForOfStatement } from 'estree';
-import { isBaseForXStatement } from '@functions/estree/isBaseForXStatement';
+import { isBaseForXStatement } from '@/utils/functions/estree/isBaseForXStatement';
 
 /**
  * Checks that an `unknown` value is a {@link ForOfStatement}.

@@ -1,9 +1,7 @@
 import { isMaybeNamedFunctionDeclaration } from './isMaybeNamedFunctionDeclaration';
-import { fakeMaybeNamedFunctionDeclaration } from '@test/fakes/estree/fakeMaybeNamedFunctionDeclaration';
+import { fakeMaybeNamedFunctionDeclaration } from '@@/fakes/estree/fakeMaybeNamedFunctionDeclaration';
 
 const stub = fakeMaybeNamedFunctionDeclaration();
-
-console.log(stub);
 
 describe('isMaybeNamedFunctionDeclaration()', () => {
 	it('should return true given a valid MaybeNamedFunctionDeclaration', () => {

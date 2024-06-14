@@ -1,5 +1,5 @@
 import { isContinueStatement } from './isContinueStatement';
-import { fakeContinueStatement } from '@test/fakes/estree/fakeContinueStatement';
+import { fakeContinueStatement } from '@@/fakes/estree/fakeContinueStatement';
 
 describe('isContinueStatement()', () => {
 	it('should return true given a valid ContinueStatement', () => {

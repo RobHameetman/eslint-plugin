@@ -1,7 +1,7 @@
 import type { Literal } from 'estree';
-import { isBigIntLiteral } from '@functions/estree/isBigIntLiteral';
-import { isRegExpLiteral } from '@functions/estree/isRegExpLiteral';
-import { isSimpleLiteral } from '@functions/estree/isSimpleLiteral';
+import { isBigIntLiteral } from '@/utils/functions/estree/isBigIntLiteral';
+import { isRegExpLiteral } from '@/utils/functions/estree/isRegExpLiteral';
+import { isSimpleLiteral } from '@/utils/functions/estree/isSimpleLiteral';
 
 /**
  * Checks that an `unknown` value is a {@link Literal}.
