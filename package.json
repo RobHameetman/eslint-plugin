@@ -24,7 +24,7 @@
     "coverage": "npm test -- --coverage --silent --watchAll=false",
     "format": "NODE_ENV=production eslint ./src --ext=ts,tsx --fix",
     "prepare": "husky install",
-    "reset": "rm -rf node_modules/ && npm cache clear --force && [[ -f package-lock.json ]] && npm ci || npm i",
+    "reset": "rm -rf node_modules/ && npm cache clear --force && [[ -f package-lock.json ]] && npm ci --legacy-peer-deps || npm i --legacy-peer-deps",
     "setup": "sh scripts/setup.sh",
     "test": "NODE_ENV=test NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
   },
@@ -33,7 +33,7 @@
     "@eslint/eslintrc": "3.1.0",
     "@eslint/js": "9.3.0",
     "@next/eslint-plugin-next": "14.2.3",
-    "@rob.hameetman/type-guards": "1.0.0",
+    "@rob.hameetman/type-guards": "^1.0.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-cypress": "3.2.0",
     "eslint-plugin-graphql": "4.0.0",
