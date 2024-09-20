@@ -73,7 +73,7 @@
     "@commitlint/config-conventional": "19.2.2",
     "@faker-js/faker": "8.4.1",
     "@rbnlffl/rollup-plugin-eslint": "6.0.0",
-    "@rob.hameetman/semantic-release-config": "1.0.0-alpha.20",
+    "@rob.hameetman/semantic-release-config": "1.0.0-alpha.21",
     "@rollup/plugin-alias": "5.1.0",
     "@rollup/plugin-commonjs": "25.0.8",
     "@rollup/plugin-json": "6.1.0",
@@ -181,23 +181,6 @@
       ],
       "^(?!.*\\.(ts|json)$)": "ts-jest"
     }
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ],
-      "@babel/preset-typescript"
-    ],
-    "plugins": [
-      "@babel/plugin-syntax-top-level-await",
-      "babel-plugin-transform-import-meta"
-    ]
   },
   "release": {
     "extends": "@rob.hameetman/semantic-release-config/staged"

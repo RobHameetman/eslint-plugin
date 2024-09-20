@@ -5,7 +5,7 @@
 *** customizing certain parts of this README file.
 -->
 
-# 📦 @{{scope}}/eslint-plugin
+# 📦 @rob.hameetman/eslint-plugin
 
 <div align="center">
   <a href="https://github.com/RobHameetman/eslint-plugin">
@@ -14,15 +14,7 @@
 
   <p align="center">
     <br />
-    ESLint plugin for enterprise-strength TypeScript packages
-    <!-- TODO: Delete lines 33–46 -->
-    <br />
-    <br />
-    <blockquote>
-      ⚠️ NOTE: This README file is templatized and does not include information
-      about how to use this repository template.
-    </blockquote>
-    <br />
+    ESLint plugin for enterprise-strength frontend code
   </p>
   <a href="https://www.typescriptlang.org/">
     <img src="https://img.shields.io/badge/TypeScript-v5.2.2-%23007ACC.svg?&logo=typescript&logoColor=007ACC" alt="TypeScript v5.2.2">
@@ -72,68 +64,34 @@
 
 ## §1: Overview
 
-This project includes the following features:
+### §1.1: Configs
 
-**Accessibility**
+| Config                                          | Files                                                                                                      |
+|------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| [**⭐️ Recommended**](/lib/configs/recommended/) | _auto-magically detected_                                                                                  |
+| [**Core**](/lib/configs/core/)                  | `*.js`                                                                                                     |
+| [**Cypress**](/lib/configs/cypress/)            | `*.cy.js`                                                                                                  |
+| [**Graphql**](/lib/configs/graphql/)            | `*.gql`, `*.graphl`                                                                                        |
+| [**Jest**](/lib/configs/jest/)                  | `*.spec.js`, `*.spec.jsx`, `*.spec.ts`, `*.spec.tsx`, `*.test.js`, `*.test.jsx`, `*.test.ts`, `*.test.tsx` |
+| [**Prettier**](/lib/configs/prettier/)          | _auto-magically detected_                                                                                  |
+| [**React**](/lib/configs/react/)                | `*.jsx`, `*.tsx`                                                                                           |
+| [**TypeScript**](/lib/configs/typescript/)      | `*.ts`                                                                                                     |
 
-- [ ] Accessibility testing
-- [ ] WCAG compliance
+#### §1.1.1: Recommended
 
-**Architecture**
+#### §1.1.2: Core
 
-- [ ] Framework agnosticism (WebComponents)
-- [ ] Module Federation (micro-frontend architecture)
-- [X] Zero-trust architecture
+#### §1.1.3: Cypress
 
-**Design**
+#### §1.1.4: Graphql
 
-- [x] Atomic Design principles
-- [X] Design tokens
-- [x] Mobile-first styling
-- [X] Responsive layouts
-- [ ] View Transitions API
+#### §1.1.5: Jest
 
-**Development**
+#### §1.1.6: Prettier
 
-- [ ] Automated scaffolding
-- [X] ESLint/Stylelint editor integration (VSCode, Webstorm/IntelliJ)
-- [X] Component-driven UI Library
-- [X] Just-In-Time CSS compilation
-- [X] Centralized build pipeline
-- [ ] Plug'n'play
-- [X] Intrinsic CI/CD pipeline
-- [X] Strong type-checking
+#### §1.1.7: React
 
-**Infrastructure**
-
-- [X] Bucket versioning
-- [X] Managed services
-- [ ] Multi-regional redundancy
-- [X] Zero-downtime deployment strategy (e.g. blue/green, canary)
-
-**Performance**
-
-- [X] Code splitting
-- [X] Edge caching
-- [X] Lazy-loading
-- [ ] Static/Server-side Rendering
-- [X] Web Vitals
-
-**Project Management**
-
-- [X] Clean commit history
-- [ ] Demoable PRs
-- [ ] Issue template
-- [X] Pull request template
-- [X] Semantically versioned releases
-
-**Testing**
-
-- [ ] Enforced coverage thresholds (80% functional)
-- [X] Unit/integration testing (Jest, @testing-library/react)
-- [ ] Snapshot testing
-- [X] Visual regression testing (Playwrite)
-- [ ] Coverage reporting
+#### §1.1.8: TypeScript
 
 <p align="right"><a href="#top">⬆️ back to top</a></p>
 
