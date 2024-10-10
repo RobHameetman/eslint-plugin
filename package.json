@@ -33,7 +33,7 @@
     "@eslint/eslintrc": "3.1.0",
     "@eslint/js": "9.3.0",
     "@next/eslint-plugin-next": "14.2.3",
-    "@rob.hameetman/type-guards": "^1.0.1",
+    "@rob.hameetman/type-guards": "1.1.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-cypress": "3.2.0",
     "eslint-plugin-graphql": "4.0.0",
@@ -97,13 +97,13 @@
     "ts-loader": "9.5.1",
     "typescript": "5.4.5"
   },
-  "overrides": {
-    "eslint": ">= 9.0.0"
-  },
-  "bundledDependencies": [
+	"bundleDependencies": [
     "eslint",
     "estree"
   ],
+  "overrides": {
+    "eslint": ">= 9.0.0"
+  },
   "eslintConfig": {
     "extends": [
       "./index.js"
