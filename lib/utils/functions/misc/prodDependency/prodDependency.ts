@@ -15,4 +15,4 @@ export const prodDependency = (name: string) =>
 	Object.keys(PACKAGE_JSON?.dependencies ?? {}).includes(name) ||
 	Object.keys(PACKAGE_JSON?.peerDependencies ?? {}).includes(name) ||
 	Object.keys(PACKAGE_JSON?.optionalDependencies ?? {}).includes(name) ||
-	Object.keys(PACKAGE_JSON?.bundledDependencies ?? {}).includes(name);
+	Object.keys(PACKAGE_JSON?.bundleDependencies ?? {}).includes(name);
