@@ -10,7 +10,8 @@
   "module": "./index.js",
   "typings": "./bin/index.d.js",
   "files": [
-    "bin/*"
+    "bin/*",
+		"index.js"
   ],
   "repository": {
     "type": "git",
