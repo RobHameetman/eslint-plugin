@@ -46,4 +46,3 @@ jobs:
     uses: ./.github/workflows/publish.yml
     with:
       dist: bin
-      pr: ${{ fromJSON(needs.confirm.outputs.pr-number) }}
