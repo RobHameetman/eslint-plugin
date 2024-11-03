@@ -1,5 +1,5 @@
 import { isModuleSpecifier } from './isModuleSpecifier';
-import { fakeModuleSpecifier } from '@test/fakes/estree/fakeModuleSpecifier';
+import { fakeModuleSpecifier } from '@@/fakes/estree/fakeModuleSpecifier';
 
 describe('isModuleSpecifier()', () => {
 	it('should return true given a valid ModuleSpecifier', () => {

@@ -1,5 +1,5 @@
 import { isSpreadElement } from './isSpreadElement';
-import { fakeSpreadElement } from '@test/fakes/estree/fakeSpreadElement';
+import { fakeSpreadElement } from '@@/fakes/estree/fakeSpreadElement';
 
 describe('isSpreadElement()', () => {
 	it('should return true given a valid SpreadElement', () => {

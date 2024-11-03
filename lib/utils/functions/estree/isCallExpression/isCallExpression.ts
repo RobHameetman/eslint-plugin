@@ -1,6 +1,6 @@
 import type { CallExpression } from 'estree';
-import { isNewExpression } from '@functions/estree/isNewExpression';
-import { isSimpleCallExpression } from '@functions/estree/isSimpleCallExpression';
+import { isNewExpression } from '@/utils/functions/estree/isNewExpression';
+import { isSimpleCallExpression } from '@/utils/functions/estree/isSimpleCallExpression';
 
 /**
  * Checks that an `unknown` value is a {@link CallExpression}.

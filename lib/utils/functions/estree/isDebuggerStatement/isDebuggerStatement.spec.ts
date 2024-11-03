@@ -1,5 +1,5 @@
 import { isDebuggerStatement } from './isDebuggerStatement';
-import { fakeDebuggerStatement } from '@test/fakes/estree/fakeDebuggerStatement';
+import { fakeDebuggerStatement } from '@@/fakes/estree/fakeDebuggerStatement';
 
 describe('isDebuggerStatement()', () => {
 	it('should return true given a valid DebuggerStatement', () => {

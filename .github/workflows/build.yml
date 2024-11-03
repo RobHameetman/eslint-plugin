@@ -11,7 +11,7 @@ on:
     inputs:
       dist:
         description: The directory where the package will be built
-        default: dist
+        default: bin
         required: false
         type: string
       node:
@@ -46,9 +46,9 @@ jobs:
   build:
     name: Build
     if: github.repository.archived != true
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container:
-      image: node:21
+      image: node:${{ inputs.node }}
     steps:
       - name: Init
         id: init
@@ -83,7 +83,7 @@ jobs:
           # 'development' is required instead of 'production' here so that NPM includes devDependencies (like Rollup).
           NODE_ENV: development
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm ci --legacy-peer-deps --ignore-scripts
+        run: npm ci --force --ignore-scripts
 
       - name: Build
         id: build

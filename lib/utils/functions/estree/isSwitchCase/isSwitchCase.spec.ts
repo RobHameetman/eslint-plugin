@@ -1,5 +1,5 @@
 import { isSwitchCase } from './isSwitchCase';
-import { fakeSwitchCase } from '@test/fakes/estree/fakeSwitchCase';
+import { fakeSwitchCase } from '@@/fakes/estree/fakeSwitchCase';
 
 describe('isSwitchCase()', () => {
 	it('should return true given a valid SwitchCase', () => {

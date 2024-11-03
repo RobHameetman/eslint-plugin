@@ -1,5 +1,5 @@
 import { isStaticBlock } from './isStaticBlock';
-import { fakeStaticBlock } from '@test/fakes/estree/fakeStaticBlock';
+import { fakeStaticBlock } from '@@/fakes/estree/fakeStaticBlock';
 
 describe('isStaticBlock()', () => {
 	it('should return true given a valid StaticBlock', () => {

@@ -1,0 +1,8 @@
+{
+	"name": "@packagejson/true",
+	"version": "1.0.0",
+	"main": "index.js",
+	"devDependencies": {
+		"@testing-library/dom": "^9.0.0"
+	}
+}

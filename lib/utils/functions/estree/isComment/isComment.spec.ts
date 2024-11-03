@@ -1,5 +1,5 @@
 import { isComment } from './isComment';
-import { fakeComment } from '@test/fakes/estree/fakeComment';
+import { fakeComment } from '@@/fakes/estree/fakeComment';
 
 describe('isComment()', () => {
 	it('should return true given a valid Comment', () => {

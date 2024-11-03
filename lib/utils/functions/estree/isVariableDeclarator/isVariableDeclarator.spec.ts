@@ -1,5 +1,5 @@
 import { isVariableDeclarator } from './isVariableDeclarator';
-import { fakeVariableDeclarator } from '@test/fakes/estree/fakeVariableDeclarator';
+import { fakeVariableDeclarator } from '@@/fakes/estree/fakeVariableDeclarator';
 
 describe('isVariableDeclarator()', () => {
 	it('should return true given a valid VariableDeclarator', () => {

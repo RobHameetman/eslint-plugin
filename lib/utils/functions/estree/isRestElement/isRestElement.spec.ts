@@ -1,5 +1,5 @@
 import { isRestElement } from './isRestElement';
-import { fakeRestElement } from '@test/fakes/estree/fakeRestElement';
+import { fakeRestElement } from '@@/fakes/estree/fakeRestElement';
 
 describe('isRestElement()', () => {
 	it('should return true given a valid RestElement', () => {

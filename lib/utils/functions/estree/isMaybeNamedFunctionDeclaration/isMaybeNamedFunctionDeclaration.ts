@@ -1,6 +1,6 @@
 import type { MaybeNamedFunctionDeclaration } from 'estree';
-import { isBaseDeclaration } from '@functions/estree/isBaseDeclaration';
-import { isBaseFunction } from '@functions/estree/isBaseFunction';
+import { isBaseDeclaration } from '@/utils/functions/estree/isBaseDeclaration';
+import { isBaseFunction } from '@/utils/functions/estree/isBaseFunction';
 
 /**
  * Checks that an `unknown` value is a {@link MaybeNamedFunctionDeclaration}.

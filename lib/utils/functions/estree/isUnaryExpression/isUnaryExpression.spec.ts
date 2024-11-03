@@ -1,5 +1,5 @@
 import { isUnaryExpression } from './isUnaryExpression';
-import { fakeUnaryExpression } from '@test/fakes/estree/fakeUnaryExpression';
+import { fakeUnaryExpression } from '@@/fakes/estree/fakeUnaryExpression';
 
 describe('isUnaryExpression()', () => {
 	it('should return true given a valid UnaryExpression', () => {

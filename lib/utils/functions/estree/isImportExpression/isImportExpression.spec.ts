@@ -1,5 +1,5 @@
 import { isImportExpression } from './isImportExpression';
-import { fakeImportExpression } from '@test/fakes/estree/fakeImportExpression';
+import { fakeImportExpression } from '@@/fakes/estree/fakeImportExpression';
 
 describe('isImportExpression()', () => {
 	it('should return true given a valid ImportExpression', () => {

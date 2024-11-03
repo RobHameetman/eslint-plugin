@@ -1,5 +1,5 @@
 import { isSimpleLiteral } from './isSimpleLiteral';
-import { fakeSimpleLiteral } from '@test/fakes/estree/fakeSimpleLiteral';
+import { fakeSimpleLiteral } from '@@/fakes/estree/fakeSimpleLiteral';
 
 describe('isSimpleLiteral()', () => {
 	it('should return true given a valid SimpleLiteral', () => {

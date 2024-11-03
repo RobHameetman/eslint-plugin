@@ -1,9 +1,9 @@
 import type { BaseForXStatement } from 'estree';
-import { isBaseStatement } from '@functions/estree/isBaseStatement';
-import { isExpression } from '@functions/estree/isExpression';
-import { isPattern } from '@functions/estree/isPattern';
-import { isStatement } from '@functions/estree/isStatement';
-import { isVariableDeclaration } from '@functions/estree/isVariableDeclaration';
+import { isBaseStatement } from '@/utils/functions/estree/isBaseStatement';
+import { isExpression } from '@/utils/functions/estree/isExpression';
+import { isPattern } from '@/utils/functions/estree/isPattern';
+import { isStatement } from '@/utils/functions/estree/isStatement';
+import { isVariableDeclaration } from '@/utils/functions/estree/isVariableDeclaration';
 
 /**
  * Checks that an `unknown` value is a {@link BaseForXStatement}.

@@ -1,5 +1,5 @@
 import type { ReturnStatement } from 'estree';
-import { isBaseStatement } from '@functions/estree/isBaseStatement';
+import { isBaseStatement } from '@/utils/functions/estree/isBaseStatement';
 
 /**
  * Checks that an `unknown` value is a {@link ReturnStatement}.

@@ -1,5 +1,5 @@
 import { isArrayExpression } from './isArrayExpression';
-import { fakeArrayExpression } from '@test/fakes/estree/fakeArrayExpression';
+import { fakeArrayExpression } from '@@/fakes/estree/fakeArrayExpression';
 
 describe('isArrayExpression()', () => {
 	it('should return true given a valid ArrayExpression', () => {

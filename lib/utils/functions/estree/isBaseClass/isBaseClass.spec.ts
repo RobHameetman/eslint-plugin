@@ -1,5 +1,5 @@
 import { isBaseClass } from './isBaseClass';
-import { fakeBaseClass } from '@test/fakes/estree/fakeBaseClass';
+import { fakeBaseClass } from '@@/fakes/estree/fakeBaseClass';
 
 describe('isBaseClass()', () => {
 	it('should return true given a valid BaseClass', () => {

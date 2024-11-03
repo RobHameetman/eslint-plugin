@@ -1,8 +1,8 @@
 import type { ModuleDeclaration } from 'estree';
-import { isImportDeclaration } from '@functions/estree/isImportDeclaration';
-import { isExportNamedDeclaration } from '@functions/estree/isExportNamedDeclaration';
-import { isExportDefaultDeclaration } from '@functions/estree/isExportDefaultDeclaration';
-import { isExportAllDeclaration } from '@functions/estree/isExportAllDeclaration';
+import { isImportDeclaration } from '@/utils/functions/estree/isImportDeclaration';
+import { isExportNamedDeclaration } from '@/utils/functions/estree/isExportNamedDeclaration';
+import { isExportDefaultDeclaration } from '@/utils/functions/estree/isExportDefaultDeclaration';
+import { isExportAllDeclaration } from '@/utils/functions/estree/isExportAllDeclaration';
 
 /**
  * Checks that an `unknown` value is a {@link ModuleDeclaration}.

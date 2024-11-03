@@ -1,5 +1,5 @@
 import { isBinaryExpression } from './isBinaryExpression';
-import { fakeBinaryExpression } from '@test/fakes/estree/fakeBinaryExpression';
+import { fakeBinaryExpression } from '@@/fakes/estree/fakeBinaryExpression';
 
 describe('isBinaryExpression()', () => {
 	it('should return true given a valid BinaryExpression', () => {

@@ -1,5 +1,5 @@
 import type { NewExpression } from 'estree';
-import { isBaseCallExpression } from '@functions/estree/isBaseCallExpression';
+import { isBaseCallExpression } from '@/utils/functions/estree/isBaseCallExpression';
 
 /**
  * Checks that an `unknown` value is a {@link NewExpression}.

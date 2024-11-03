@@ -1,5 +1,5 @@
 import { isSequenceExpression } from './isSequenceExpression';
-import { fakeSequenceExpression } from '@test/fakes/estree/fakeSequenceExpression';
+import { fakeSequenceExpression } from '@@/fakes/estree/fakeSequenceExpression';
 
 describe('isSequenceExpression()', () => {
 	it('should return true given a valid SequenceExpression', () => {

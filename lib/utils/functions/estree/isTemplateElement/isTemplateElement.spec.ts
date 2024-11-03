@@ -1,5 +1,5 @@
 import { isTemplateElement } from './isTemplateElement';
-import { fakeTemplateElement } from '@test/fakes/estree/fakeTemplateElement';
+import { fakeTemplateElement } from '@@/fakes/estree/fakeTemplateElement';
 
 describe('isTemplateElement()', () => {
 	it('should return true given a valid TemplateElement', () => {

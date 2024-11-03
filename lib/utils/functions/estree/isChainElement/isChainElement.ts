@@ -1,6 +1,6 @@
 import type { ChainElement } from 'estree';
-import { isSimpleCallExpression } from '@functions/estree/isSimpleCallExpression';
-import { isMemberExpression } from '@functions/estree/isMemberExpression';
+import { isSimpleCallExpression } from '@/utils/functions/estree/isSimpleCallExpression';
+import { isMemberExpression } from '@/utils/functions/estree/isMemberExpression';
 
 /**
  * Checks that an `unknown` value is a {@link ChainElement}.

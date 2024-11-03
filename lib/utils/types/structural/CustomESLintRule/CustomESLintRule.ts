@@ -1,14 +1,15 @@
-import { Rule as ESLint } from 'eslint';
-import { Categories } from '@enums/Categories';
-import { RuleTypes } from '@enums/RuleTypes';
-import { ruleUrl } from '@functions/misc/ruleUrl';
-import { InfoMethodInput } from '@type/structural/InfoMethodInput';
-import { ValidateMethodInput } from '@type/structural/ValidateMethodInput';
-import { ListenerTypeList } from '@type/misc/ListenerTypeList';
-import { RuleContext } from '@type/misc/RuleContext';
-import { RuleListeners } from '@type/misc/RuleListeners';
-import { RuleModule } from '@type/misc/RuleModule';
-import { ValidationTask } from '@type/misc/ValidationTask';
+import type { Rule } from 'eslint';
+import { Categories } from '@/utils/enums/Categories';
+import { RuleTypes } from '@/utils/enums/RuleTypes';
+import { ruleUrl } from '@/utils/functions/misc/ruleUrl';
+import type { CurriedHandler } from '@/utils/types/handlers/CurriedHandler';
+import type { Handlers } from '@/utils/types/handlers/Handlers';
+import type { Selectors } from '@/utils/types/listeners/Selectors';
+// import type { RuleContext } from '@/utils/types/misc/Context';
+// import type { RuleModule } from '@/utils/types/misc/CustomRuleModule';
+import type { FromSchema } from '@/utils/types/misc/FromSchema';
+import type { $MetaMethodInput } from '@/utils/types/structural/$MetaMethodInput';
+import type { HandleInput } from '@/utils/types/structural/HandleInput';
 
 /**
  * A façade class used to improve the experience of creating new custom ESLint
@@ -17,23 +18,23 @@ import { ValidationTask } from '@type/misc/ValidationTask';
  * the documentation. It also implements ESLint's `RuleModule` interface, so an
  * instance of a `CustomESLintRule` may be provided directly to ESLint.
  */
-export class CustomESLintRule<T = never> implements RuleModule<T> {
+export class CustomESLintRule<S extends Readonly<[...Array<unknown>]> = Readonly<[...Array<never>]>, T extends FromSchema<S> = FromSchema<S>> implements Rule.Module<T> {
 	/**
-	 * The internal object with methods that ESLint calls to "visit" nodes while
+	 * The internal object with handlers that ESLint calls to "visit" nodes while
 	 * traversing the abstract syntax tree (AST as defined by ESTree).
 	 */
-	private _listeners: RuleListeners<T> = {};
+	private _handlers: Handlers<T> = {};
 
 	/**
 	 * Contains metadata for the rule.
 	 */
-	private _meta: RuleModule<T>['meta'];
+	private _meta: Rule.Module<T>['meta'];
 
 	/**
 	 * Instantiating a new `CustomESLintRule` requires a schema which specifies
 	 * the options so ESLint can prevent invalid rule configurations.
 	 */
-	constructor(schema: ESLint.RuleMetaData['schema']) {
+	constructor(schema?: S) {
 		this._meta = {
 			...(this._meta || {}),
 			schema: [
@@ -47,7 +48,7 @@ export class CustomESLintRule<T = never> implements RuleModule<T> {
 	 * Public getter for `this._meta`. This allows us to update the rule's
 	 * metadata internally while preventing any unwanted external state changes.
 	 */
-	get meta(): RuleModule<T>['meta'] {
+	get meta(): Rule.Module<T>['meta'] {
 		return this._meta;
 	}
 
@@ -55,33 +56,33 @@ export class CustomESLintRule<T = never> implements RuleModule<T> {
 	 * Returns an object with methods that ESLint calls to "visit" nodes while
 	 * traversing the abstract syntax tree (AST as defined by ESTree).
 	 */
-	create = (context: RuleContext<T>, listeners = this._listeners): ESLint.RuleListener => {
-		return Object.entries(listeners)
-			.reduce<ESLint.RuleListener>(
-				(prev, [key, callback]) => {
+	create = (context: Rule.Context<T>, handlers = this._handlers) => {
+		return Object.entries(handlers)
+			.reduce<Rule.RuleListener>(
+				(prev, [key, handler]) => {
 					const next = { ...prev };
 
-					if (callback !== undefined) {
-						next[key] = callback(context);
+					if (handler !== undefined) {
+						next[key] = handler(context);
 					}
 
 					return next;
 				},
-				{} as ESLint.RuleListener,
+				{} as Rule.RuleListener,
 			);
 	}
 
 	/**
 	 * Sets the metadata for the rule.
 	 */
-	info({
+	$meta({
 		category,
 		deprecated,
 		description,
 		hasSuggestions,
 		name,
 		recommended,
-	}: InfoMethodInput): this {
+	}: $MetaMethodInput): this {
 		const isDeprecated =
 			deprecated ||
 			category === Categories.Deprecated ||
@@ -128,27 +129,27 @@ export class CustomESLintRule<T = never> implements RuleModule<T> {
 	 * Returns the rule object provided to ESLint as an object literal instead of
 	 * an instance of the `CustomESLintRule` class.
 	 */
-	pure(): ESLint.RuleModule {
+	pure() {
 		return {
 			meta: { ...this._meta },
-			create: (context: RuleContext<T>) => {
-				const listeners = { ...this._listeners };
+			create: ((context: Rule.RuleContext) => {
+				const handlers = { ...this._handlers };
 
-				return this.create(context, listeners);
-			},
-		};
+				return this.create(context as Rule.Context<T> & Rule.RuleContext, handlers);
+			}),
+		} as Rule.RuleModule;
 	}
 
 	/**
-	 * Add an ESTree evaluation function to the internal map of listeners returned
+	 * Add an ESTree evaluation function to the internal map of handlers returned
 	 * by the `create()` method.
 	 */
-	validate<U extends ListenerTypeList = ListenerTypeList>({
-		check,
-		task,
-	}: ValidateMethodInput<T, U>): this {
-		check.forEach((key) => {
-			this._listeners[key] = task as ValidationTask<T>;
+	handle<U extends Selectors = Selectors>({
+		selectors,
+		onLint: handler,
+	}: HandleInput<T, U>): this {
+		selectors.forEach((selector) => {
+			this._handlers[selector] = handler as CurriedHandler<T>;
 		});
 
 		return this;
@@ -165,7 +166,12 @@ export class CustomESLintRule<T = never> implements RuleModule<T> {
  *
  * @returns The determination that `value` is or is not a {@link CustomESLintRule}.
  */
-export const isCustomESLintRule = (value: unknown): value is CustomESLintRule =>
+export const isCustomESLintRule = <
+	S extends Readonly<[...Array<unknown>]> = Readonly<[...Array<never>]>,
+	T extends FromSchema<S> = FromSchema<S>,
+>(
+	value: unknown,
+): value is CustomESLintRule<S, T> =>
 	/**
 	 * value
 	 */

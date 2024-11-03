@@ -1,5 +1,5 @@
 import { isNode } from './isNode';
-import { fakeNode } from '@test/fakes/estree/fakeNode';
+import { fakeNode } from '@@/fakes/estree/fakeNode';
 
 describe('isNode()', () => {
 	it('should return true given a valid Node', () => {

@@ -1,5 +1,5 @@
 import { isAssignmentProperty } from './isAssignmentProperty';
-import { fakeAssignmentProperty } from '@test/fakes/estree/fakeAssignmentProperty';
+import { fakeAssignmentProperty } from '@@/fakes/estree/fakeAssignmentProperty';
 
 describe('isAssignmentProperty()', () => {
 	it('should return true given a valid AssignmentProperty', () => {

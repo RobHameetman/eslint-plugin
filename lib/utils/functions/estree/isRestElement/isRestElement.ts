@@ -1,5 +1,5 @@
 import type { RestElement } from 'estree';
-import { isBasePattern } from '@functions/estree/isBasePattern';
+import { isBasePattern } from '@/utils/functions/estree/isBasePattern';
 
 /**
  * Checks that an `unknown` value is a {@link RestElement}.

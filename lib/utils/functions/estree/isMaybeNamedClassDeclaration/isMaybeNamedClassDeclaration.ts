@@ -1,6 +1,6 @@
 import type { MaybeNamedClassDeclaration } from 'estree';
-import { isBaseClass } from '@functions/estree/isBaseClass';
-import { isBaseDeclaration } from '@functions/estree/isBaseDeclaration';
+import { isBaseClass } from '@/utils/functions/estree/isBaseClass';
+import { isBaseDeclaration } from '@/utils/functions/estree/isBaseDeclaration';
 
 /**
  * Checks that an `unknown` value is a {@link MaybeNamedClassDeclaration}.

@@ -1,5 +1,5 @@
 import { isMetaProperty } from './isMetaProperty';
-import { fakeMetaProperty } from '@test/fakes/estree/fakeMetaProperty';
+import { fakeMetaProperty } from '@@/fakes/estree/fakeMetaProperty';
 
 describe('isMetaProperty()', () => {
 	it('should return true given a valid MetaProperty', () => {

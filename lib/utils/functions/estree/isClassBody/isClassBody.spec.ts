@@ -1,5 +1,5 @@
 import { isClassBody } from './isClassBody';
-import { fakeClassBody } from '@test/fakes/estree/fakeClassBody';
+import { fakeClassBody } from '@@/fakes/estree/fakeClassBody';
 
 describe('isClassBody()', () => {
 	it('should return true given a valid ClassBody', () => {

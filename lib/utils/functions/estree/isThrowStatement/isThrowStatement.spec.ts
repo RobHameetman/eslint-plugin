@@ -1,5 +1,5 @@
 import { isThrowStatement } from './isThrowStatement';
-import { fakeThrowStatement } from '@test/fakes/estree/fakeThrowStatement';
+import { fakeThrowStatement } from '@@/fakes/estree/fakeThrowStatement';
 
 describe('isThrowStatement()', () => {
 	it('should return true given a valid ThrowStatement', () => {

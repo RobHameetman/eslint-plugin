@@ -1,6 +1,6 @@
 import type { Expression } from 'estree';
 import { isArray } from '@rob.hameetman/type-guards';
-import { isExpression } from '@functions/estree/isExpression';
+import { isExpression } from '@/utils/functions/estree/isExpression';
 
 /**
  * Checks that an `unknown` value is a {@link ReadonlyArray<Expression>}.

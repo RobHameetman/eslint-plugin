@@ -1,34 +1,71 @@
 import { Rule as _Rule } from 'eslint';
 import { Statement } from 'estree';
-import { Categories } from '@enums/Categories';
-import { Body } from '@type/misc/Body';
-import { CustomESLintRule } from '@type/structural/CustomESLintRule';
-import { CustomRuleExampleOptions as Options, schema } from './custom-rule-example.schema';
+import { Categories } from '@/utils/enums/Categories';
+import { Body } from '@/utils/types/handlers/Body';
+import { CustomESLintRule } from '@/utils/types/structural/CustomESLintRule';
 
 const DEFAULT_MAX_STATEMENTS = 1;
 
 /**
+ * A schema for providing options to this rule in a config:
+ *
+ * @example
+ * ```TypeScript
+ * {
+ *   plugins: {
+ *     plugin,
+ *   },
+ *   rules: {
+ * 	   'plugin/custom-rule-example': ['error', 'always', { maximumStatements: 1 }]
+ *   }
+ * }
+ * ```
+ */
+const schema = [
+	{
+		enum: [
+			'always',
+			'never',
+		],
+	},
+	{
+		type: 'object',
+		properties: {
+			maximumStatements: {
+				type: 'integer',
+			},
+		},
+		additionalProperties: false,
+	},
+	{
+		type: 'object',
+		properties: {
+			minimumStatements: {
+				type: 'integer',
+			},
+		},
+		additionalProperties: false,
+	},
+] as const;
+
+/**
  * @see https://eslint.org/docs/developer-guide/working-with-rules
  */
-export default new CustomESLintRule<Options>(schema)
-	.info({
+export default new CustomESLintRule(schema)
+	.$meta({
 		name: 'custom-rule-example',
 		description: 'TODO: Add a short description here.',
 		category: Categories.PossibleProblems,
 	})
-	.validate({
-		/**
-		 * Should be keys of the ESLint `NodeListener` interface.
-		 */
-		check: ['FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression'],
-		/**
-		 * This is always a curried function, the outer function taking the rule
-		 * context and the inner function being the listener attached to the
-		 * `NodeListener` keys listed above.
-		 */
-		task: ({ options, report }) =>
+	.handle({
+		selectors: [
+			'FunctionDeclaration',
+			'FunctionExpression[params.length>3]',
+			'ArrowFunctionExpression',
+		],
+		onLint: ({ options, report }) =>
 			(node) => {
-				const [{ maximumStatements: maxStatements }] = options || [{
+				const [alwaysOrNever, { maximumStatements: maxStatements = 0 }, { minimumStatements: minStatements }] = options || [{
 					maximumStatements: DEFAULT_MAX_STATEMENTS,
 				}];
 

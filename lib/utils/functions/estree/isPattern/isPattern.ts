@@ -1,10 +1,10 @@
 import type { Pattern } from 'estree';
-import { isArrayPattern } from '@functions/estree/isArrayPattern';
-import { isAssignmentPattern } from '@functions/estree/isAssignmentPattern';
-import { isIdentifier } from '@functions/estree/isIdentifier';
-import { isMemberExpression } from '@functions/estree/isMemberExpression';
-import { isObjectPattern } from '@functions/estree/isObjectPattern';
-import { isRestElement } from '@functions/estree/isRestElement';
+import { isArrayPattern } from '@/utils/functions/estree/isArrayPattern';
+import { isAssignmentPattern } from '@/utils/functions/estree/isAssignmentPattern';
+import { isIdentifier } from '@/utils/functions/estree/isIdentifier';
+import { isMemberExpression } from '@/utils/functions/estree/isMemberExpression';
+import { isObjectPattern } from '@/utils/functions/estree/isObjectPattern';
+import { isRestElement } from '@/utils/functions/estree/isRestElement';
 
 /**
  * Checks that an `unknown` value is a {@link Pattern}.

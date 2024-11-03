@@ -1,7 +1,7 @@
 import type { Declaration } from 'estree';
-import { isClassDeclaration } from '@functions/estree/isClassDeclaration';
-import { isFunctionDeclaration } from '@functions/estree/isFunctionDeclaration';
-import { isVariableDeclaration } from '@functions/estree/isVariableDeclaration';
+import { isClassDeclaration } from '@/utils/functions/estree/isClassDeclaration';
+import { isFunctionDeclaration } from '@/utils/functions/estree/isFunctionDeclaration';
+import { isVariableDeclaration } from '@/utils/functions/estree/isVariableDeclaration';
 
 /**
  * Checks that an `unknown` value is a {@link Declaration}.

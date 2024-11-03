@@ -1,5 +1,5 @@
 import { isImportSpecifier } from './isImportSpecifier';
-import { fakeImportSpecifier } from '@test/fakes/estree/fakeImportSpecifier';
+import { fakeImportSpecifier } from '@@/fakes/estree/fakeImportSpecifier';
 
 describe('isImportSpecifier()', () => {
 	it('should return true given a valid ImportSpecifier', () => {

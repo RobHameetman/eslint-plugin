@@ -1,5 +1,5 @@
 import { isStatement } from './isStatement';
-import { fakeStatement } from '@test/fakes/estree/fakeStatement';
+import { fakeStatement } from '@@/fakes/estree/fakeStatement';
 
 describe('isStatement()', () => {
 	it('should return true given a valid Statement', () => {

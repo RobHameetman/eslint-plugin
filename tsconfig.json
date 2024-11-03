@@ -15,20 +15,12 @@
 		"noImplicitThis": true,
 		"outDir": "./bin",
 		"paths": {
-			"@configs/*": ["./lib/configs/*"],
-			"@rules/*": ["./lib/rules/*"],
-			"@constants/*": ["./lib/utils/constants/*"],
-			"@enums/*": ["./lib/utils/enums/*"],
-			"@functions/*": ["./lib/utils/functions/*"],
-			"@type/*": ["./lib/utils/types/*"],
-			"@test/*": ["./test/resources/*"]
+			"@/*": ["./lib/*"],
+			"@@/*": ["./test/resources/*"]
 		},
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"target": "esnext"
   },
-  "files": [
-		"./typings/eslint.d.ts",
-		"./lib/index.ts"
-	],
 	"include": [
 		"./lib",
 		"./typings"

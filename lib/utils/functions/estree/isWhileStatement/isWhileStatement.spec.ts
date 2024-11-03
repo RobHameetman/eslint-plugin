@@ -1,5 +1,5 @@
 import { isWhileStatement } from './isWhileStatement';
-import { fakeWhileStatement } from '@test/fakes/estree/fakeWhileStatement';
+import { fakeWhileStatement } from '@@/fakes/estree/fakeWhileStatement';
 
 describe('isWhileStatement()', () => {
 	it('should return true given a valid WhileStatement', () => {

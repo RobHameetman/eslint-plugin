@@ -1,2 +1,1 @@
-export * from './ConfigModule';
-export * from './lintFixtureFile';
+export * from './mockWithPlugin';

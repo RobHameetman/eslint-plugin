@@ -1,5 +1,5 @@
 import { isThisExpression } from './isThisExpression';
-import { fakeThisExpression } from '@test/fakes/estree/fakeThisExpression';
+import { fakeThisExpression } from '@@/fakes/estree/fakeThisExpression';
 
 describe('isThisExpression()', () => {
 	it('should return true given a valid ThisExpression', () => {

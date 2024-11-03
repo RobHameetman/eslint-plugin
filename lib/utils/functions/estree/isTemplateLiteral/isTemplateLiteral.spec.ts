@@ -1,5 +1,5 @@
 import { isTemplateLiteral } from './isTemplateLiteral';
-import { fakeTemplateLiteral } from '@test/fakes/estree/fakeTemplateLiteral';
+import { fakeTemplateLiteral } from '@@/fakes/estree/fakeTemplateLiteral';
 
 describe('isTemplateLiteral()', () => {
 	it('should return true given a valid TemplateLiteral', () => {

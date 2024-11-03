@@ -1,5 +1,5 @@
 import { isCatchClause } from './isCatchClause';
-import { fakeCatchClause } from '@test/fakes/estree/fakeCatchClause';
+import { fakeCatchClause } from '@@/fakes/estree/fakeCatchClause';
 
 describe('isCatchClause()', () => {
 	it('should return true given a valid CatchClause', () => {

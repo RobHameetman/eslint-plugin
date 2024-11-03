@@ -1,6 +1,6 @@
 import type { FunctionExpression } from 'estree';
-import { isBaseExpression } from '@functions/estree/isBaseExpression';
-import { isBaseFunction } from '@functions/estree/isBaseFunction';
+import { isBaseExpression } from '@/utils/functions/estree/isBaseExpression';
+import { isBaseFunction } from '@/utils/functions/estree/isBaseFunction';
 
 /**
  * Checks that an `unknown` value is a {@link FunctionExpression}.

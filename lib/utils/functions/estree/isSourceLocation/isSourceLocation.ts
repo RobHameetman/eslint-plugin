@@ -1,5 +1,5 @@
 import type { SourceLocation } from 'estree';
-import { isPosition } from '@functions/estree/isPosition';
+import { isPosition } from '@/utils/functions/estree/isPosition';
 import { isObject, isString } from '@rob.hameetman/type-guards';
 
 /**

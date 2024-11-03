@@ -1,6 +1,6 @@
 import type { FunctionDeclaration } from 'estree';
-import { isMaybeNamedFunctionDeclaration } from '@functions/estree/isMaybeNamedFunctionDeclaration';
-import { isIdentifier } from '@functions/estree/isIdentifier';
+import { isMaybeNamedFunctionDeclaration } from '@/utils/functions/estree/isMaybeNamedFunctionDeclaration';
+import { isIdentifier } from '@/utils/functions/estree/isIdentifier';
 
 /**
  * Checks that an `unknown` value is a {@link FunctionDeclaration}.

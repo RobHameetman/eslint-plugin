@@ -1,5 +1,5 @@
 import { isModuleDeclaration } from './isModuleDeclaration';
-import { fakeModuleDeclaration } from '@test/fakes/estree/fakeModuleDeclaration';
+import { fakeModuleDeclaration } from '@@/fakes/estree/fakeModuleDeclaration';
 
 describe('isModuleDeclaration()', () => {
 	it('should return true given a valid ModuleDeclaration', () => {

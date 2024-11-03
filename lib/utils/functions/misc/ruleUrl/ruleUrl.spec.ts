@@ -1,5 +1,5 @@
-import { REPO_URL } from '@constants/REPO_URL';
-import { onTest } from '@test/utils/misc/onTest';
+import { REPO_URL } from '@/utils/constants/misc/REPO_URL';
+import { onTest } from '@@/utils/misc/onTest';
 import { ruleUrl } from './ruleUrl';
 
 describe('ruleUrl()', () => {

@@ -1,5 +1,5 @@
 import { isRegExpLiteral } from './isRegExpLiteral';
-import { fakeRegExpLiteral } from '@test/fakes/estree/fakeRegExpLiteral';
+import { fakeRegExpLiteral } from '@@/fakes/estree/fakeRegExpLiteral';
 
 describe('isRegExpLiteral()', () => {
 	it('should return true given a valid RegExpLiteral', () => {

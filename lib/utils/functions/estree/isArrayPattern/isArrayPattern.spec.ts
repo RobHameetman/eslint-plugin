@@ -1,5 +1,5 @@
 import { isArrayPattern } from './isArrayPattern';
-import { fakeArrayPattern } from '@test/fakes/estree/fakeArrayPattern';
+import { fakeArrayPattern } from '@@/fakes/estree/fakeArrayPattern';
 
 describe('isArrayPattern()', () => {
 	it('should return true given a valid ArrayPattern', () => {

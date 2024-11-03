@@ -1,5 +1,5 @@
 import type { MethodDefinition } from 'estree';
-import { isBaseNode } from '@functions/estree/isBaseNode';
+import { isBaseNode } from '@/utils/functions/estree/isBaseNode';
 
 /**
  * Checks that an `unknown` value is a {@link MethodDefinition}.

@@ -1,5 +1,5 @@
 import { isAwaitExpression } from './isAwaitExpression';
-import { fakeAwaitExpression } from '@test/fakes/estree/fakeAwaitExpression';
+import { fakeAwaitExpression } from '@@/fakes/estree/fakeAwaitExpression';
 
 describe('isAwaitExpression()', () => {
 	it('should return true given a valid AwaitExpression', () => {

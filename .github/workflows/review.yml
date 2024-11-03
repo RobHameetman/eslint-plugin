@@ -6,11 +6,13 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
 
+permissions:
+  contents: read
+
 env:
   # General Options
   name: semantic-release-config
   node: '21'
-  debug: false
   # Skip
   skip-tests: false
   skip-publish: true
@@ -23,7 +25,6 @@ env:
   CI_PR_TIMEOUT_SETUP: ${{ vars.CI_PR_TIMEOUT_SETUP }}
   CI_PR_TIMEOUT_TESTS: ${{ vars.CI_PR_TIMEOUT_TESTS }}
   CI_PR_TIMEOUT_DEPLOYMENT: ${{ vars.CI_PR_TIMEOUT_DEPLOYMENT}}
-  CI_PR_TIMEOUT_CACHE_INVALIDATIONS: ${{ vars.CI_PR_TIMEOUT_CACHE_INVALIDATIONS }}
   CI_SKIP_PRERELEASE: ${{ vars.CI_SKIP_PRERELEASE }}
   DEBUG: ${{ vars.DEBUG }}
   NODE_ENV: production
@@ -35,25 +36,30 @@ jobs:
     if: github.repository.archived != true
     uses: ./.github/workflows/test.yml
     with:
-      node: ${{ env.node }}
-      skip: ${{ env.CI_SKIP_TESTS || fromJSON(env.skip-tests) }}
-      debug: ${{ env.CI_DEBUG || env.DEBUG || fromJSON(env.debug) }}
+      dist: bin
 
-  build:
-    name: BUILD
-    needs: [test]
-    if: github.repository.archived != true
-    uses: ./.github/workflows/build.yml
-    with:
-      node: ${{ env.node }}
-      skip: ${{ env.CI_SKIP_TESTS || fromJSON(env.skip-tests) }}
-      debug: ${{ env.CI_DEBUG || env.DEBUG || fromJSON(env.debug) }}
+  # build:
+  #   name: BUILD
+  #   needs: [test]
+  #   if: github.repository.archived != true
+  #   secrets:
+  #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  #   uses: ./.github/workflows/build.yml
+  #   with:
+  #     dist: bin
 
-  publish:
-    name: PUBLISH
-    needs: [test, build]
-    if: github.repository.archived != true
-    uses: ./.github/workflows/deploy.yml
-    with:
-      skip: ${{ env.CI_SKIP_PRERELEASE || fromJSON(env.skip-publish) }}
-      debug: ${{ env.CI_DEBUG || env.DEBUG || fromJSON(env.debug) }}
+  # publish:
+  #   name: PUBLISH
+  #   needs: [test, build]
+  #   if: github.repository.archived != true
+  #   secrets:
+  #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  #   permissions:
+  #     contents: write
+  #     issues: write
+  #     pull-requests: write
+  #     id-token: write
+  #   uses: ./.github/workflows/publish.yml
+  #   with:
+  #     dist: bin

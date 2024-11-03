@@ -1,5 +1,5 @@
 import { isBaseFunction } from './isBaseFunction';
-import { fakeBaseFunction } from '@test/fakes/estree/fakeBaseFunction';
+import { fakeBaseFunction } from '@@/fakes/estree/fakeBaseFunction';
 
 describe('isBaseFunction()', () => {
 	it('should return true given a valid BaseFunction', () => {

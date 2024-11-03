@@ -1,5 +1,5 @@
 import { isBasePattern } from './isBasePattern';
-import { fakeBasePattern } from '@test/fakes/estree/fakeBasePattern';
+import { fakeBasePattern } from '@@/fakes/estree/fakeBasePattern';
 
 describe('isBasePattern()', () => {
 	it('should return true given a valid BasePattern', () => {

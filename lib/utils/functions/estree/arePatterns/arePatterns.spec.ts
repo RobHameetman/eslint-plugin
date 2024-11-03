@@ -1,5 +1,5 @@
 import { arePatterns } from './arePatterns';
-import { fakePatterns } from '@test/fakes/estree/fakePatterns';
+import { fakePatterns } from '@@/fakes/estree/fakePatterns';
 
 describe('arePatterns()', () => {
 	it('should return true given valid Patterns', () => {

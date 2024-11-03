@@ -1,5 +1,5 @@
 import { isExportAllDeclaration } from './isExportAllDeclaration';
-import { fakeExportAllDeclaration } from '@test/fakes/estree/fakeExportAllDeclaration';
+import { fakeExportAllDeclaration } from '@@/fakes/estree/fakeExportAllDeclaration';
 
 describe('isExportAllDeclaration()', () => {
 	it('should return true given a valid ExportAllDeclaration', () => {

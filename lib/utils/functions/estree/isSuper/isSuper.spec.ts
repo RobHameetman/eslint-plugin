@@ -1,5 +1,5 @@
 import { isSuper } from './isSuper';
-import { fakeSuper } from '@test/fakes/estree/fakeSuper';
+import { fakeSuper } from '@@/fakes/estree/fakeSuper';
 
 describe('isSuper()', () => {
 	it('should return true given a valid Super', () => {

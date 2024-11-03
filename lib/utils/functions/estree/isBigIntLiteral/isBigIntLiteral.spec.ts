@@ -1,5 +1,5 @@
 import { isBigIntLiteral } from './isBigIntLiteral';
-import { fakeBigIntLiteral } from '@test/fakes/estree/fakeBigIntLiteral';
+import { fakeBigIntLiteral } from '@@/fakes/estree/fakeBigIntLiteral';
 
 describe('isBigIntLiteral()', () => {
 	it('should return true given a valid BigIntLiteral', () => {

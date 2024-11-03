@@ -1,5 +1,5 @@
 import { isPropertyDefinition } from './isPropertyDefinition';
-import { fakePropertyDefinition } from '@test/fakes/estree/fakePropertyDefinition';
+import { fakePropertyDefinition } from '@@/fakes/estree/fakePropertyDefinition';
 
 describe('isPropertyDefinition()', () => {
 	it('should return true given a valid PropertyDefinition', () => {

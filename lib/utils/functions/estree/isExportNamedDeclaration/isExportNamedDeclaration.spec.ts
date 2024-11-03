@@ -1,5 +1,5 @@
 import { isExportNamedDeclaration } from './isExportNamedDeclaration';
-import { fakeExportNamedDeclaration } from '@test/fakes/estree/fakeExportNamedDeclaration';
+import { fakeExportNamedDeclaration } from '@@/fakes/estree/fakeExportNamedDeclaration';
 
 describe('isExportNamedDeclaration()', () => {
 	it('should return true given a valid ExportNamedDeclaration', () => {

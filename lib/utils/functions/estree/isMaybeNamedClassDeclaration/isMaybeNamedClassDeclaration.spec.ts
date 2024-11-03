@@ -1,5 +1,5 @@
 import { isMaybeNamedClassDeclaration } from './isMaybeNamedClassDeclaration';
-import { fakeMaybeNamedClassDeclaration } from '@test/fakes/estree/fakeMaybeNamedClassDeclaration';
+import { fakeMaybeNamedClassDeclaration } from '@@/fakes/estree/fakeMaybeNamedClassDeclaration';
 
 describe('isMaybeNamedClassDeclaration()', () => {
 	it('should return true given a valid MaybeNamedClassDeclaration', () => {

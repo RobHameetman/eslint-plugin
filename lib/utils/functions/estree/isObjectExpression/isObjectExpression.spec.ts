@@ -1,5 +1,5 @@
 import { isObjectExpression } from './isObjectExpression';
-import { fakeObjectExpression } from '@test/fakes/estree/fakeObjectExpression';
+import { fakeObjectExpression } from '@@/fakes/estree/fakeObjectExpression';
 
 describe('isObjectExpression()', () => {
 	it('should return true given a valid ObjectExpression', () => {

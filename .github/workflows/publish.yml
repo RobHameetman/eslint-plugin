@@ -32,6 +32,11 @@ on:
         default: '21'
         required: false
         type: string
+      pr:
+        description: The PR number associated with the release (if applicable)
+        default: -1
+        required: false
+        type: number
       skip:
         description: Skip jobs
         default: false
@@ -43,18 +48,21 @@ permissions:
 
 env:
   # General Options
-  name: semantic-release-config
-  node: '21'
   debug: false
   # Timeouts (in minutes)
   timeout-setup: 10
   timeout-release: 10
   # Environment Variables
   CI: true
+  CI_COMMIT_BRANCH: ${{ github.ref_name }}
   CI_DEBUG: ${{ vars.CI_DEBUG }}
-  CI_PR_NUMBER: ${{ github.event.pull_request.number }}
+  CI_PR_NUMBER: ${{ inputs.pr }}
   CI_TIMEOUT_RELEASE: ${{ vars.CI_TIMEOUT_RELEASE }}
   CI_TIMEOUT_SETUP: ${{ vars.CI_TIMEOUT_SETUP }}
+  GIT_EMAIL: ${{ vars.GIT_EMAIL }}
+  GIT_USERNAME: ${{ vars.GIT_USERNAME }}
+  GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+  GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
   NODE_ENV: production
   RELEASE_DEBUG: ${{ vars.RELEASE_DEBUG }}
   RELEASE_DEPRECATE_AS_MINOR_VERSION: ${{ vars.RELEASE_DEPRECATE_AS_MINOR_VERSION }}
@@ -92,9 +100,9 @@ jobs:
   publish:
     name: Publish
     if: github.repository.archived != true
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container:
-      image: node:21
+      image: node:${{ inputs.node }}
     permissions:
       contents: write
       issues: write
@@ -133,9 +141,9 @@ jobs:
         timeout-minutes: ${{ fromJSON(env.__TIMEOUT_SETUP) }}
         if: fromJSON(env.__SKIP) != true
         env:
-          NODE_ENV: production
+          NODE_ENV: development
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm ci --legacy-peer-deps --ignore-scripts
+        run: npm ci --force --ignore-scripts
 
       - name: Verify
         id: verify
@@ -163,6 +171,10 @@ jobs:
         timeout-minutes: ${{ fromJSON(env.__TIMEOUT_RELEASE) }}
         if: fromJSON(env.__SKIP) != true
         env:
+          GIT_AUTHOR_NAME: '@semantic-release-bot'
+          GIT_AUTHOR_EMAIL: 'semantic-release-bot@martynus.net'
+          GIT_COMMITTER_NAME: '@semantic-release-bot'
+          GIT_COMMITTER_EMAIL: 'semantic-release-bot@martynus.net'
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release

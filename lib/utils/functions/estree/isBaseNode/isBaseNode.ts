@@ -1,7 +1,7 @@
 import type { BaseNode } from 'estree';
 import { isUndefined } from '@rob.hameetman/type-guards';
-import { areComments } from '@functions/estree/areComments';
-import { isBaseNodeWithoutComments } from '@functions/estree/isBaseNodeWithoutComments';
+import { areComments } from '@/utils/functions/estree/areComments';
+import { isBaseNodeWithoutComments } from '@/utils/functions/estree/isBaseNodeWithoutComments';
 
 /**
  * Checks that an `unknown` value is a {@link BaseNode}.

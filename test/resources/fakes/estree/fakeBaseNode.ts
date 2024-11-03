@@ -1,6 +1,6 @@
 import type { BaseNode } from 'estree';
 import { faker } from '@faker-js/faker';
-import { fakeComments } from '@test/fakes/estree/fakeComments';
+import { fakeComments } from '@@/fakes/estree/fakeComments';
 import { fakeBaseNodeWithoutComments } from './fakeBaseNodeWithoutComments';
 
 export const fakeBaseNode = ({

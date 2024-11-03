@@ -1,5 +1,5 @@
 import { isFunctionExpression } from './isFunctionExpression';
-import { fakeFunctionExpression } from '@test/fakes/estree/fakeFunctionExpression';
+import { fakeFunctionExpression } from '@@/fakes/estree/fakeFunctionExpression';
 
 describe('isFunctionExpression()', () => {
 	it('should return true given a valid FunctionExpression', () => {

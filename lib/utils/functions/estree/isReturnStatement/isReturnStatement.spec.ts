@@ -1,5 +1,5 @@
 import { isReturnStatement } from './isReturnStatement';
-import { fakeReturnStatement } from '@test/fakes/estree/fakeReturnStatement';
+import { fakeReturnStatement } from '@@/fakes/estree/fakeReturnStatement';
 
 describe('isReturnStatement()', () => {
 	it('should return true given a valid ReturnStatement', () => {

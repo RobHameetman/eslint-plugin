@@ -1,5 +1,5 @@
 import { isSwitchStatement } from './isSwitchStatement';
-import { fakeSwitchStatement } from '@test/fakes/estree/fakeSwitchStatement';
+import { fakeSwitchStatement } from '@@/fakes/estree/fakeSwitchStatement';
 
 describe('isSwitchStatement()', () => {
 	it('should return true given a valid SwitchStatement', () => {

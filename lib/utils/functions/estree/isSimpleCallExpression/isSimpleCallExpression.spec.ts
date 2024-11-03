@@ -1,5 +1,5 @@
 import { isSimpleCallExpression } from './isSimpleCallExpression';
-import { fakeSimpleCallExpression } from '@test/fakes/estree/fakeSimpleCallExpression';
+import { fakeSimpleCallExpression } from '@@/fakes/estree/fakeSimpleCallExpression';
 
 describe('isSimpleCallExpression()', () => {
 	it('should return true given a valid SimpleCallExpression', () => {
