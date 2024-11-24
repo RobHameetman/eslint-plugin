@@ -43,7 +43,7 @@ describe(`plugin:${process.env.npm_package_name}/core`, () => {
 		await expect(error).toBeNull();
 	});
 
-	it.skip('should avoid any removed rules', async () => {
+	it('should avoid any removed rules', async () => {
 		await expect(config).toAvoidRemovedRules();
 	});
 });

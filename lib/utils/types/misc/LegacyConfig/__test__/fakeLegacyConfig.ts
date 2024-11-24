@@ -66,7 +66,7 @@ export const fakeLegacyConfig = ({
 
 	faker.helpers.maybe(() => {
 		legacyConfig.plugins = Array.from(
-			{ length: faker.datatype.number({ min: 1, max: 5 }) },
+			{ length: faker.number.int({ min: 1, max: 5 }) },
 			() => faker.helpers.fake('plugin:{{word.noun}}/recommended'),
 		);
 	});

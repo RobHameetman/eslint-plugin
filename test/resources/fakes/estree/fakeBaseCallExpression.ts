@@ -4,7 +4,7 @@ import { fakeBaseExpression } from './fakeBaseExpression';
 import { fakeExpression } from './fakeExpression';
 
 const fakeArguments = () => Array.from(
-	{ length: faker.datatype.number({ min: 0, max: 5 }) },
+	{ length: faker.number.int({ min: 0, max: 5 }) },
 	() => faker.helpers.arrayElement([
 		fakeExpression,
 	])());

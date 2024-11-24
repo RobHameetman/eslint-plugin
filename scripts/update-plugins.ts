@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { execSync } from 'child_process';
 import * as eslintPluginImport from 'eslint-plugin-import';
-import * as removedRulesJson from '@/lib/configs/removed-rules.json';
+import * as removedRulesJson from '../test/jest/matchers/toAvoidRemovedRules/removed-rules.json';
 
 const REMOVED_RULES_FILE = path.join(process.cwd(), 'test/jest/matchers/toAvoidRemovedRules/removed-rules.json');
 
@@ -30,8 +30,9 @@ type RemovedRules = Record<string, ReadonlyArray<string>>;
 
 const getLatestVersion = async (pluginName: string) => {
   const response = await fetch(`https://registry.npmjs.org/${pluginName}/latest`);
+	const { version } = await response.json();
 
-  return response.data.version;
+  return version;
 }
 
 const getCurrentVersion = async (pluginName: string) => {
@@ -40,7 +41,7 @@ const getCurrentVersion = async (pluginName: string) => {
   return packageJson.version;
 }
 
-const updateESLintPlugin = async (pluginName: string) {
+const updateESLintPlugin = async (pluginName: string) => {
   console.info(`Updating ${pluginName}...`);
 
 	const currentVersion = await getCurrentVersion(pluginName);
@@ -54,9 +55,13 @@ const updateESLintPlugin = async (pluginName: string) {
 
   console.info(`Updating ${pluginName} from version ${currentVersion} to ${latestVersion}...`);
 
-  const currentRules = Object.keys((await import(pluginName)).rules);
+	const { default: currentPlugin } = await import(pluginName);
+  const currentRules = Object.keys(pluginName === '@eslint/js' ? plugin.configs.all.rules : plugin.rules);
 
   execSync(`npm install ${pluginName}@latest`);
+
+	const { default: updatedPlugin } = await import(pluginName);
+	console.log(updatedPlugin);
 
   const updatedRules = Object.keys((await import(pluginName)).rules);
   const removedRules = [...new Set(currentRules.filter(rule => !updatedRules.includes(rule)))];
