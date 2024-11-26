@@ -27,7 +27,7 @@
     "prepare": "husky install",
     "reset": "rm -rf node_modules/ && npm cache clear --force && [[ -f package-lock.json ]] && npm ci --force || npm i --force",
     "setup": "sh scripts/setup.sh",
-    "test": "NODE_ENV=test NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest"
+    "test": "NODE_ENV=test NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --coverage --silent --watchAll=false --maxWorkers=50%"
   },
   "dependencies": {
     "@eslint/compat": "1.0.3",

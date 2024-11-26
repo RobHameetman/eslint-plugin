@@ -56,23 +56,23 @@ const updateESLintPlugin = async (pluginName: string) => {
   console.info(`Updating ${pluginName} from version ${currentVersion} to ${latestVersion}...`);
 
 	const { default: currentPlugin } = await import(pluginName);
-  const currentRules = Object.keys(pluginName === '@eslint/js' ? plugin.configs.all.rules : plugin.rules);
+  const currentRules = Object.keys(pluginName === '@eslint/js' ? currentPlugin.configs.all.rules : currentPlugin.rules);
 
   execSync(`npm install ${pluginName}@latest`);
 
 	const { default: updatedPlugin } = await import(pluginName);
-	console.log(updatedPlugin);
 
-  const updatedRules = Object.keys((await import(pluginName)).rules);
+  const updatedRules = Object.keys(pluginName === '@eslint/js' ? updatedPlugin.configs.all.rules : updatedPlugin.rules);
   const removedRules = [...new Set(currentRules.filter(rule => !updatedRules.includes(rule)))];
+	const updatedRemovedRulesJson = { ...removedRulesJson };
 
-  if (!removedRulesJson[pluginName]) {
-    removedRulesJson[pluginName] = [];
+  if (!updatedRemovedRulesJson[pluginName]) {
+    updatedRemovedRulesJson[pluginName] = [];
   }
 
-  removedRulesJson[pluginName] = [...new Set([...removedRulesJson[pluginName], ...removedRules])];
+  updatedRemovedRulesJson[pluginName] = [...new Set([...updatedRemovedRulesJson[pluginName], ...removedRules])];
 
-  fs.writeFileSync(REMOVED_RULES_FILE, JSON.stringify(removedRulesJson, null, 2));
+  fs.writeFileSync(REMOVED_RULES_FILE, JSON.stringify(updatedRemovedRulesJson, null, 2));
 
   try {
     execSync('npm test', { stdio: 'inherit' });
