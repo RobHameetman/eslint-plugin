@@ -82,7 +82,14 @@ expect.extend({
 
 		const removed = Array.from(new Set(
 			Object.entries(removedRules)
-				.flatMap(([plugin, removedPluginRules]) => removedPluginRules?.map((rule) => pluginNamespace(plugin) ? `${pluginNamespace(plugin)}/${rule}` : rule)),
+				.filter(([plugin]) => plugin !== 'default')
+				.flatMap(([plugin, removedPluginRules]) =>
+					removedPluginRules?.map((rule) =>
+						pluginNamespace(plugin)
+							? `${pluginNamespace(plugin)}/${rule}`
+							: rule
+					)
+				),
 		));
 
 		const usedAndRemoved = rules.filter((rule) => removed.includes(rule));

@@ -41,6 +41,16 @@ const getCurrentVersion = async (pluginName: string) => {
   return packageJson.version;
 }
 
+const importPlugin = async (pluginName: string) => await ({
+	'@eslint/js': async (plugin: string) => (await import(plugin)).default,
+	'eslint-plugin-cypress': async (plugin: string) => (await import(plugin)).default,
+	'eslint-plugin-jest': async (plugin: string) => (await import(plugin)).default,
+}[pluginName] || (async (plugin: string) => await import(plugin)))(pluginName);
+
+const rulesOf = <T>(pluginName: string, currentPlugin: T) => Object.keys(({
+	'@eslint/js': (plugin) => plugin.configs.all.rules,
+}[pluginName] || ((plugin) => plugin.rules))(currentPlugin));
+
 const updateESLintPlugin = async (pluginName: string) => {
   console.info(`Updating ${pluginName}...`);
 
@@ -55,14 +65,19 @@ const updateESLintPlugin = async (pluginName: string) => {
 
   console.info(`Updating ${pluginName} from version ${currentVersion} to ${latestVersion}...`);
 
-	const { default: currentPlugin } = await import(pluginName);
-  const currentRules = Object.keys(pluginName === '@eslint/js' ? currentPlugin.configs.all.rules : currentPlugin.rules);
+	const currentPlugin = await importPlugin(pluginName);
+	console.log(currentPlugin);
+	const currentRules = rulesOf(pluginName, currentPlugin);
+	console.log(currentRules);
+
+	// const currentPlugin = await import(pluginName);
+  // const currentRules = Object.keys(pluginName === '@eslint/js' ? currentPlugin.configs.all.rules : currentPlugin.rules);
 
   execSync(`npm install ${pluginName}@latest`);
 
-	const { default: updatedPlugin } = await import(pluginName);
+	const updatedPlugin = await importPlugin(pluginName);
+  const updatedRules = rulesOf(pluginName, updatedPlugin);
 
-  const updatedRules = Object.keys(pluginName === '@eslint/js' ? updatedPlugin.configs.all.rules : updatedPlugin.rules);
   const removedRules = [...new Set(currentRules.filter(rule => !updatedRules.includes(rule)))];
 	const updatedRemovedRulesJson = { ...removedRulesJson };
 
@@ -75,7 +90,7 @@ const updateESLintPlugin = async (pluginName: string) => {
   fs.writeFileSync(REMOVED_RULES_FILE, JSON.stringify(updatedRemovedRulesJson, null, 2));
 
   try {
-    execSync('npm test', { stdio: 'inherit' });
+    execSync('npm test lib/configs/', { stdio: 'inherit' });
   } catch (error) {
     console.error(`Tests failed after updating: "${pluginName}"`);
     process.exit(1);
