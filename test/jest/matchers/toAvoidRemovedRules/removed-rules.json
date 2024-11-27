@@ -1,57 +1,42 @@
 {
-	"eslint": [
-		"generator-star",
-		"global-strict",
-		"no-arrow-condition",
-		"no-comma-dangle",
-		"no-empty-class",
-		"no-empty-label",
-		"no-extra-strict",
-		"no-reserved-keys",
-		"no-space-before-semi",
-		"no-wrap-func",
-		"space-after-function-name",
-		"space-after-keywords",
-		"space-before-function-parentheses",
-		"space-before-keywords",
-		"space-in-brackets",
-		"space-return-throw-case",
-		"space-unary-word-ops",
-		"spaced-line-comment",
-		"valid-jsdoc",
-		"require-jsdoc"
-	],
-	"eslint-plugin-cypress": [
-	],
-	"eslint-plugin-graphql": [
-	],
-	"eslint-plugin-import": [
-	],
-	"eslint-plugin-jest": [
-	],
-	"eslint-plugin-jest-async": [
-	],
-	"eslint-plugin-jsx-a11y": [
-	],
-	"eslint-plugin-no-secrets": [
-	],
-	"eslint-plugin-no-unsanitized": [
-	],
-	"eslint-plugin-node": [
-	],
-	"eslint-plugin-promise": [
-	],
-	"eslint-plugin-react": [
-	],
-	"eslint-plugin-react-hooks": [
-	],
-	"eslint-plugin-security": [
-	],
-	"eslint-plugin-tailwindcss": [
-	],
-	"eslint-plugin-testing-library": [
-	],
-	"typescript-eslint": [
-		"sort-type-union-intersection-members"
-	]
+  "eslint": [
+    "generator-star",
+    "global-strict",
+    "no-arrow-condition",
+    "no-comma-dangle",
+    "no-empty-class",
+    "no-empty-label",
+    "no-extra-strict",
+    "no-reserved-keys",
+    "no-space-before-semi",
+    "no-wrap-func",
+    "space-after-function-name",
+    "space-after-keywords",
+    "space-before-function-parentheses",
+    "space-before-keywords",
+    "space-in-brackets",
+    "space-return-throw-case",
+    "space-unary-word-ops",
+    "spaced-line-comment",
+    "valid-jsdoc",
+    "require-jsdoc"
+  ],
+  "eslint-plugin-cypress": [],
+  "eslint-plugin-graphql": [],
+  "eslint-plugin-import": [],
+  "eslint-plugin-jest": [],
+  "eslint-plugin-jest-async": [],
+  "eslint-plugin-jsx-a11y": [],
+  "eslint-plugin-no-secrets": [],
+  "eslint-plugin-no-unsanitized": [],
+  "eslint-plugin-node": [],
+  "eslint-plugin-promise": [],
+  "eslint-plugin-react": [],
+  "eslint-plugin-react-hooks": [],
+  "eslint-plugin-security": [],
+  "eslint-plugin-tailwindcss": [],
+  "eslint-plugin-testing-library": [],
+  "typescript-eslint": [
+    "sort-type-union-intersection-members"
+  ]
 }

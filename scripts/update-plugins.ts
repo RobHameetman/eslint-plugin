@@ -1,8 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { execSync } from 'child_process';
-import * as eslintPluginImport from 'eslint-plugin-import';
-import * as removedRulesJson from '../test/jest/matchers/toAvoidRemovedRules/removed-rules.json';
+import removedRulesJson from '../test/jest/matchers/toAvoidRemovedRules/removed-rules.json';
 
 const REMOVED_RULES_FILE = path.join(process.cwd(), 'test/jest/matchers/toAvoidRemovedRules/removed-rules.json');
 
@@ -26,8 +25,6 @@ const PLUGINS = [
 	'eslint-plugin-testing-library',
 ];
 
-type RemovedRules = Record<string, ReadonlyArray<string>>;
-
 const getLatestVersion = async (pluginName: string) => {
   const response = await fetch(`https://registry.npmjs.org/${pluginName}/latest`);
 	const { version } = await response.json();
@@ -42,10 +39,10 @@ const getCurrentVersion = async (pluginName: string) => {
 }
 
 const importPlugin = async (pluginName: string) => await ({
-	'@eslint/js': async (plugin: string) => (await import(plugin)).default,
-	'eslint-plugin-cypress': async (plugin: string) => (await import(plugin)).default,
-	'eslint-plugin-jest': async (plugin: string) => (await import(plugin)).default,
-}[pluginName] || (async (plugin: string) => await import(plugin)))(pluginName);
+	'eslint-plugin-graphql': async (plugin: string) => (await import(plugin)),
+	'eslint-plugin-import': async (plugin: string) => (await import(plugin)),
+	'eslint-plugin-jest-async': async (plugin: string) => (await import(plugin)),
+}[pluginName] || (async (plugin: string) => (await import(plugin)).default))(pluginName);
 
 const rulesOf = <T>(pluginName: string, currentPlugin: T) => Object.keys(({
 	'@eslint/js': (plugin) => plugin.configs.all.rules,
@@ -66,12 +63,7 @@ const updateESLintPlugin = async (pluginName: string) => {
   console.info(`Updating ${pluginName} from version ${currentVersion} to ${latestVersion}...`);
 
 	const currentPlugin = await importPlugin(pluginName);
-	console.log(currentPlugin);
 	const currentRules = rulesOf(pluginName, currentPlugin);
-	console.log(currentRules);
-
-	// const currentPlugin = await import(pluginName);
-  // const currentRules = Object.keys(pluginName === '@eslint/js' ? currentPlugin.configs.all.rules : currentPlugin.rules);
 
   execSync(`npm install ${pluginName}@latest`);
 
@@ -104,7 +96,7 @@ const updateAllPlugins = async () => {
     await updateESLintPlugin(plugin);
   }
 
-  console.log('All plugins updated successfully.');
+  console.info('All plugins updated successfully.');
 }
 
 updateAllPlugins().catch(error => {
