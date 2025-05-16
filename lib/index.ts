@@ -1,5 +1,5 @@
 import { core, cypress, graphql, j, prettier, react, recommended, typescript } from './configs';
-import { CustomRuleExample } from './rules';
+import rules from './rules';
 import { IS_DEBUG } from './utils/constants/check/IS_DEBUG';
 import { IS_DEV } from './utils/constants/check/IS_DEV';
 import { IS_TEST } from './utils/constants/check/IS_TEST';
@@ -37,21 +37,7 @@ export default {
 		name: process.env.npm_package_name,
 		version: process.env.npm_package_version,
 	},
-	rules: {
-		/**
-		 * Add custom rules here.
-		 *
-		 * @example
-		 * import { CustomRuleExample } from './rules';
-		 *
-		 * export default {
-		 *   rules: {
-		 *     'custom-rule-example': CustomRuleExample,
-		 *   },
-		 * };
-		 */
-		'custom-rule-example': CustomRuleExample,
-	},
+	rules,
 	configs: {
 		recommended,
 		core,

@@ -8,7 +8,8 @@ import type { LegacyConfig } from '@/utils/types/misc/LegacyConfig';
  */
 export interface FlattenDependencies {
 	/**
-	 * @TODO
+	 * Accepts both a single object and an array of objects to easily update any
+	 * configuration.
 	 */
 	readonly fixupConfigRules?: typeof _fixupConfigRules;
 }

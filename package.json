@@ -6,12 +6,13 @@
   "homepage": "https://www.npmjs.org/package/@rob.hameetman/eslint-plugin",
   "license": "MIT",
   "type": "module",
-  "main": "./index.js",
+  "main": "./index.cjs",
   "module": "./index.js",
   "typings": "./bin/index.d.js",
   "files": [
     "bin/*",
-    "index.js"
+    "index.js",
+    "index.cjs"
   ],
   "repository": {
     "type": "git",
@@ -77,6 +78,7 @@
     "@rob.hameetman/semantic-release-config": "1.0.0",
     "@rollup/plugin-alias": "5.1.0",
     "@rollup/plugin-commonjs": "25.0.8",
+    "@rollup/plugin-eslint": "9.0.5",
     "@rollup/plugin-json": "6.1.0",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-terser": "0.4.4",
@@ -107,8 +109,8 @@
     "eslint": ">= 9.0.0"
   },
   "eslintConfig": {
-    "extends": [
-      "./index.js"
+    "plugins": [
+      "./index.cjs"
     ],
     "rules": {
       "import/export": "off",
@@ -129,6 +131,23 @@
     "useTabs": true,
     "endOfLine": "auto"
   },
+	"babel": {
+		"presets": [
+			[
+				"@babel/preset-env",
+				{
+					"targets": {
+						"node": "current"
+					}
+				}
+			],
+			"@babel/preset-typescript"
+		],
+		"plugins": [
+			"@babel/plugin-syntax-top-level-await",
+			"babel-plugin-transform-import-meta"
+		]
+	},
   "jest": {
     "roots": [
       "<rootDir>/lib"

@@ -58,12 +58,12 @@ const limit = (max: number) =>
 
 const execute = limit(10);
 
-export const lint = async (path: string, config: Linter.FlatConfigArray) => {
+export const lint = async (path: string, configs: Linter.FlatConfigArray) => {
 	let tasks: Tasks = [];
 
 	for await (const file of files(path)) {
 		tasks = [...tasks, async () => ({
-			[file]: eslint.verify(await readFile(file, 'utf-8'), config, { filename: file }),
+			[file]: eslint.verify(await readFile(file, 'utf-8'), configs, { filename: file }),
 		})];
 	}
 
@@ -72,16 +72,21 @@ export const lint = async (path: string, config: Linter.FlatConfigArray) => {
 	return results.reduce((acc, cur) => ({ ...acc, ...cur }), {});
 };
 
-export const lintFixtureFile = async (config: Linter.FlatConfigArray) => {
+export const lintFixtureFile = async (configs: Linter.FlatConfigArray) => {
 	try {
-		const fixturePath = process.env.PACKAGE_JSON
-			? `${process.cwd()}/test/resources/fixtures/${process.env.PACKAGE_JSON.split('/').at(-2)}`
+		const { PACKAGE_JSON_PATH } = await import('@/utils/constants/imports/PACKAGE_JSON_PATH');
+
+		const fixturePath = PACKAGE_JSON_PATH
+			? `${process.cwd()}/test/resources/fixtures/${PACKAGE_JSON_PATH.split('/').at(-2)}`
 			: `${process.cwd()}/test/resources/fixtures/all`;
 
-		const results = await lint(fixturePath, config);
+		console.log(PACKAGE_JSON_PATH);
+		console.log(fixturePath);
 
-		return { result: results, config, error: null };
+		const results = await lint(fixturePath, configs);
+
+		return Promise.resolve({ result: results, configs, error: null });
 	} catch (error) {
-		return { result: null, config, error: error as Error };
+		return Promise.resolve({ result: null, configs, error: error as Error });
 	}
 };

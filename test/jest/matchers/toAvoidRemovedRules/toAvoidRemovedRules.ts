@@ -76,8 +76,20 @@ expect.extend({
 			);
 		}
 
+		/**
+		 * Note: this is assuming that no extended configs are using a name. If they
+		 * are at some point in the future, this will need to be updated to account
+		 * for that. For now, we only care about the rules that are directly in this
+		 * package's configs, and some extended configs aren't pressed about pruning
+		 * removed rules.
+		 */
 		const rules = Array.from(new Set(
-			received.flatMap(({ rules }) => Object.keys((rules ?? {}) as object)),
+			received.flatMap(
+				({ rules }, index, arr) =>
+					index >= arr.findLastIndex(({ name }) => name?.startsWith(process.env.npm_package_name || ''))
+						? Object.keys((rules ?? {}) as object)
+						: []
+			),
 		));
 
 		const removed = Array.from(new Set(

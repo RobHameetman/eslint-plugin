@@ -13,6 +13,8 @@ import { USING_PRETTIER } from '@/utils/constants/deps/USING_PRETTIER';
 import { USING_REACT } from '@/utils/constants/deps/USING_REACT';
 import { USING_TYPESCRIPT } from '@/utils/constants/deps/USING_TYPESCRIPT';
 
+process.env.USING_RECOMMENDED = 'true';
+
 const plugin = process.env.npm_package_name || '@rob.hameetman/eslint-plugin';
 
 export default [
@@ -30,12 +32,11 @@ export default [
 		files: [
 			'**/*.[jt]s?(x)',
 		],
-		// ignores: [
-		// 	'**/*.spec.[jt]s?(x)',
-		// ],
 		plugins: {
 			get [plugin]() {
-				return import('@/index');
+				return {
+					rules: import('@/rules'),
+				};
       }
 		},
 		rules: {

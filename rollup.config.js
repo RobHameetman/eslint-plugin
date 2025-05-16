@@ -25,12 +25,12 @@ const test = `${process.cwd()}/test`;
 const paths = tsconfig?.compilerOptions?.paths;
 const hasPaths = paths && Object.keys(paths).length > 0;
 
-const config = () => ({
+const config = (format = isModule ? 'esm' : 'cjs') => ({
 	input: `${src}/index.ts`,
 	output: {
 		file: `${dist}/plugin.min.js`,
 		exports: 'named',
-		format: isModule ? 'esm' : 'cjs',
+		format,
 		sourcemap: isDevelopment,
 	},
 	external: builtins.concat(Object.keys(pkg.dependencies || {})),
@@ -95,6 +95,5 @@ const config = () => ({
 });
 
 export default [
-	// config('cjs'),
-	config('es'),
+	config(),
 ];

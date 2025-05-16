@@ -1,1 +1,1 @@
-export { default } from './core';
+export { default, extendsConfigs as extendsCoreConfigs } from './core';

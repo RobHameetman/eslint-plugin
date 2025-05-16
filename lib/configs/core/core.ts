@@ -11,16 +11,18 @@ import { IS_MODULE } from '@/utils/constants/check/IS_MODULE';
 import { IS_BROWSER } from '@/utils/constants/check/IS_BROWSER';
 import { USING_PRETTIER } from '@/utils/constants/deps/USING_PRETTIER';
 import { USING_SERVICE_WORKER } from '@/utils/constants/deps/USING_SERVICE_WORKER';
+import { USING_RECOMMENDED } from '@/utils/constants/misc/USING_RECOMMENDED';
+// import { usingRecommended } from '@/utils/functions/misc/usingRecommended';
 import { flatten } from '@/utils/functions/misc/flatten';
 
-const extendsConfigs = [
+export const extendsConfigs = [
 	eslint.configs.recommended,
 	...flatten(importPlugin.configs?.recommended),
-	...(USING_PRETTIER ? flatten(prettierPlugin.configs?.recommended, { fixup: true }) : []),
+	...(USING_PRETTIER && !USING_RECOMMENDED ? flatten(prettierPlugin.configs?.recommended, { fixup: true }) : []),
 ];
 
 export default [
-	...extendsConfigs,
+	...(USING_RECOMMENDED ? [] : extendsConfigs),
 	{
 		name: `${process.env.npm_package_name}/core`,
 		languageOptions: {

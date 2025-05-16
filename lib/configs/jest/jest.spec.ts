@@ -1,33 +1,30 @@
 import { Linter } from 'eslint';
 import { lintFixtureFile } from '@@/utils/misc/lint';
+import { mockEnv } from '@@/utils/misc/mockEnv';
 import jestConfig from './jest';
 
 describe(`plugin:${process.env.npm_package_name}/jest`, () => {
 	let processEnv: NodeJS.ProcessEnv | null = null;
-	let config: Linter.FlatConfigArray | null = null;
+	let configs: Linter.FlatConfigArray | null = null;
 	let error: Error | null = null;
 	let result: Record<string, unknown> | null = null;
 
 	beforeAll(() => {
 		processEnv = process.env;
 
-		Object.defineProperties(process.env, {
-			PACKAGE_JSON: {
-				get: jest.fn()
-					.mockReturnValue(`${process.cwd()}/test/resources/fixtures/jest/package.json`)
-			},
-		});
+		mockEnv('PACKAGE_JSON')
+			.mockReturnValue(`${process.cwd()}/test/resources/fixtures/jest/package.json`);
 	});
 
 	beforeEach(async () => {
-		({ config, error, result } = await lintFixtureFile(jestConfig));
+		({ configs, error, result } = await lintFixtureFile(jestConfig));
 	}, Number(process.env.CONFIG_TEST_TIMEOUT));
 
 	afterEach(() => {
 		jest.resetModules();
 		jest.clearAllMocks();
 
-		config = null;
+		configs = null;
 		error = null;
 		result = null;
 	});
@@ -44,6 +41,6 @@ describe(`plugin:${process.env.npm_package_name}/jest`, () => {
 	});
 
 	it('should avoid any removed rules', async () => {
-		await expect(config).toAvoidRemovedRules();
+		await expect(configs).toAvoidRemovedRules();
 	});
 });

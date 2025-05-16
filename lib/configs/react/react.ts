@@ -10,18 +10,29 @@ import { IS_BROWSER } from '@/utils/constants/check/IS_BROWSER';
 import { IS_DEV } from '@/utils/constants/check/IS_DEV';
 import { IS_MODULE } from '@/utils/constants/check/IS_MODULE';
 import { USING_NEXT } from '@/utils/constants/deps/USING_NEXT';
+// import { USING_PRETTIER } from '@/utils/constants/deps/USING_PRETTIER';
 import { USING_SERVICE_WORKER } from '@/utils/constants/deps/USING_SERVICE_WORKER';
 import { USING_TYPESCRIPT } from '@/utils/constants/deps/USING_TYPESCRIPT';
 import { ALLOWED_OBJECT_MEMBER_NAMING_PREFIXES } from '@/utils/constants/misc/ALLOWED_OBJECT_MEMBER_NAMING_PREFIXES';
 import { ALLOWED_TYPE_NAMING_PREFIXES } from '@/utils/constants/misc/ALLOWED_TYPE_NAMING_PREFIXES';
+// import { USING_RECOMMENDED } from '@/utils/constants/misc/USING_RECOMMENDED';
 import { flatten } from '@/utils/functions/misc/flatten';
+// import { isImported } from '@/utils/functions/misc/isImported';
+
+// const { extendsCoreConfigs = [], default: core = {} } = USING_RECOMMENDED ? {} : (await import('@/configs/core'));
+// const { default: prettier = {} } = USING_PRETTIER && !USING_RECOMMENDED ? (await import('@/configs/prettier')) : {};
 
 const extendsConfigs = [
+	// ...extendsCoreConfigs,
 	...flatten(reactPlugin.configs?.recommended),
 	...flatten(reactHooksPlugin.configs?.recommended),
 	...flatten(jsxA11yPlugin.configs?.recommended),
-	...(USING_NEXT ? [nextPlugin.configs?.recommended, nextPlugin.configs?.['core-web-vitals']] : [])
+	...(USING_NEXT ? [nextPlugin.configs?.recommended, nextPlugin.configs?.['core-web-vitals']] : []),
+	// ...(isImported(core) ? [core] : []),
+	// ...(isImported(prettier) ? [prettier] : []),
 ];
+
+const hasImportPlugin = extendsConfigs.some(({ plugins }: any) => 'import' in plugins);
 
 export default [
 	...extendsConfigs,
@@ -44,7 +55,8 @@ export default [
 			},
 		},
 		plugins: {
-			['import']: importPlugin,
+			// ['import']: importPlugin,
+			...(process.env.NODE_ENV === 'test' ? {} : { ['import']: importPlugin, }),
 			['react']: reactPlugin,
 			['react-hooks']: reactHooksPlugin,
 			['jsx-a11y']: jsxA11yPlugin,

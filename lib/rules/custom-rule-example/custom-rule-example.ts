@@ -1,8 +1,8 @@
 import { Rule as _Rule } from 'eslint';
 import { Statement } from 'estree';
 import { Categories } from '@/utils/enums/Categories';
-import { Body } from '@/utils/types/handlers/Body';
 import { CustomESLintRule } from '@/utils/types/structural/CustomESLintRule';
+import { isBlockStatement } from '@/utils/functions/estree/isBlockStatement';
 
 const DEFAULT_MAX_STATEMENTS = 1;
 
@@ -89,12 +89,11 @@ export default new CustomESLintRule(schema)
 					);
 				}
 
-				const hasSimplifiableConditionalBody = (functionBody: Body) => {
-					const isBlockStatement = 'type' in functionBody && functionBody.type === 'BlockStatement';
+				const hasSimplifiableConditionalBody = (functionBody: Record<string, unknown>) => {
 					const hasBody = 'body' in functionBody;
 
 					const { body } =
-						isBlockStatement && hasBody
+						isBlockStatement(functionBody) && hasBody
 							? functionBody
 							: { body: [] };
 

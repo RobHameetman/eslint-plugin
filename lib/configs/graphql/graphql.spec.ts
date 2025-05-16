@@ -4,7 +4,7 @@ import graphql from './graphql';
 
 describe(`plugin:${process.env.npm_package_name}/graphql`, () => {
 	let processEnv: NodeJS.ProcessEnv | null = null;
-	let config: Linter.FlatConfigArray | null = null;
+	let configs: Linter.FlatConfigArray | null = null;
 	let error: Error | null = null;
 	let result: Record<string, unknown> | null = null;
 
@@ -20,14 +20,14 @@ describe(`plugin:${process.env.npm_package_name}/graphql`, () => {
 	});
 
 	beforeEach(async () => {
-		({ config, error, result } = await lintFixtureFile(graphql));
+		({ configs, error, result } = await lintFixtureFile(graphql));
 	}, Number(process.env.CONFIG_TEST_TIMEOUT));
 
 	afterEach(() => {
 		jest.resetModules();
 		jest.clearAllMocks();
 
-		config = null;
+		configs = null;
 		error = null;
 		result = null;
 	});
@@ -44,6 +44,6 @@ describe(`plugin:${process.env.npm_package_name}/graphql`, () => {
 	});
 
 	it('should avoid any removed rules', async () => {
-		await expect(config).toAvoidRemovedRules();
+		await expect(configs).toAvoidRemovedRules();
 	});
 });

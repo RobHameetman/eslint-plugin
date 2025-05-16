@@ -6,8 +6,8 @@ const isLintResult = (value: unknown): value is ESLint.LintResultWithConfig =>
 	typeof value === 'object' &&
 	value !== null &&
 	!(value instanceof Array) &&
-	'messages' in value &&
-	value.messages instanceof Array;
+	Object.keys(value) &&
+	Object.values(value).every((v) => v instanceof Array);
 
 /**
  * Jest uses `Object.is()` for equality checking, which distinguishes 0 from -0,
@@ -45,7 +45,7 @@ expect.extend({
 			);
 		}
 
-		const pass = received.messages.length >= minimum;
+		const pass = Object.keys(received).length >= minimum;
 
 		const message = (): string =>
 			`${matcherHint(NAME, 'received', '', options)}\n\n` +

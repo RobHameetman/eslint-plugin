@@ -2,10 +2,19 @@ import { Linter } from 'eslint';
 import globals from 'globals';
 import cypressPlugin from 'eslint-plugin-cypress';
 import { IS_MODULE } from '@/utils/constants/check/IS_MODULE';
+// import { USING_PRETTIER } from '@/utils/constants/deps/USING_PRETTIER';
+// import { USING_RECOMMENDED } from '@/utils/constants/misc/USING_RECOMMENDED';
 import { flatten } from '@/utils/functions/misc/flatten';
+// import { isImported } from '@/utils/functions/misc/isImported';
+
+// const { extendsCoreConfigs = [], default: core = {} } = USING_RECOMMENDED ? {} : (await import('@/configs/core'));
+// const { default: prettier = {} } = USING_PRETTIER && !USING_RECOMMENDED ? (await import('@/configs/prettier')) : {};
 
 const extendsConfigs = [
+	// ...extendsCoreConfigs,
 	...flatten(cypressPlugin.configs?.recommended),
+	// ...(isImported(core) ? [core] : []),
+	// ...(isImported(prettier) ? [prettier] : []),
 ];
 
 export default [

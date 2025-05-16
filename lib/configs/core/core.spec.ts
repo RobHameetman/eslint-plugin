@@ -4,7 +4,7 @@ import core from './core';
 
 describe(`plugin:${process.env.npm_package_name}/core`, () => {
 	let processEnv: NodeJS.ProcessEnv | null = null;
-	let config: Linter.FlatConfigArray | null = null;
+	let configs: Linter.FlatConfigArray | null = null;
 	let error: Error | null = null;
 	let result: Record<string, unknown> | null = null;
 
@@ -20,14 +20,14 @@ describe(`plugin:${process.env.npm_package_name}/core`, () => {
 	});
 
 	beforeEach(async () => {
-		({ config, error, result } = await lintFixtureFile(core));
+		({ configs, error, result } = await lintFixtureFile(core));
 	}, Number(process.env.CONFIG_TEST_TIMEOUT));
 
 	afterEach(() => {
 		jest.resetModules();
 		jest.clearAllMocks();
 
-		config = null;
+		configs = null;
 		error = null;
 		result = null;
 	});
@@ -43,7 +43,7 @@ describe(`plugin:${process.env.npm_package_name}/core`, () => {
 		await expect(error).toBeNull();
 	});
 
-	it.skip('should avoid any removed rules', async () => {
-		await expect(config).toAvoidRemovedRules();
+	it('should avoid any removed rules', async () => {
+		await expect(configs).toAvoidRemovedRules();
 	});
 });

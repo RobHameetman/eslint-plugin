@@ -10,6 +10,8 @@ declare module 'eslint' {
 		export interface LintResultWithConfig extends ESLint.LintResult {
 			config?: Linter.Config<Linter.RulesRecord>;
 		}
+
+		export type LintResults = ReadonlyArray<ESLint.LintResult>;
 	}
 
 	export namespace Linter {
