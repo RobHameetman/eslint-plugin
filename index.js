@@ -1,1 +1,1 @@
-export default await import('./bin/plugin.min.js');
+export default await import('./bin/index.js');

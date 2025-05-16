@@ -28,12 +28,13 @@ const hasPaths = paths && Object.keys(paths).length > 0;
 const config = (format = isModule ? 'esm' : 'cjs') => ({
 	input: `${src}/index.ts`,
 	output: {
-		file: `${dist}/plugin.min.js`,
+		dir: dist,
+		// file: `${dist}/plugin.min.js`,
 		exports: 'named',
 		format,
 		sourcemap: isDevelopment,
 	},
-	external: builtins.concat(Object.keys(pkg.dependencies || {})),
+	external: builtins.concat(Object.keys(pkg.peerDependencies || {})),
 	plugins: [
 		resolve({
 			extensions: ['.ts', '.js'],

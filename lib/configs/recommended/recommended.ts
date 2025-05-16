@@ -35,7 +35,12 @@ export default [
 		plugins: {
 			get [plugin]() {
 				return {
-					rules: import('@/rules'),
+					rules: {
+						/**
+						 * Rules need to be imported dynamically to avoid circular dependencies.
+						 */
+						'custom-rule-example': import('@/rules/custom-rule-example'),
+					},
 				};
       }
 		},

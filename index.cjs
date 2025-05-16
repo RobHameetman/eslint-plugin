@@ -1,5 +1,1 @@
-module.exports = async () => ([{
-	plugins: {
-		'@rob.hameetman': (await import('./bin/plugin.min.js')).default,
-	},
-}]);
+module.exports = async () => (await import('./bin/index.js')).default;
