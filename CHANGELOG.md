@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.1](https://github.com/RobHameetman/eslint-plugin/compare/1.0.0...1.0.1) (2025-05-16)
+
+
+### Bug Fixes
+
+* Circular recommended config object ([4cda584](https://github.com/RobHameetman/eslint-plugin/commit/4cda584337437b52fce9571a1b1540c931fa1ba3))
+* Replace ts-node with tsx ([c126c99](https://github.com/RobHameetman/eslint-plugin/commit/c126c99020262e344c80754a0fdc6032c017016f))
+* Update Github checkout action to v4 ([bd38fd2](https://github.com/RobHameetman/eslint-plugin/commit/bd38fd2a8ab91a852babc41fe82e2cb7dcc09b1a))
+* Update Github upload action to v4 ([6a97537](https://github.com/RobHameetman/eslint-plugin/commit/6a975374839deaef4157bfb21c491fd81d445486))
+* Update Github upload action to v4 ([bcd132a](https://github.com/RobHameetman/eslint-plugin/commit/bcd132ae0c5f2972295f774ba41f23f998159c9b))
+
 ## 1.0.0 (2024-11-03)
 
 
