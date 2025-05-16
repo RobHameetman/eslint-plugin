@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/RobHameetman/eslint-plugin/compare/1.0.1...1.0.2) (2025-05-16)
+
+
+### Bug Fixes
+
+* Excluded plugin dependencies ([2b12090](https://github.com/RobHameetman/eslint-plugin/commit/2b12090c79b57d3c28165e4a6e4867a020c9e4ee))
+
 ## [1.0.1](https://github.com/RobHameetman/eslint-plugin/compare/1.0.0...1.0.1) (2025-05-16)
 
 
