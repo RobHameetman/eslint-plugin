@@ -306,7 +306,14 @@ export default [
 						'.tsx',
 					],
 				},
+				typescript: true,
 			},
+			'import/parsers': {
+				'@typescript-eslint/parser': [
+					'.ts',
+					'.tsx',
+				],
+			}
 		},
 	},
 	/**
