@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/RobHameetman/eslint-plugin/compare/1.1.4...1.1.5) (2025-05-18)
+
+
+### Bug Fixes
+
+* Remove the file-enumerator fix from external in Rollup ([afcfd1e](https://github.com/RobHameetman/eslint-plugin/commit/afcfd1eeb5a5804b42927a4e736a3751ea5c6249))
+
 ## [1.1.4](https://github.com/RobHameetman/eslint-plugin/compare/1.1.3...1.1.4) (2025-05-18)
 
 
