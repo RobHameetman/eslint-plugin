@@ -34,7 +34,14 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
 		format,
 		sourcemap: isDevelopment,
 	},
-	external: builtins.concat(Object.keys(pkg.peerDependencies || {})),
+	external: [
+		...builtins.concat(Object.keys(pkg.peerDependencies || {})),
+		/**
+		 * These remediate warnings throw by the resolve() plugin.
+		 */
+		/eslint\/lib\/cli-engine\/file-enumerator/,
+		/eslint\/lib\/util\/glob-util/,
+	],
 	plugins: [
 		resolve({
 			extensions: ['.ts', '.js'],
