@@ -1,6 +1,7 @@
 import builtins from 'builtin-modules';
 import alias from '@rollup/plugin-alias';
 // import eslint from '@rbnlffl/rollup-plugin-eslint';
+import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
@@ -37,12 +38,28 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
 	external: [
 		...builtins.concat(Object.keys(pkg.peerDependencies || {})),
 		/**
-		 * These remediate warnings throw by the resolve() plugin.
+		 * These remediate warnings thrown by the resolve() plugin.
 		 */
-		// /eslint\/lib\/cli-engine\/file-enumerator/,
+		/eslint\/lib\/cli-engine\/file-enumerator/,
 		/eslint\/lib\/util\/glob-util/,
 	],
 	plugins: [
+		/**
+		 * This fixes an issue downstream caused by eslint-plugin-import in the
+		 * no-unused-modules rule. The problematic code is wrapped in a try/catch
+		 * block which is why they haven't removed these imports even though
+		 * glob-util(s) was removed in ESLint v6.
+		 */
+		replace({
+      'var _require3 = require(\'eslint/lib/util/glob-utils\'),originalListFilesToProcess = _require3.listFilesToProcess':
+        'var originalListFilesToProcess = function(patterns, options) { return []; }',
+
+      'var _require4 =\n\n    require(\'eslint/lib/util/glob-util\'),_originalListFilesToProcess = _require4.listFilesToProcess':
+        'var _require4 = {};\n    var _originalListFilesToProcess = function(patterns, options) { return []; }',
+
+      preventAssignment: true,
+      delimiters: ['', '']
+    }),
 		resolve({
 			extensions: ['.ts', '.js'],
 		}),
