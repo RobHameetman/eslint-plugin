@@ -1,6 +1,6 @@
 {
   "name": "@rob.hameetman/eslint-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ESLint plugin for enterprise-strength TypeScript packages",
   "author": "Robert H. Hameetman (https://www.robhameetman.com/)",
   "homepage": "https://www.npmjs.org/package/@rob.hameetman/eslint-plugin",
@@ -14,10 +14,10 @@
     "index.js",
     "index.cjs"
   ],
-	"engines": {
-		"node": ">= 23.5.0",
-		"npm": ">= 10.9.2"
-	},
+  "engines": {
+    "node": ">= 23.5.0",
+    "npm": ">= 10.9.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RobHameetman/eslint-plugin.git"

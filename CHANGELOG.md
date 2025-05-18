@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/RobHameetman/eslint-plugin/compare/1.0.2...1.0.3) (2025-05-18)
+
+
+### Bug Fixes
+
+* Add import plugin TS resolver ([44fda52](https://github.com/RobHameetman/eslint-plugin/commit/44fda526c2a9fdd88ec87477f7523313a2f3490a))
+
 ## [1.0.2](https://github.com/RobHameetman/eslint-plugin/compare/1.0.1...1.0.2) (2025-05-16)
 
 
