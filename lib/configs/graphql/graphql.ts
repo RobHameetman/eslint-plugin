@@ -1,20 +1,22 @@
 import { Linter } from 'eslint';
-import graphqlPlugin from 'eslint-plugin-graphql';
+import graphqlPlugin from '@graphql-eslint/eslint-plugin';
 import * as importPlugin from 'eslint-plugin-import';
-import { USING_RECOMMENDED } from '@/utils/constants/misc/USING_RECOMMENDED';
 
 export default [
 	{
 		name: `${process.env.npm_package_name}/graphql`,
+		languageOptions: {
+			parser: graphqlPlugin.parser,
+		},
 		plugins: {
-			['graphql']: graphqlPlugin,
-			...(process.env.NODE_ENV === 'test' ? {} : { ['import']: importPlugin, }),
+			'@graphql-eslint': graphqlPlugin,
+			...(process.env.NODE_ENV === 'test' ? {} : { import: importPlugin, }),
 		},
 		files: [
 			'**/*.g?(raph)ql',
 		],
 		rules: {
-			['import/extensions']: ['error', 'never', {
+			'import/extensions': ['error', 'never', {
 				gql: 'always',
 				graphql: 'always',
 			}],
