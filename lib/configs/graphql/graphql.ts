@@ -1,6 +1,6 @@
 import { Linter } from 'eslint';
 import graphqlPlugin from '@graphql-eslint/eslint-plugin';
-import * as importPlugin from 'eslint-plugin-import';
+import importPlugin from 'eslint-plugin-import';
 
 export default [
 	{

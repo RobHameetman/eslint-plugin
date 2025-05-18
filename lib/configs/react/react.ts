@@ -1,6 +1,6 @@
 import { Linter } from 'eslint';
 import globals from 'globals';
-import * as importPlugin from 'eslint-plugin-import';
+import importPlugin from 'eslint-plugin-import';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import nextPlugin from '@next/eslint-plugin-next';
 import reactPlugin from 'eslint-plugin-react';
