@@ -39,7 +39,7 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
 		/**
 		 * These remediate warnings throw by the resolve() plugin.
 		 */
-		/eslint\/lib\/cli-engine\/file-enumerator/,
+		// /eslint\/lib\/cli-engine\/file-enumerator/,
 		/eslint\/lib\/util\/glob-util/,
 	],
 	plugins: [
