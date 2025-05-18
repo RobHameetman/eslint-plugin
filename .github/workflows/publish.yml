@@ -29,7 +29,7 @@ on:
         type: boolean
       node:
         description: The version of Node.js used
-        default: '21'
+        default: '23'
         required: false
         type: string
       pr:
