@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/RobHameetman/eslint-plugin/compare/1.0.3...1.1.0) (2025-05-18)
+
+
+### Features
+
+* Migrate from eslint-plugin-graphql to @graphql-eslint/eslint-plugin ([f3915de](https://github.com/RobHameetman/eslint-plugin/commit/f3915de1bab04399985909fe421f4d63192243b2))
+
 ## [1.0.3](https://github.com/RobHameetman/eslint-plugin/compare/1.0.2...1.0.3) (2025-05-18)
 
 
