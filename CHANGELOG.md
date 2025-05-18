@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/RobHameetman/eslint-plugin/compare/1.1.3...1.1.4) (2025-05-18)
+
+
+### Bug Fixes
+
+* Replace glob-utils import in eslint-plugin-import during build ([820137a](https://github.com/RobHameetman/eslint-plugin/commit/820137a4334d3db527edd2c352ede356c158ebf6))
+
 ## [1.1.3](https://github.com/RobHameetman/eslint-plugin/compare/1.1.2...1.1.3) (2025-05-18)
 
 
