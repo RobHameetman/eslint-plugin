@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/RobHameetman/eslint-plugin/compare/1.1.2...1.1.3) (2025-05-18)
+
+
+### Bug Fixes
+
+* File enumerator error ([bcc862e](https://github.com/RobHameetman/eslint-plugin/commit/bcc862e1529f78a7d1ed7a319e014b8201327607))
+
 ## [1.1.2](https://github.com/RobHameetman/eslint-plugin/compare/1.1.1...1.1.2) (2025-05-18)
 
 
