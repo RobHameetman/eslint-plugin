@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/RobHameetman/eslint-plugin/compare/1.1.5...1.1.6) (2025-05-19)
+
+
+### Bug Fixes
+
+* Add CJS polyfill for __dirname and __filename ([b37097c](https://github.com/RobHameetman/eslint-plugin/commit/b37097c898228bf01ae92d8e6ce228ed129ba8b5))
+
 ## [1.1.5](https://github.com/RobHameetman/eslint-plugin/compare/1.1.4...1.1.5) (2025-05-18)
 
 
