@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.10](https://github.com/RobHameetman/eslint-plugin/compare/1.1.9...1.1.10) (2025-05-19)
+
+
+### Bug Fixes
+
+* Switch main in package.json back to index.js ([8e6deb5](https://github.com/RobHameetman/eslint-plugin/commit/8e6deb573eec70177b9cd8f3831ff09314418bf8))
+
 ## [1.1.9](https://github.com/RobHameetman/eslint-plugin/compare/1.1.8...1.1.9) (2025-05-19)
 
 
