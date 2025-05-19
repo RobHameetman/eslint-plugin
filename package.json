@@ -88,6 +88,7 @@
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-replace": "6.0.2",
     "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-virtual": "3.0.2",
     "@types/esm": "3.2.2",
     "@types/esquery": "1.5.4",
     "@types/jest": "29.5.12",

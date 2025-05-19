@@ -8,6 +8,7 @@ import resolve from '@rollup/plugin-node-resolve';
 // import copy from 'rollup-plugin-copy';
 import terser from '@rollup/plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
+import virtual from '@rollup/plugin-virtual';
 
 import pkg from './package.json' with { type: 'json' };
 import tsconfig from './tsconfig.json' with { type: 'json' };
@@ -26,6 +27,33 @@ const test = `${process.cwd()}/test`;
 const paths = tsconfig?.compilerOptions?.paths;
 const hasPaths = paths && Object.keys(paths).length > 0;
 
+// Create a simplified ESM compatibility layer
+// const esmShims = `
+//   import { createRequire } from 'node:module';
+//   import { fileURLToPath } from 'node:url';
+//   import { dirname } from 'node:path';
+
+//   export { createRequire };
+
+//   export const __dirname = null;
+//   export const __filename = null;
+
+//   export function resolvePackageJson(importMetaUrl) {
+//     const require = createRequire(importMetaUrl);
+
+//     try {
+//       // Try to resolve from the current module's location
+//       return require('./package.json');
+//     } catch (e) {
+//       try {
+//         return require('../package.json');
+//       } catch (e) {
+//         return { version: "1.0.0", name: "@rob.hameetman/eslint-plugin" };
+//       }
+//     }
+//   }
+// `;
+
 const config = (format = isModule ? 'esm' : 'cjs') => ({
 	input: `${src}/index.ts`,
 	output: {
@@ -34,9 +62,9 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
 		exports: 'named',
 		format,
 		sourcemap: isDevelopment,
-		intro: format === 'esm'
-			? 'import { fileURLToPath } from \'url\';\nimport { dirname } from \'path\';\n'
-			: '',
+		// intro: format === 'esm'
+		// 	? 'import { fileURLToPath } from \'url\';\nimport { dirname } from \'path\';\n'
+		// 	: '',
 	},
 	external: [
 		...builtins.concat(Object.keys(pkg.peerDependencies || {})),
@@ -60,11 +88,24 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
       'var _require4 =\n\n    require(\'eslint/lib/util/glob-util\'),_originalListFilesToProcess = _require4.listFilesToProcess':
         'var _require4 = {};\n    var _originalListFilesToProcess = function(patterns, options) { return []; }',
 
-			'__dirname': 'dirname(fileURLToPath(import.meta.url))',
-      '__filename': 'fileURLToPath(import.meta.url)',
+			// '__dirname': 'dirname(fileURLToPath(import.meta.url))',
+      // '__filename': 'fileURLToPath(import.meta.url)',
 
       preventAssignment: true,
       delimiters: ['', '']
+    }),
+		commonjs({
+      // Enable these important options
+      transformMixedEsModules: true, // Handle mixed ES/CJS modules
+      requireReturnsDefault: 'auto', // Smart handling of require() calls
+      dynamicRequireTargets: [
+        // Target specific problematic files - you can add any files that use dynamic requires
+        'node_modules/eslint-plugin-*/lib/**/*.js'
+      ],
+      // Improved interoperability with ESM
+      esmExternals: true,
+      // For better debugging
+      sourceMap: true
     }),
 		resolve({
 			extensions: ['.ts', '.js'],
@@ -84,7 +125,6 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
 			rollupCommonJSResolveHack: false,
 			clean: true,
 		}),
-		commonjs(),
 		terser({
 			output: {
 				comments: false,
