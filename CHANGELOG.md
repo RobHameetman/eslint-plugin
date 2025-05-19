@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.9](https://github.com/RobHameetman/eslint-plugin/compare/1.1.8...1.1.9) (2025-05-19)
+
+
+### Bug Fixes
+
+* Better configuration of Rollup commonjs plugin ([941a63e](https://github.com/RobHameetman/eslint-plugin/commit/941a63e9e650789bac5f051182834e87f9951fc8))
+
 ## [1.1.8](https://github.com/RobHameetman/eslint-plugin/compare/1.1.7...1.1.8) (2025-05-19)
 
 
