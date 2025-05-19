@@ -34,7 +34,6 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
 		exports: 'named',
 		format,
 		sourcemap: isDevelopment,
-		preserveModules: true,
 	},
 	external: [
 		...builtins.concat(Object.keys(pkg.peerDependencies || {})),
