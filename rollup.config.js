@@ -34,6 +34,9 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
 		exports: 'named',
 		format,
 		sourcemap: isDevelopment,
+		intro: format === 'esm'
+			? 'import { fileURLToPath } from \'url\';\nimport { dirname } from \'path\';\n'
+			: '',
 	},
 	external: [
 		...builtins.concat(Object.keys(pkg.peerDependencies || {})),
