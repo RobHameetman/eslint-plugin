@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.7](https://github.com/RobHameetman/eslint-plugin/compare/1.1.6...1.1.7) (2025-05-19)
+
+
+### Bug Fixes
+
+* Stop preserving modules in Rollup ([e1299f1](https://github.com/RobHameetman/eslint-plugin/commit/e1299f1355f9407c0315efcb8b6fb67e0b348706))
+
 ## [1.1.6](https://github.com/RobHameetman/eslint-plugin/compare/1.1.5...1.1.6) (2025-05-19)
 
 
