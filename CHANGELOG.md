@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.8](https://github.com/RobHameetman/eslint-plugin/compare/1.1.7...1.1.8) (2025-05-19)
+
+
+### Bug Fixes
+
+* Add ESM intro to Rollup pipeline ([748b91f](https://github.com/RobHameetman/eslint-plugin/commit/748b91f155a2acb3b479eac7ec1b3f33852e2937))
+
 ## [1.1.7](https://github.com/RobHameetman/eslint-plugin/compare/1.1.6...1.1.7) (2025-05-19)
 
 
