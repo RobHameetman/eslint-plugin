@@ -34,6 +34,7 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
 		exports: 'named',
 		format,
 		sourcemap: isDevelopment,
+		preserveModules: true,
 	},
 	external: [
 		...builtins.concat(Object.keys(pkg.peerDependencies || {})),
@@ -56,6 +57,9 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
 
       'var _require4 =\n\n    require(\'eslint/lib/util/glob-util\'),_originalListFilesToProcess = _require4.listFilesToProcess':
         'var _require4 = {};\n    var _originalListFilesToProcess = function(patterns, options) { return []; }',
+
+			'__dirname': 'dirname(fileURLToPath(import.meta.url))',
+      '__filename': 'fileURLToPath(import.meta.url)',
 
       preventAssignment: true,
       delimiters: ['', '']
