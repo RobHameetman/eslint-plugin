@@ -6,8 +6,8 @@
   "homepage": "https://www.npmjs.org/package/@rob.hameetman/eslint-plugin",
   "license": "MIT",
   "type": "module",
-  "main": "./index.cjs",
-  "module": "./index.js",
+  "main": "./index.js",
+  "module": "./bin/index.js",
   "typings": "./bin/index.d.js",
   "files": [
     "bin/*",
