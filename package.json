@@ -7,7 +7,7 @@
   "license": "MIT",
   "type": "module",
   "main": "./index.js",
-  "module": "./bin/index.js",
+  "module": "./src/index.ts",
   "typings": "./bin/index.d.js",
   "files": [
     "bin/*",

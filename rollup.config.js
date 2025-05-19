@@ -62,9 +62,16 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
 		exports: 'named',
 		format,
 		sourcemap: isDevelopment,
-		// intro: format === 'esm'
-		// 	? 'import { fileURLToPath } from \'url\';\nimport { dirname } from \'path\';\n'
-		// 	: '',
+		intro: format === 'esm'
+			? `
+				import { fileURLToPath } from 'url';
+				import { dirname } from 'path';
+
+				const __filename = fileURLToPath(import.meta.url);
+				const __dirname = dirname(__filename);
+				const require = createRequire(import.meta.url);
+			`
+			: '',
 	},
 	external: [
 		...builtins.concat(Object.keys(pkg.peerDependencies || {})),
