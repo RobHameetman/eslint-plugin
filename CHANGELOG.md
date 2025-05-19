@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.11](https://github.com/RobHameetman/eslint-plugin/compare/1.1.10...1.1.11) (2025-05-19)
+
+
+### Bug Fixes
+
+* Add output.intro back in ([510a774](https://github.com/RobHameetman/eslint-plugin/commit/510a774da6cc3ebe6802b2ac5624f6564597f149))
+
 ## [1.1.10](https://github.com/RobHameetman/eslint-plugin/compare/1.1.9...1.1.10) (2025-05-19)
 
 
