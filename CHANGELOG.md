@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.12](https://github.com/RobHameetman/eslint-plugin/compare/1.1.11...1.1.12) (2025-05-20)
+
+
+### Bug Fixes
+
+* Add .min.js build artifact extension back in ([479a5e1](https://github.com/RobHameetman/eslint-plugin/commit/479a5e1c896578743963736017a3f2d2a6e65e8f))
+
 ## [1.1.11](https://github.com/RobHameetman/eslint-plugin/compare/1.1.10...1.1.11) (2025-05-19)
 
 
