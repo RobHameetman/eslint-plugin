@@ -57,8 +57,10 @@ const hasPaths = paths && Object.keys(paths).length > 0;
 const config = (format = isModule ? 'esm' : 'cjs') => ({
 	input: `${src}/index.ts`,
 	output: {
+		chunkFileNames: '[name]-[hash].min.js',
 		dir: dist,
 		// file: `${dist}/plugin.min.js`,
+		entryFileNames: '[name].min.js',
 		exports: 'named',
 		format,
 		sourcemap: isDevelopment,
