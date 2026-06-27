@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.13](https://github.com/RobHameetman/eslint-plugin/compare/1.1.12...1.1.13) (2026-06-27)
+
+
+### Bug Fixes
+
+* drop vestigial self-referential devDependency ([bcb8fc4](https://github.com/RobHameetman/eslint-plugin/commit/bcb8fc4f2787bb9a9d7a5117472bc14c3d6c46fb))
+* pin eslint to stop package-lock drift breaking npm ci ([e788a22](https://github.com/RobHameetman/eslint-plugin/commit/e788a22e9b5c8e97de412fbcb93c477a11f61f73))
+
 ## [1.1.12](https://github.com/RobHameetman/eslint-plugin/compare/1.1.11...1.1.12) (2025-05-20)
 
 
