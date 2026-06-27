@@ -1,6 +1,6 @@
 import { isObject } from '@rob.hameetman/type-guards';
-import { Selectors } from '@/utils/types/listeners/Selectors';
-import { CurriedHandler, isCurriedHandler } from '@/utils/types/handlers/CurriedHandler';
+import { Selectors } from '#utils/types/listeners/Selectors';
+import { CurriedHandler, isCurriedHandler } from '#utils/types/handlers/CurriedHandler';
 
 /**
  * An internal object used by the `CustomESLintRule` class with methods that

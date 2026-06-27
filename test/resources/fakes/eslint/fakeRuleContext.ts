@@ -1,7 +1,7 @@
 import { Rule } from 'eslint';
 import { faker } from '@faker-js/faker';
 import { isNumber, isObject } from '@rob.hameetman/type-guards';
-import { fakeSettings } from '@/utils/types/misc/Settings/__test__/fakeSettings';
+import { fakeSettings } from '#utils/types/misc/Settings/__test__/fakeSettings';
 
 export const fakeRuleContext = ({
 	parserOptions = {},

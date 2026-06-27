@@ -1,5 +1,5 @@
-import { PACKAGE_JSON } from '@/utils/constants/imports/PACKAGE_JSON';
-import { TSCONFIG_JSON } from '@/utils/constants/imports/TSCONFIG_JSON';
+import { PACKAGE_JSON } from '#utils/constants/imports/PACKAGE_JSON';
+import { TSCONFIG_JSON } from '#utils/constants/imports/TSCONFIG_JSON';
 
 export const IS_MODULE =
 	PACKAGE_JSON?.type === 'module' ||

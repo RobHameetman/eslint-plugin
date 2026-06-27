@@ -1,6 +1,6 @@
 import { Rule } from 'eslint';
 import { isObject } from '@rob.hameetman/type-guards';
-import { ListenerFactory, isListenerFactory } from '@/utils/types/listeners/ListenerFactory';
+import { ListenerFactory, isListenerFactory } from '#utils/types/listeners/ListenerFactory';
 
 /**
  * @deprecated - Moved this type into eslint.d.ts but keeping it here for

@@ -120,10 +120,15 @@ const config = (format = isModule ? 'esm' : 'cjs') => ({
 			extensions: ['.ts', '.js'],
 		}),
 		hasPaths && alias({
-			entries: Object.fromEntries(Object.entries(paths).map(([key, value]) => ([
-				key.replace('/*', ''),
-				value.at(0).replace('/*', '').replace('./', `${process.cwd()}/`),
-			]))),
+			entries: Object.entries(paths).map(([key, value]) => ({
+				find: new RegExp(
+					`^${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace('\\*', '(.*)')}$`,
+				),
+				replacement: value
+					.at(0)
+					.replace('./', `${process.cwd()}/`)
+					.replace('*', '$1'),
+			})),
 		}),
 		// eslint({
 		// 	extensions: ['js', 'ts'],

@@ -2,14 +2,14 @@ import { Linter } from 'eslint';
 import globals from 'globals';
 import tsEslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
-import { IS_BROWSER } from '@/utils/constants/check/IS_BROWSER';
-import { IS_DEV } from '@/utils/constants/check/IS_DEV';
-import { IS_MODULE } from '@/utils/constants/check/IS_MODULE';
-import { USING_SERVICE_WORKER } from '@/utils/constants/deps/USING_SERVICE_WORKER';
-import { ALLOWED_OBJECT_MEMBER_NAMING_PREFIXES } from '@/utils/constants/misc/ALLOWED_OBJECT_MEMBER_NAMING_PREFIXES';
-import { ALLOWED_TYPE_NAMING_PREFIXES } from '@/utils/constants/misc/ALLOWED_TYPE_NAMING_PREFIXES';
-import { ALWAYS_ALLOWED_NAMING_PREFIXES } from '@/utils/constants/misc/ALWAYS_ALLOWED_NAMING_PREFIXES';
-import { flatten } from '@/utils/functions/misc/flatten';
+import { IS_BROWSER } from '#utils/constants/check/IS_BROWSER';
+import { IS_DEV } from '#utils/constants/check/IS_DEV';
+import { IS_MODULE } from '#utils/constants/check/IS_MODULE';
+import { USING_SERVICE_WORKER } from '#utils/constants/deps/USING_SERVICE_WORKER';
+import { ALLOWED_OBJECT_MEMBER_NAMING_PREFIXES } from '#utils/constants/misc/ALLOWED_OBJECT_MEMBER_NAMING_PREFIXES';
+import { ALLOWED_TYPE_NAMING_PREFIXES } from '#utils/constants/misc/ALLOWED_TYPE_NAMING_PREFIXES';
+import { ALWAYS_ALLOWED_NAMING_PREFIXES } from '#utils/constants/misc/ALWAYS_ALLOWED_NAMING_PREFIXES';
+import { flatten } from '#utils/functions/misc/flatten';
 
 const extendsConfigs = [
 	...tsEslint.configs.strictTypeChecked,

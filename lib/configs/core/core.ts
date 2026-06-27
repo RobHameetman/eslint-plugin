@@ -6,14 +6,14 @@ import prettierPlugin from 'eslint-plugin-prettier';
 import noSecretsPlugin from 'eslint-plugin-no-secrets';
 import noUnsanitizedPlugin from 'eslint-plugin-no-unsanitized';
 import securityPlugin from 'eslint-plugin-security';
-import { IS_DEV } from '@/utils/constants/check/IS_DEV';
-import { IS_MODULE } from '@/utils/constants/check/IS_MODULE';
-import { IS_BROWSER } from '@/utils/constants/check/IS_BROWSER';
-import { USING_PRETTIER } from '@/utils/constants/deps/USING_PRETTIER';
-import { USING_SERVICE_WORKER } from '@/utils/constants/deps/USING_SERVICE_WORKER';
-import { USING_RECOMMENDED } from '@/utils/constants/misc/USING_RECOMMENDED';
-// import { usingRecommended } from '@/utils/functions/misc/usingRecommended';
-import { flatten } from '@/utils/functions/misc/flatten';
+import { IS_DEV } from '#utils/constants/check/IS_DEV';
+import { IS_MODULE } from '#utils/constants/check/IS_MODULE';
+import { IS_BROWSER } from '#utils/constants/check/IS_BROWSER';
+import { USING_PRETTIER } from '#utils/constants/deps/USING_PRETTIER';
+import { USING_SERVICE_WORKER } from '#utils/constants/deps/USING_SERVICE_WORKER';
+import { USING_RECOMMENDED } from '#utils/constants/misc/USING_RECOMMENDED';
+// import { usingRecommended } from '#utils/functions/misc/usingRecommended';
+import { flatten } from '#utils/functions/misc/flatten';
 
 export const extendsConfigs = [
 	eslint.configs.recommended,

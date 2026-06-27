@@ -1,6 +1,6 @@
-import { PACKAGE_JSON_PATH as PKG } from '@/utils/constants/imports/PACKAGE_JSON_PATH';
+import { PACKAGE_JSON_PATH as PKG } from '#utils/constants/imports/PACKAGE_JSON_PATH';
 
-type PackageJson = typeof import('@/../package.json');
+type PackageJson = typeof import('#../package.json');
 
 interface ImportedPackageJson {
 	readonly default: PackageJson | null;

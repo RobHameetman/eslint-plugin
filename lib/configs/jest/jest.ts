@@ -5,13 +5,13 @@ import jestPlugin from 'eslint-plugin-jest';
 import jestAsyncPlugin from 'eslint-plugin-jest-async';
 import testingLibraryPlugin from 'eslint-plugin-testing-library';
 import tsEslint from 'typescript-eslint';
-import { IS_DEV } from '@/utils/constants/check/IS_DEV';
-import { USING_RECOMMENDED } from '@/utils/constants/misc/USING_RECOMMENDED';
-import { USING_TESTING_LIBRARY } from '@/utils/constants/deps/USING_TESTING_LIBRARY';
-import { USING_TESTING_LIBRARY_DOM } from '@/utils/constants/deps/USING_TESTING_LIBRARY_DOM';
-import { USING_TESTING_LIBRARY_REACT } from '@/utils/constants/deps/USING_TESTING_LIBRARY_REACT';
-import { USING_TYPESCRIPT } from '@/utils/constants/deps/USING_TYPESCRIPT';
-import { flatten } from '@/utils/functions/misc/flatten';
+import { IS_DEV } from '#utils/constants/check/IS_DEV';
+import { USING_RECOMMENDED } from '#utils/constants/misc/USING_RECOMMENDED';
+import { USING_TESTING_LIBRARY } from '#utils/constants/deps/USING_TESTING_LIBRARY';
+import { USING_TESTING_LIBRARY_DOM } from '#utils/constants/deps/USING_TESTING_LIBRARY_DOM';
+import { USING_TESTING_LIBRARY_REACT } from '#utils/constants/deps/USING_TESTING_LIBRARY_REACT';
+import { USING_TYPESCRIPT } from '#utils/constants/deps/USING_TYPESCRIPT';
+import { flatten } from '#utils/functions/misc/flatten';
 
 /**
  * Doing this fixes an issue causing the test for the recommended config to fail

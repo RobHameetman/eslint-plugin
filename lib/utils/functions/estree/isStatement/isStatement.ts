@@ -1,24 +1,24 @@
 import type { Statement } from 'estree';
-import { isBreakStatement } from '@/utils/functions/estree/isBreakStatement';
-import { isBlockStatement } from '@/utils/functions/estree/isBlockStatement';
-import { isContinueStatement } from '@/utils/functions/estree/isContinueStatement';
-import { isDeclaration } from '@/utils/functions/estree/isDeclaration';
-import { isDebuggerStatement } from '@/utils/functions/estree/isDebuggerStatement';
-import { isDoWhileStatement } from '@/utils/functions/estree/isDoWhileStatement';
-import { isEmptyStatement } from '@/utils/functions/estree/isEmptyStatement';
-import { isExpressionStatement } from '@/utils/functions/estree/isExpressionStatement';
-import { isForStatement } from '@/utils/functions/estree/isForStatement';
-import { isForInStatement } from '@/utils/functions/estree/isForInStatement';
-import { isForOfStatement } from '@/utils/functions/estree/isForOfStatement';
-import { isIfStatement } from '@/utils/functions/estree/isIfStatement';
-import { isLabeledStatement } from '@/utils/functions/estree/isLabeledStatement';
-import { isReturnStatement } from '@/utils/functions/estree/isReturnStatement';
-import { isStaticBlock } from '@/utils/functions/estree/isStaticBlock';
-import { isSwitchStatement } from '@/utils/functions/estree/isSwitchStatement';
-import { isThrowStatement } from '@/utils/functions/estree/isThrowStatement';
-import { isTryStatement } from '@/utils/functions/estree/isTryStatement';
-import { isWhileStatement } from '@/utils/functions/estree/isWhileStatement';
-import { isWithStatement } from '@/utils/functions/estree/isWithStatement';
+import { isBreakStatement } from '#utils/functions/estree/isBreakStatement';
+import { isBlockStatement } from '#utils/functions/estree/isBlockStatement';
+import { isContinueStatement } from '#utils/functions/estree/isContinueStatement';
+import { isDeclaration } from '#utils/functions/estree/isDeclaration';
+import { isDebuggerStatement } from '#utils/functions/estree/isDebuggerStatement';
+import { isDoWhileStatement } from '#utils/functions/estree/isDoWhileStatement';
+import { isEmptyStatement } from '#utils/functions/estree/isEmptyStatement';
+import { isExpressionStatement } from '#utils/functions/estree/isExpressionStatement';
+import { isForStatement } from '#utils/functions/estree/isForStatement';
+import { isForInStatement } from '#utils/functions/estree/isForInStatement';
+import { isForOfStatement } from '#utils/functions/estree/isForOfStatement';
+import { isIfStatement } from '#utils/functions/estree/isIfStatement';
+import { isLabeledStatement } from '#utils/functions/estree/isLabeledStatement';
+import { isReturnStatement } from '#utils/functions/estree/isReturnStatement';
+import { isStaticBlock } from '#utils/functions/estree/isStaticBlock';
+import { isSwitchStatement } from '#utils/functions/estree/isSwitchStatement';
+import { isThrowStatement } from '#utils/functions/estree/isThrowStatement';
+import { isTryStatement } from '#utils/functions/estree/isTryStatement';
+import { isWhileStatement } from '#utils/functions/estree/isWhileStatement';
+import { isWithStatement } from '#utils/functions/estree/isWithStatement';
 
 /**
  * Checks that an `unknown` value is a {@link Statement}.

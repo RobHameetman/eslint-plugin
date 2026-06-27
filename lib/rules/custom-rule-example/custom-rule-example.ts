@@ -1,8 +1,8 @@
 import { Rule as _Rule } from 'eslint';
 import { Statement } from 'estree';
-import { Categories } from '@/utils/enums/Categories';
-import { CustomESLintRule } from '@/utils/types/structural/CustomESLintRule';
-import { isBlockStatement } from '@/utils/functions/estree/isBlockStatement';
+import { Categories } from '#utils/enums/Categories';
+import { CustomESLintRule } from '#utils/types/structural/CustomESLintRule';
+import { isBlockStatement } from '#utils/functions/estree/isBlockStatement';
 
 const DEFAULT_MAX_STATEMENTS = 1;
 

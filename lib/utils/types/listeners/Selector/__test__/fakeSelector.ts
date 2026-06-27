@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { Selector } from '@/utils/types/listeners/Selector';
+import { Selector } from '#utils/types/listeners/Selector';
 
 export const randomSelector = () => {
 	const attributeName = faker.lorem.word();

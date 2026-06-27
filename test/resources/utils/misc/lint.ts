@@ -74,7 +74,7 @@ export const lint = async (path: string, configs: Linter.FlatConfigArray) => {
 
 export const lintFixtureFile = async (configs: Linter.FlatConfigArray) => {
 	try {
-		const { PACKAGE_JSON_PATH } = await import('@/utils/constants/imports/PACKAGE_JSON_PATH');
+		const { PACKAGE_JSON_PATH } = await import('#utils/constants/imports/PACKAGE_JSON_PATH');
 
 		const fixturePath = PACKAGE_JSON_PATH
 			? `${process.cwd()}/test/resources/fixtures/${PACKAGE_JSON_PATH.split('/').at(-2)}`

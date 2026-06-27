@@ -1,10 +1,10 @@
 import { jest } from '@jest/globals';
 import { Linter } from 'eslint';
-import { lintFixtureFile } from '@@/utils/misc/lint';
-import { mockEnv } from '@@/utils/misc/mockEnv';
+import { lintFixtureFile } from '#$/utils/misc/lint';
+import { mockEnv } from '#$/utils/misc/mockEnv';
 import { mockWithPlugin } from './__test__';
 
-jest.unstable_mockModule('@/index', () => ({
+jest.unstable_mockModule('#index', () => ({
 	meta: {
 		name: 'test',
 		version: '1.0.0',

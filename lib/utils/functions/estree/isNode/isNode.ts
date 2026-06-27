@@ -1,26 +1,26 @@
 import type { Node } from 'estree';
-import { isAssignmentProperty } from '@/utils/functions/estree/isAssignmentProperty';
-import { isCatchClause } from '@/utils/functions/estree/isCatchClause';
-import { isClass } from '@/utils/functions/estree/isClass';
-import { isClassBody } from '@/utils/functions/estree/isClassBody';
-import { isExpression } from '@/utils/functions/estree/isExpression';
-import { isFunction } from '@/utils/functions/estree/isFunction';
-import { isIdentifier } from '@/utils/functions/estree/isIdentifier';
-import { isLiteral } from '@/utils/functions/estree/isLiteral';
-import { isMethodDefinition } from '@/utils/functions/estree/isMethodDefinition';
-import { isModuleDeclaration } from '@/utils/functions/estree/isModuleDeclaration';
-import { isModuleSpecifier } from '@/utils/functions/estree/isModuleSpecifier';
-import { isPattern } from '@/utils/functions/estree/isPattern';
-import { isPrivateIdentifier } from '@/utils/functions/estree/isPrivateIdentifier';
-import { isProgram } from '@/utils/functions/estree/isProgram';
-import { isProperty } from '@/utils/functions/estree/isProperty';
-import { isPropertyDefinition } from '@/utils/functions/estree/isPropertyDefinition';
-import { isSpreadElement } from '@/utils/functions/estree/isSpreadElement';
-import { isStatement } from '@/utils/functions/estree/isStatement';
-import { isSuper } from '@/utils/functions/estree/isSuper';
-import { isSwitchCase } from '@/utils/functions/estree/isSwitchCase';
-import { isTemplateElement } from '@/utils/functions/estree/isTemplateElement';
-import { isVariableDeclarator } from '@/utils/functions/estree/isVariableDeclarator';
+import { isAssignmentProperty } from '#utils/functions/estree/isAssignmentProperty';
+import { isCatchClause } from '#utils/functions/estree/isCatchClause';
+import { isClass } from '#utils/functions/estree/isClass';
+import { isClassBody } from '#utils/functions/estree/isClassBody';
+import { isExpression } from '#utils/functions/estree/isExpression';
+import { isFunction } from '#utils/functions/estree/isFunction';
+import { isIdentifier } from '#utils/functions/estree/isIdentifier';
+import { isLiteral } from '#utils/functions/estree/isLiteral';
+import { isMethodDefinition } from '#utils/functions/estree/isMethodDefinition';
+import { isModuleDeclaration } from '#utils/functions/estree/isModuleDeclaration';
+import { isModuleSpecifier } from '#utils/functions/estree/isModuleSpecifier';
+import { isPattern } from '#utils/functions/estree/isPattern';
+import { isPrivateIdentifier } from '#utils/functions/estree/isPrivateIdentifier';
+import { isProgram } from '#utils/functions/estree/isProgram';
+import { isProperty } from '#utils/functions/estree/isProperty';
+import { isPropertyDefinition } from '#utils/functions/estree/isPropertyDefinition';
+import { isSpreadElement } from '#utils/functions/estree/isSpreadElement';
+import { isStatement } from '#utils/functions/estree/isStatement';
+import { isSuper } from '#utils/functions/estree/isSuper';
+import { isSwitchCase } from '#utils/functions/estree/isSwitchCase';
+import { isTemplateElement } from '#utils/functions/estree/isTemplateElement';
+import { isVariableDeclarator } from '#utils/functions/estree/isVariableDeclarator';
 
 /**
  * Checks that an `unknown` value is a {@link Node}.

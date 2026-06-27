@@ -1,5 +1,5 @@
 import { isExpressionStatement } from './isExpressionStatement';
-import { fakeExpressionStatement } from '@@/fakes/estree/fakeExpressionStatement';
+import { fakeExpressionStatement } from '#$/fakes/estree/fakeExpressionStatement';
 
 describe('isExpressionStatement()', () => {
 	it('should return true given a valid ExpressionStatement', () => {

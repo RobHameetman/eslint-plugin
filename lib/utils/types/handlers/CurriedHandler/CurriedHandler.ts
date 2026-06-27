@@ -1,8 +1,8 @@
 import { Rule } from 'eslint';
 import { isFunction } from '@rob.hameetman/type-guards';
-import { Handler } from '@/utils/types/handlers/Handler';
-import { NodePassedTo } from '@/utils/types/handlers/NodePassedTo';
-import { Selectors } from '@/utils/types/listeners/Selectors';
+import { Handler } from '#utils/types/handlers/Handler';
+import { NodePassedTo } from '#utils/types/handlers/NodePassedTo';
+import { Selectors } from '#utils/types/listeners/Selectors';
 
 /**
  * A curried handler function which receives the `RuleContext` object passed in

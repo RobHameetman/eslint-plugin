@@ -1,6 +1,6 @@
 import type { MemberExpression } from 'estree';
-import { isBaseExpression } from '@/utils/functions/estree/isBaseExpression';
-import { isBasePattern } from '@/utils/functions/estree/isBasePattern';
+import { isBaseExpression } from '#utils/functions/estree/isBaseExpression';
+import { isBasePattern } from '#utils/functions/estree/isBasePattern';
 
 /**
  * Checks that an `unknown` value is a {@link MemberExpression}.

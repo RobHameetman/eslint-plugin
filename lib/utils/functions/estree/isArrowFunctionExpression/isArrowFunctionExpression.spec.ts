@@ -1,5 +1,5 @@
 import { isArrowFunctionExpression } from './isArrowFunctionExpression';
-import { fakeArrowFunctionExpression } from '@@/fakes/estree/fakeArrowFunctionExpression';
+import { fakeArrowFunctionExpression } from '#$/fakes/estree/fakeArrowFunctionExpression';
 
 describe('isArrowFunctionExpression()', () => {
 	it('should return true given a valid ArrowFunctionExpression', () => {

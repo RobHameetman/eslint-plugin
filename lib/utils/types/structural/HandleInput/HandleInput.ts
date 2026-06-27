@@ -1,6 +1,6 @@
 import { isObject } from '@rob.hameetman/type-guards';
-import { Selectors, areSelectors } from '@/utils/types/listeners/Selectors';
-import { CurriedHandler, isCurriedHandler } from '@/utils/types/handlers/CurriedHandler';
+import { Selectors, areSelectors } from '#utils/types/listeners/Selectors';
+import { CurriedHandler, isCurriedHandler } from '#utils/types/handlers/CurriedHandler';
 
 /**
  * A destructured input object for the `validate()` method on the

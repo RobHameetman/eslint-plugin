@@ -1,6 +1,6 @@
 import { Rule } from 'eslint';
 import { isArray, isObject } from '@rob.hameetman/type-guards';
-import { Settings, areSettings } from '@/utils/types/misc/Settings';
+import { Settings, areSettings } from '#utils/types/misc/Settings';
 
 /**
  * @deprecated - Moved this type into eslint.d.ts but keeping it here for

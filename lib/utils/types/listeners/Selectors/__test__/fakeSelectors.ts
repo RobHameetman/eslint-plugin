@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { fakeSelector } from '@/utils/types/listeners/Selector/__test__/fakeSelector';
+import { fakeSelector } from '#utils/types/listeners/Selector/__test__/fakeSelector';
 import { Selectors } from '../Selectors';
 
 export const fakeSelectors = ({

@@ -1,4 +1,4 @@
-import { PACKAGE_JSON } from '@/utils/constants/imports/PACKAGE_JSON';
+import { PACKAGE_JSON } from '#utils/constants/imports/PACKAGE_JSON';
 
 /**
  * Returns true if the given name is included as a dependency in the project's

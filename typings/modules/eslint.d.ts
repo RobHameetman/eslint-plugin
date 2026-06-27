@@ -1,5 +1,5 @@
-import type { Settings } from '@/utils/types/misc/Settings';
-import type { ListenerFactory } from '@/utils/types/listeners/ListenerFactory';
+import type { Settings } from '#utils/types/misc/Settings';
+import type { ListenerFactory } from '#utils/types/listeners/ListenerFactory';
 
 declare module 'eslint' {
 	export interface ESLint {

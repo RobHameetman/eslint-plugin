@@ -1,7 +1,7 @@
 import { Rule } from 'eslint';
 import type { Node } from 'estree';
 import query from 'esquery';
-import { isASTNodeType } from '@/utils/enums/ASTNodeTypes';
+import { isASTNodeType } from '#utils/enums/ASTNodeTypes';
 
 /**
  * A selector is a string that can be used to match nodes in the AST. These are

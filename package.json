@@ -7,8 +7,12 @@
   "license": "MIT",
   "type": "module",
   "main": "./index.js",
-  "module": "./src/index.ts",
+  "module": "./lib/index.ts",
   "typings": "./bin/index.d.js",
+	"imports": {
+		"#$/*": "./test/resources/*",
+		"#*": "./lib/*"
+	},
   "files": [
     "bin/*",
     "index.js",
@@ -183,8 +187,8 @@
       "json"
     ],
     "moduleNameMapper": {
-      "^@/(.*)": "<rootDir>/lib/$1",
-      "^@@/*": "<rootDir>/test/resources/$1",
+      "^#\\$/(.*)$": "<rootDir>/test/resources/$1",
+      "^#(.*)$": "<rootDir>/lib/$1",
       "^(\\.{1,2}/.*)\\.js$": "$1"
     },
     "preset": "ts-jest/presets/default-esm",

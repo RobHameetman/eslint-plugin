@@ -1,5 +1,5 @@
 import { Linter } from 'eslint';
-import { fakeCustomRuleModule } from '@/utils/types/misc/CustomRuleModule/__test__';
+import { fakeCustomRuleModule } from '#utils/types/misc/CustomRuleModule/__test__';
 
 const fakePlugin = {
 	meta: {

@@ -1,5 +1,5 @@
 import { isObject } from '@rob.hameetman/type-guards';
-import { NodePassedTo } from '@/utils/types/handlers/NodePassedTo';
+import { NodePassedTo } from '#utils/types/handlers/NodePassedTo';
 
 /**
  * This type determines the type of the `body` property on the given type `T`.

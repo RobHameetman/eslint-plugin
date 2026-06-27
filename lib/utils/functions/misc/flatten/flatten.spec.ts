@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint';
 import * as compat from '@eslint/compat';
-import { LegacyConfig } from '@/utils/types/misc/LegacyConfig';
+import { LegacyConfig } from '#utils/types/misc/LegacyConfig';
 import { flatten as _flatten } from './flatten';
 import { expected, legacyConfig } from './__test__';
 

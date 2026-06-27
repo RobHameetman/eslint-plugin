@@ -1,8 +1,8 @@
 import { Rule } from 'eslint';
 import { isObject } from '@rob.hameetman/type-guards';
-import { isHandler } from '@/utils/types/handlers/Handler';
-import { Selector } from '@/utils/types/listeners/Selector';
-import { Selectors } from '@/utils/types/listeners/Selectors';
+import { isHandler } from '#utils/types/handlers/Handler';
+import { Selector } from '#utils/types/listeners/Selector';
+import { Selectors } from '#utils/types/listeners/Selectors';
 
 /**
  * Represents an object which is a subtype of the ESLint

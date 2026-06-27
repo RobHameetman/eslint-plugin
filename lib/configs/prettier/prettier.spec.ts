@@ -1,5 +1,5 @@
 import { Linter } from 'eslint';
-import { lintFixtureFile } from '@@/utils/misc/lint';
+import { lintFixtureFile } from '#$/utils/misc/lint';
 import prettier from './prettier';
 
 describe(`plugin:${process.env.npm_package_name}/prettier`, () => {

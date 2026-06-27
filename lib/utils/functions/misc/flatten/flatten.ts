@@ -1,6 +1,6 @@
 import { FlatCompat } from '@eslint/eslintrc';
 import { fixupConfigRules as _fixupConfigRules } from '@eslint/compat';
-import type { LegacyConfig } from '@/utils/types/misc/LegacyConfig';
+import type { LegacyConfig } from '#utils/types/misc/LegacyConfig';
 
 /**
  * Functional dependencies used in the {@link flatten()} function. This object is

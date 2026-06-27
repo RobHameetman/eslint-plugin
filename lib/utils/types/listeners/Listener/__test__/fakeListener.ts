@@ -1,6 +1,6 @@
 import { ArrayExpression, BinaryExpression } from 'estree';
-import { fakeHandlerFn } from '@/utils/types/handlers/Handler/__test__/fakeHandlerGeneric';
-import { Selectors } from '@/utils/types/listeners/Selectors';
+import { fakeHandlerFn } from '#utils/types/handlers/Handler/__test__/fakeHandlerGeneric';
+import { Selectors } from '#utils/types/listeners/Selectors';
 
 export const fakeListener = ({
 	...overrideProps

@@ -6,12 +6,12 @@ import j from '../jest';
 import prettier from '../prettier';
 import react from '../react';
 import typescript from '../typescript';
-import { USING_CYPRESS } from '@/utils/constants/deps/USING_CYPRESS';
-import { USING_GRAPHQL } from '@/utils/constants/deps/USING_GRAPHQL';
-import { USING_JEST } from '@/utils/constants/deps/USING_JEST';
-import { USING_PRETTIER } from '@/utils/constants/deps/USING_PRETTIER';
-import { USING_REACT } from '@/utils/constants/deps/USING_REACT';
-import { USING_TYPESCRIPT } from '@/utils/constants/deps/USING_TYPESCRIPT';
+import { USING_CYPRESS } from '#utils/constants/deps/USING_CYPRESS';
+import { USING_GRAPHQL } from '#utils/constants/deps/USING_GRAPHQL';
+import { USING_JEST } from '#utils/constants/deps/USING_JEST';
+import { USING_PRETTIER } from '#utils/constants/deps/USING_PRETTIER';
+import { USING_REACT } from '#utils/constants/deps/USING_REACT';
+import { USING_TYPESCRIPT } from '#utils/constants/deps/USING_TYPESCRIPT';
 
 process.env.USING_RECOMMENDED = 'true';
 
@@ -39,7 +39,7 @@ export default [
 						/**
 						 * Rules need to be imported dynamically to avoid circular dependencies.
 						 */
-						'custom-rule-example': import('@/rules/custom-rule-example'),
+						'custom-rule-example': import('#rules/custom-rule-example'),
 					},
 				};
       }

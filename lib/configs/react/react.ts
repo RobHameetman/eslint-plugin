@@ -6,21 +6,21 @@ import nextPlugin from '@next/eslint-plugin-next';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import tsEslint from 'typescript-eslint';
-import { IS_BROWSER } from '@/utils/constants/check/IS_BROWSER';
-import { IS_DEV } from '@/utils/constants/check/IS_DEV';
-import { IS_MODULE } from '@/utils/constants/check/IS_MODULE';
-import { USING_NEXT } from '@/utils/constants/deps/USING_NEXT';
-// import { USING_PRETTIER } from '@/utils/constants/deps/USING_PRETTIER';
-import { USING_SERVICE_WORKER } from '@/utils/constants/deps/USING_SERVICE_WORKER';
-import { USING_TYPESCRIPT } from '@/utils/constants/deps/USING_TYPESCRIPT';
-import { ALLOWED_OBJECT_MEMBER_NAMING_PREFIXES } from '@/utils/constants/misc/ALLOWED_OBJECT_MEMBER_NAMING_PREFIXES';
-import { ALLOWED_TYPE_NAMING_PREFIXES } from '@/utils/constants/misc/ALLOWED_TYPE_NAMING_PREFIXES';
-// import { USING_RECOMMENDED } from '@/utils/constants/misc/USING_RECOMMENDED';
-import { flatten } from '@/utils/functions/misc/flatten';
-// import { isImported } from '@/utils/functions/misc/isImported';
+import { IS_BROWSER } from '#utils/constants/check/IS_BROWSER';
+import { IS_DEV } from '#utils/constants/check/IS_DEV';
+import { IS_MODULE } from '#utils/constants/check/IS_MODULE';
+import { USING_NEXT } from '#utils/constants/deps/USING_NEXT';
+// import { USING_PRETTIER } from '#utils/constants/deps/USING_PRETTIER';
+import { USING_SERVICE_WORKER } from '#utils/constants/deps/USING_SERVICE_WORKER';
+import { USING_TYPESCRIPT } from '#utils/constants/deps/USING_TYPESCRIPT';
+import { ALLOWED_OBJECT_MEMBER_NAMING_PREFIXES } from '#utils/constants/misc/ALLOWED_OBJECT_MEMBER_NAMING_PREFIXES';
+import { ALLOWED_TYPE_NAMING_PREFIXES } from '#utils/constants/misc/ALLOWED_TYPE_NAMING_PREFIXES';
+// import { USING_RECOMMENDED } from '#utils/constants/misc/USING_RECOMMENDED';
+import { flatten } from '#utils/functions/misc/flatten';
+// import { isImported } from '#utils/functions/misc/isImported';
 
-// const { extendsCoreConfigs = [], default: core = {} } = USING_RECOMMENDED ? {} : (await import('@/configs/core'));
-// const { default: prettier = {} } = USING_PRETTIER && !USING_RECOMMENDED ? (await import('@/configs/prettier')) : {};
+// const { extendsCoreConfigs = [], default: core = {} } = USING_RECOMMENDED ? {} : (await import('#configs/core'));
+// const { default: prettier = {} } = USING_PRETTIER && !USING_RECOMMENDED ? (await import('#configs/prettier')) : {};
 
 const extendsConfigs = [
 	// ...extendsCoreConfigs,

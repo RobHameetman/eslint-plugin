@@ -1,5 +1,5 @@
-import { errop } from '@@/utils/misc/errop';
-import { mockEnv } from '@@/utils/misc/mockEnv';
+import { errop } from '#$/utils/misc/errop';
+import { mockEnv } from '#$/utils/misc/mockEnv';
 
 describe('usingRecommended()', () => {
 	let __dirname: string | null = null;

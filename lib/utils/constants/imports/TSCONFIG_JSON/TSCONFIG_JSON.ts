@@ -1,6 +1,6 @@
 const { TSCONFIG_JSON: TSCONFIG = `${process.cwd()}/tsconfig.json` } = process.env;
 
-type TSConfigJson = typeof import('@/../tsconfig.json');
+type TSConfigJson = typeof import('#../tsconfig.json');
 
 interface ImportedTSConfigJson {
 	readonly default: TSConfigJson | null;

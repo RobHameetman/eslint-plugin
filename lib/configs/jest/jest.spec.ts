@@ -1,6 +1,6 @@
 import { Linter } from 'eslint';
-import { lintFixtureFile } from '@@/utils/misc/lint';
-import { mockEnv } from '@@/utils/misc/mockEnv';
+import { lintFixtureFile } from '#$/utils/misc/lint';
+import { mockEnv } from '#$/utils/misc/mockEnv';
 import jestConfig from './jest';
 
 describe(`plugin:${process.env.npm_package_name}/jest`, () => {

@@ -1,5 +1,5 @@
 import rule from './custom-rule-example';
-import { isCategory } from '@/utils/enums/Categories';
+import { isCategory } from '#utils/enums/Categories';
 
 describe('custom-rule-example', () => {
 	it('should be a valid ESLint rule module', () => {

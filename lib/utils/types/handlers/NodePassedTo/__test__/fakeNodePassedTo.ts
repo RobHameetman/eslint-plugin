@@ -69,7 +69,7 @@ import {
 	fakeWhileStatement,
 	fakeWithStatement,
 	fakeYieldExpression,
-} from '@@/fakes/estree';
+} from '#$/fakes/estree';
 
 export const fakeNodePassedTo = ({ ...overrideProps }: Record<string, unknown> = {}) =>
 	faker.helpers.arrayElement([

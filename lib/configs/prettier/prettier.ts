@@ -1,6 +1,6 @@
 import { Linter } from 'eslint';
 import prettierPlugin from 'eslint-plugin-prettier';
-import { flatten } from '@/utils/functions/misc/flatten';
+import { flatten } from '#utils/functions/misc/flatten';
 
 const extendsConfigs = [
 	...flatten(prettierPlugin.configs?.recommended),

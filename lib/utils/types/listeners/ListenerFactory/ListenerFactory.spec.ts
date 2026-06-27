@@ -1,6 +1,6 @@
 import { isListenerFactory } from './ListenerFactory';
 import { fakeListenerFactory } from './__test__';
-import { fakeContext } from '@/utils/types/misc/Context/__test__/fakeContext';
+import { fakeContext } from '#utils/types/misc/Context/__test__/fakeContext';
 
 describe('isListenerFactory()', () => {
 	it('should return true given a valid ListenerFactory', () => {

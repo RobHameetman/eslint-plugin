@@ -1,5 +1,5 @@
 import { isBody } from './Body';
-import { isPropertyDefinition } from '@/utils/functions/estree/isPropertyDefinition';
+import { isPropertyDefinition } from '#utils/functions/estree/isPropertyDefinition';
 import { fakeBody } from './__test__';
 
 describe('isBody()', () => {

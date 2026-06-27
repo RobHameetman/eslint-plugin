@@ -1,4 +1,4 @@
-import { mockEnv } from '@@/utils/misc/mockEnv';
+import { mockEnv } from '#$/utils/misc/mockEnv';
 
 describe('PACKAGE_JSON_PATH', () => {
 	let __dirname: string | null = null;

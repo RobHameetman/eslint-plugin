@@ -1,7 +1,7 @@
 import { Rule } from 'eslint';
 import { isObject } from '@rob.hameetman/type-guards';
-import { isCategory } from '@/utils/enums/Categories';
-import { isFixability } from '@/utils/enums/Fixabilities';
+import { isCategory } from '#utils/enums/Categories';
+import { isFixability } from '#utils/enums/Fixabilities';
 
 type RuleMetaData = Rule.RuleMetaData;
 

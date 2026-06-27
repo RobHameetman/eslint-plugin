@@ -1,14 +1,14 @@
 import { isArray } from '@rob.hameetman/type-guards';
-import { isBlockStatement } from '@/utils/functions/estree/isBlockStatement';
-import { isClassBody } from '@/utils/functions/estree/isClassBody';
-import { isDirective } from '@/utils/functions/estree/isDirective';
-import { isMethodDefinition } from '@/utils/functions/estree/isMethodDefinition';
-import { isModuleDeclaration } from '@/utils/functions/estree/isModuleDeclaration';
-import { isPropertyDefinition } from '@/utils/functions/estree/isPropertyDefinition';
-import { isStatement } from '@/utils/functions/estree/isStatement';
-import { isStaticBlock } from '@/utils/functions/estree/isStaticBlock';
-import { BodyOf } from '@/utils/types/handlers/BodyOf';
-import { NodePassedTo } from '@/utils/types/handlers/NodePassedTo';
+import { isBlockStatement } from '#utils/functions/estree/isBlockStatement';
+import { isClassBody } from '#utils/functions/estree/isClassBody';
+import { isDirective } from '#utils/functions/estree/isDirective';
+import { isMethodDefinition } from '#utils/functions/estree/isMethodDefinition';
+import { isModuleDeclaration } from '#utils/functions/estree/isModuleDeclaration';
+import { isPropertyDefinition } from '#utils/functions/estree/isPropertyDefinition';
+import { isStatement } from '#utils/functions/estree/isStatement';
+import { isStaticBlock } from '#utils/functions/estree/isStaticBlock';
+import { BodyOf } from '#utils/types/handlers/BodyOf';
+import { NodePassedTo } from '#utils/types/handlers/NodePassedTo';
 
 /**
  * A "listener" is a validation function to be included in an ESLint

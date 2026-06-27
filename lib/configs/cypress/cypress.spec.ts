@@ -1,5 +1,5 @@
 import { Linter } from 'eslint';
-import { lintFixtureFile } from '@@/utils/misc/lint';
+import { lintFixtureFile } from '#$/utils/misc/lint';
 import cypress from './cypress';
 
 describe(`plugin:${process.env.npm_package_name}/cypress`, () => {

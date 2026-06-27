@@ -1,15 +1,15 @@
 import type { Rule } from 'eslint';
-import { Categories } from '@/utils/enums/Categories';
-import { RuleTypes } from '@/utils/enums/RuleTypes';
-import { ruleUrl } from '@/utils/functions/misc/ruleUrl';
-import type { CurriedHandler } from '@/utils/types/handlers/CurriedHandler';
-import type { Handlers } from '@/utils/types/handlers/Handlers';
-import type { Selectors } from '@/utils/types/listeners/Selectors';
-// import type { RuleContext } from '@/utils/types/misc/Context';
-// import type { RuleModule } from '@/utils/types/misc/CustomRuleModule';
-import type { FromSchema } from '@/utils/types/misc/FromSchema';
-import type { $MetaMethodInput } from '@/utils/types/structural/$MetaMethodInput';
-import type { HandleInput } from '@/utils/types/structural/HandleInput';
+import { Categories } from '#utils/enums/Categories';
+import { RuleTypes } from '#utils/enums/RuleTypes';
+import { ruleUrl } from '#utils/functions/misc/ruleUrl';
+import type { CurriedHandler } from '#utils/types/handlers/CurriedHandler';
+import type { Handlers } from '#utils/types/handlers/Handlers';
+import type { Selectors } from '#utils/types/listeners/Selectors';
+// import type { RuleContext } from '#utils/types/misc/Context';
+// import type { RuleModule } from '#utils/types/misc/CustomRuleModule';
+import type { FromSchema } from '#utils/types/misc/FromSchema';
+import type { $MetaMethodInput } from '#utils/types/structural/$MetaMethodInput';
+import type { HandleInput } from '#utils/types/structural/HandleInput';
 
 /**
  * A façade class used to improve the experience of creating new custom ESLint

@@ -1,13 +1,13 @@
 import { Linter } from 'eslint';
-import { IS_DEV } from '@/utils/constants/check/IS_DEV';
-import { IS_PROD } from '@/utils/constants/check/IS_PROD';
-import { IS_TEST } from '@/utils/constants/check/IS_TEST';
-import { USING_CYPRESS } from '@/utils/constants/deps/USING_CYPRESS';
-import { USING_GRAPHQL } from '@/utils/constants/deps/USING_GRAPHQL';
-import { USING_JEST } from '@/utils/constants/deps/USING_JEST';
-import { USING_REACT } from '@/utils/constants/deps/USING_REACT';
-import { USING_TESTING_LIBRARY } from '@/utils/constants/deps/USING_TESTING_LIBRARY';
-import { USING_TYPESCRIPT } from '@/utils/constants/deps/USING_TYPESCRIPT';
+import { IS_DEV } from '#utils/constants/check/IS_DEV';
+import { IS_PROD } from '#utils/constants/check/IS_PROD';
+import { IS_TEST } from '#utils/constants/check/IS_TEST';
+import { USING_CYPRESS } from '#utils/constants/deps/USING_CYPRESS';
+import { USING_GRAPHQL } from '#utils/constants/deps/USING_GRAPHQL';
+import { USING_JEST } from '#utils/constants/deps/USING_JEST';
+import { USING_REACT } from '#utils/constants/deps/USING_REACT';
+import { USING_TESTING_LIBRARY } from '#utils/constants/deps/USING_TESTING_LIBRARY';
+import { USING_TYPESCRIPT } from '#utils/constants/deps/USING_TYPESCRIPT';
 
 /**
  * Returns true if the given name is included as a dev dependency in the

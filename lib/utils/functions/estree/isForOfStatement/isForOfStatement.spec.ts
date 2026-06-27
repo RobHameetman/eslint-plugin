@@ -1,5 +1,5 @@
 import { isForOfStatement } from './isForOfStatement';
-import { fakeForOfStatement } from '@@/fakes/estree/fakeForOfStatement';
+import { fakeForOfStatement } from '#$/fakes/estree/fakeForOfStatement';
 
 const stub = fakeForOfStatement();
 

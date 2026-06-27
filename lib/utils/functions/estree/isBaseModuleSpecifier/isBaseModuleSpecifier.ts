@@ -1,6 +1,6 @@
 import type { BaseModuleSpecifier } from 'estree';
-import { isBaseNode } from '@/utils/functions/estree/isBaseNode';
-import { isIdentifier } from '@/utils/functions/estree/isIdentifier';
+import { isBaseNode } from '#utils/functions/estree/isBaseNode';
+import { isIdentifier } from '#utils/functions/estree/isIdentifier';
 
 /**
  * Checks that an `unknown` value is a {@link BaseModuleSpecifier}.

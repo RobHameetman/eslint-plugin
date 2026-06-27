@@ -1,4 +1,4 @@
-import { Selectors } from '@/utils/types/listeners/Selectors';
+import { Selectors } from '#utils/types/listeners/Selectors';
 import { Handlers } from '../Handlers';
 
 export const fakeHandlers = ({

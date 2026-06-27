@@ -1,4 +1,4 @@
-import { mockEnv } from '@@/utils/misc/mockEnv';
+import { mockEnv } from '#$/utils/misc/mockEnv';
 
 describe('USING_RECOMMENDED', () => {
 	let __dirname: string | null = null;

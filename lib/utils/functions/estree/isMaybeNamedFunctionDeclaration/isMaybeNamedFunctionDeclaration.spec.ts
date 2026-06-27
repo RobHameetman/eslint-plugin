@@ -1,5 +1,5 @@
 import { isMaybeNamedFunctionDeclaration } from './isMaybeNamedFunctionDeclaration';
-import { fakeMaybeNamedFunctionDeclaration } from '@@/fakes/estree/fakeMaybeNamedFunctionDeclaration';
+import { fakeMaybeNamedFunctionDeclaration } from '#$/fakes/estree/fakeMaybeNamedFunctionDeclaration';
 
 const stub = fakeMaybeNamedFunctionDeclaration();
 

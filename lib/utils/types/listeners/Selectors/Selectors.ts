@@ -1,5 +1,5 @@
 import { isArray } from '@rob.hameetman/type-guards';
-import { Selector, isSelector } from '@/utils/types/listeners/Selector';
+import { Selector, isSelector } from '#utils/types/listeners/Selector';
 
 /**
  * An array of selectors. A selector is a string that can be used to match nodes

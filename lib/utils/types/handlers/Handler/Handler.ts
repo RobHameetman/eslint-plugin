@@ -1,7 +1,7 @@
 import { Rule } from 'eslint';
 import { isFunction } from '@rob.hameetman/type-guards';
-import { Listener } from '@/utils/types/listeners/Listener';
-import { Selector } from '@/utils/types/listeners/Selector';
+import { Listener } from '#utils/types/listeners/Listener';
+import { Selector } from '#utils/types/listeners/Selector';
 
 /**
  * A `Handler` is a validation function to be included in an ESLint
